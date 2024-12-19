@@ -2,6 +2,7 @@ import Banner from "../Banner/Banner";
 import CategorySection from "../CategorySection/CategorySection";
 import DiscountSection from "../DiscountSection/DiscountSection";
 import Faqs from "../Faqs/Faqs";
+import FeaturedSection from "../FeaturedSection/FeaturedSection";
 import NumberSection from "../NumberSection/NumberSection";
 import ReviewSection from "../ReviewSection/ReviewSection";
 
@@ -10,10 +11,11 @@ const Home = () => {
     <div className="px-[5%] bg-slate-100">
       <Banner></Banner>
       <NumberSection></NumberSection>
-      <DiscountSection></DiscountSection>
       <CategorySection></CategorySection>
-      <Faqs></Faqs>
+      <FeaturedSection></FeaturedSection>
+      <DiscountSection></DiscountSection>
       <ReviewSection></ReviewSection>
+      <Faqs></Faqs>
     </div>
   );
 };

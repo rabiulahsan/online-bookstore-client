@@ -57,9 +57,12 @@ const Faqs = () => {
 
   return (
     <div className="py-[5%] faq-container overflow-x-hidden">
-      <p className="font-bold text-slate-600 text-3xl pb-[5%] text-center">
-        Some of Your Questions
-      </p>
+      <div className="flex items-center justify-center my-[4%] gap-x-[8%]">
+        <span className="font-bold text-3xl mx-4 bg-gradient-to-r from-rose-600 via-pink-500 to-slate-600 bg-clip-text text-transparent">
+          Some of Your Questions
+        </span>
+        <span className="flex-grow h-[3px] bg-gradient-to-r from-rose-600 to-transparent"></span>
+      </div>
       <div className="flex items-center gap-x-7">
         <div
           className="faq-image  pl-[6%]"
