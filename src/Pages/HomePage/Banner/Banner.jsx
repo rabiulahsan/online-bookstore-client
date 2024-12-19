@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
-    <div className="flex px-[5%] py-[5%] gap-x-2 bg-slate-100">
+    <div className="flex py-[5%] gap-x-2 bg-slate-100">
       <div className="w-2/5 flex-col justify-start items-center ">
         <p className="text-6xl text-slate-700 font-bold ">
           Books That Fit In Your Pocket
