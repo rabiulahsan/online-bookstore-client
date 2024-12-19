@@ -12,7 +12,7 @@ const Navbar = () => {
   const user = null;
   return (
     <div>
-      <div className="hidden md:flex justify-between items-center w-full py-5 px-[6%] relative bg-white bg-opacity-60 backdrop-blur-sm">
+      <div className="hidden md:flex justify-between items-center w-full py-5 px-[5%] relative bg-slate-100  ">
         <div className="flex">
           <p className="title">
             <Link href="/">
@@ -27,6 +27,9 @@ const Navbar = () => {
             </span>
             <span className="text-slate-500 font-semibold">
               <ActiveLink to="/books">Books</ActiveLink>
+            </span>
+            <span className="text-slate-500 font-semibold">
+              <ActiveLink to="/discounts">Discounts</ActiveLink>
             </span>
 
             {user && (
