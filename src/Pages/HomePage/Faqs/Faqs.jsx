@@ -56,13 +56,13 @@ const Faqs = () => {
   });
 
   return (
-    <div className="py-[5%] faq-container">
+    <div className="py-[5%] faq-container overflow-x-hidden">
       <p className="font-bold text-slate-600 text-3xl pb-[5%] text-center">
-        Here is Some of Your Questions
+        Some of Your Questions
       </p>
       <div className="flex items-center gap-x-7">
         <div
-          className="pl-[5%] faq-image"
+          className="faq-image  pl-[6%]"
           ref={faqImageRef} // Assign ref to the FAQ image
         >
           <img src="/faq.png" alt="faq-image" />

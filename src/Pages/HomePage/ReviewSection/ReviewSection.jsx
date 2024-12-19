@@ -31,7 +31,7 @@ const ReviewSection = () => {
                 className="relative bg-[rgba(255,255,255,0.3)] shadow-lg rounded-lg p-[10%]  max-w-sm w-full text-center backdrop-blur-lg"
               >
                 {/* Quote in the background */}
-                <p className="absolute top-10 left-10 text-[60px] text-slate-200 font-bold leading-none transform -translate-x-6 -translate-y-6">
+                <p className="absolute top-10 left-10 text-[60px] text-rose-200 font-bold leading-none transform -translate-x-6 -translate-y-6">
                   <FaQuoteLeft></FaQuoteLeft>
                 </p>
 

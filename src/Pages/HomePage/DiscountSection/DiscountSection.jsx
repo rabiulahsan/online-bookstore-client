@@ -34,7 +34,7 @@ const DiscountSection = () => {
         </p>
         <Link to="/discount">
           <button className="bg-rose-500 text-white py-2 px-6 rounded-sm font-semibold hover:bg-rose-600">
-            Shop Now
+            Buy Now
           </button>
         </Link>
       </div>

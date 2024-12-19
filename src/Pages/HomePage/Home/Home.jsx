@@ -1,4 +1,5 @@
 import Banner from "../Banner/Banner";
+import CategorySection from "../CategorySection/CategorySection";
 import DiscountSection from "../DiscountSection/DiscountSection";
 import Faqs from "../Faqs/Faqs";
 import NumberSection from "../NumberSection/NumberSection";
@@ -10,6 +11,7 @@ const Home = () => {
       <Banner></Banner>
       <NumberSection></NumberSection>
       <DiscountSection></DiscountSection>
+      <CategorySection></CategorySection>
       <Faqs></Faqs>
       <ReviewSection></ReviewSection>
     </div>
