@@ -7,7 +7,7 @@ const Banner = () => {
         <p className="text-6xl text-slate-700 font-bold ">
           Books That Fit In Your Pocket
         </p>
-        <p className=" text-slate-600 my-5">
+        <p className=" text-gray-600 my-5">
           Explore a world of eBooks and audiobooks at your fingertips. Buy,
           listen online, or download for offline access—immerse yourself in
           endless stories, learning, and adventures anytime, anywhere.
