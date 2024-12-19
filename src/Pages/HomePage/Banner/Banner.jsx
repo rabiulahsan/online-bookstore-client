@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import BannerSlide from "./BannerSlide";
 
 const Banner = () => {
   return (
@@ -18,7 +19,9 @@ const Banner = () => {
           </button>
         </Link>
       </div>
-      <div className="w-3/5 border border-slate-600"></div>
+      <div className="w-3/5">
+        <BannerSlide></BannerSlide>
+      </div>
     </div>
   );
 };
