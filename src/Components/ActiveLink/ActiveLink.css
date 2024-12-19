@@ -1,0 +1,29 @@
+.active-link {
+  position: relative; /* To position the pseudo-element */
+}
+
+.active-link::after {
+  content: "";
+  position: absolute;
+  bottom: -7px; /* Adjust as needed for spacing below text */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0; /* Start with no underline */
+  height: 4px; /* Thickness of the underline */
+  background-color: #f43f5e; /* Tailwind green-500 equivalent */
+  animation: underlineExpand 0.5s ease forwards; /* Smooth expand animation */
+}
+
+.inactive-link::after {
+  display: none; /* Hide underline for inactive links */
+}
+
+/* Keyframes for expanding underline animation */
+@keyframes underlineExpand {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%; /* Final underline width */
+  }
+}

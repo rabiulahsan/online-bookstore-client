@@ -1,6 +1,7 @@
 import { LuUserPlus } from "react-icons/lu";
 import { MdOutlineLogout } from "react-icons/md";
 import { Link } from "react-router-dom";
+import ActiveLink from "../../../Components/ActiveLink/ActiveLink";
 
 const Navbar = () => {
   const handleLogOut = () => {
@@ -25,22 +26,22 @@ const Navbar = () => {
               <ActiveLink to="/">Home</ActiveLink>
             </span>
             <span className="text-slate-500 font-semibold">
-              <ActiveLink to="/doctors">Doctors</ActiveLink>
+              <ActiveLink to="/doctors">Books</ActiveLink>
             </span>
           </div>
 
           {user ? (
             <button
               onClick={handleLogOut}
-              className="flex gap-x-2 items-center font-bold text-slate-100 bg-slate-700 px-7 py-[10px] rounded-sm hover:bg-slate-800"
+              className="flex gap-x-2 items-center font-bold text-slate-100 bg-rose-500 px-7 py-[10px] rounded-sm hover:bg-slate-800"
             >
               Log out
               <MdOutlineLogout className="text-xl font-semibold" />
             </button>
           ) : (
             <Link to="/create-account">
-              <button className="flex gap-x-2 items-center font-bold text-white bg-slate-700 px-7 py-[10px] rounded-sm hover:bg-slate-800">
-                Create an Account
+              <button className="flex gap-x-2 items-center font-bold text-white bg-rose-500 px-7 py-[10px] rounded-sm hover:bg-slate-800">
+                Log in
                 <LuUserPlus className="text-xl font-semibold" />
               </button>
             </Link>
