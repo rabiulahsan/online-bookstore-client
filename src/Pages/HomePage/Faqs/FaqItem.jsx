@@ -13,7 +13,7 @@ const FaqItem = ({ question, answer }) => {
   return (
     <div className="border-b faq-single">
       <div
-        className="flex justify-between items-center cursor-pointer py-6 px-[5%] text-slate-600 bg-slate-100 hover:bg-slate-200"
+        className="flex justify-between items-center cursor-pointer py-6 px-[5%] text-slate-600 bg-slate-100 hover:bg-slate-200 border-b border-b-slate-300"
         onClick={toggleAccordion}
       >
         <h2 className="text-lg font-semibold">{question}</h2>

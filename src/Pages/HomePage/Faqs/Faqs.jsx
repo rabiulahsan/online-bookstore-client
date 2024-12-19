@@ -13,7 +13,7 @@ const Faqs = () => {
     faqRefs.current.forEach((faq) => {
       gsap.fromTo(
         faq,
-        { x: -200 }, // Initial position: off-screen to the left
+        { x: 200 }, // Initial position: off-screen to the left
         {
           x: 0, // Final position: at its original position
           opacity: 1,
@@ -37,15 +37,20 @@ const Faqs = () => {
       <p className="font-bold text-slate-600 text-3xl pb-[5%] text-center">
         Here is Some of Yours Questions
       </p>
-      <div className="mx-[5%] px-[4%] faq-item faq-item">
-        {faqs.map((faq, index) => (
-          <div
-            key={faq.id}
-            ref={(el) => (faqRefs.current[index] = el)} // Assign ref to each FAQ item
-          >
-            <FaqItem question={faq.question} answer={faq.answer} />
-          </div>
-        ))}
+      <div className="flex items-center gap-x-7">
+        <div className="pl-[5%]">
+          <img src="/faq.png" alt="faq-image" />
+        </div>
+        <div className="mx-[5%] px-[4%] faq-item faq-item">
+          {faqs.map((faq, index) => (
+            <div
+              key={faq.id}
+              ref={(el) => (faqRefs.current[index] = el)} // Assign ref to each FAQ item
+            >
+              <FaqItem question={faq.question} answer={faq.answer} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
