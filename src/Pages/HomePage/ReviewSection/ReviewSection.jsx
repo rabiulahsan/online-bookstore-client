@@ -10,67 +10,75 @@ import { Navigation } from "swiper/modules";
 
 const ReviewSection = () => {
   return (
-    <div className="py-[5%] w-[80%] mx-auto">
-      <Swiper
-        slidesPerView={3}
-        spaceBetween={20}
-        loop={true}
-        navigation={{
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-          clickable: true,
-        }}
-        modules={[Navigation]}
-        className="mySwiper"
-      >
-        <div className="flex flex-wrap justify-center gap-8 py-[4%]">
-          {randomReveiws.map((review) => (
-            <SwiperSlide key={review.id}>
-              <div
-                key={review.id}
-                className="relative bg-[rgba(255,255,255,0.3)] shadow-lg rounded-lg p-[10%]  max-w-sm w-full text-center backdrop-blur-lg"
-              >
-                {/* Quote in the background */}
-                <p className="absolute top-10 left-10 text-[60px] text-rose-200 font-bold leading-none transform -translate-x-6 -translate-y-6">
-                  <FaQuoteLeft></FaQuoteLeft>
-                </p>
+    <>
+      <div className="flex items-center justify-center mt-[5%] gap-x-[8%]">
+        <span className="font-bold text-3xl mx-4 bg-gradient-to-r from-rose-600 via-pink-500 to-slate-600 bg-clip-text text-transparent">
+          Users About Us
+        </span>
+        <span className="flex-grow h-[3px] bg-gradient-to-r from-rose-600 to-transparent"></span>
+      </div>
+      <div className="py-[5%] w-[80%] mx-auto">
+        <Swiper
+          slidesPerView={3}
+          spaceBetween={20}
+          loop={true}
+          navigation={{
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+            clickable: true,
+          }}
+          modules={[Navigation]}
+          className="mySwiper"
+        >
+          <div className="flex flex-wrap justify-center gap-8 py-[4%]">
+            {randomReveiws.map((review) => (
+              <SwiperSlide key={review.id}>
+                <div
+                  key={review.id}
+                  className="relative bg-[rgba(255,255,255,0.3)] shadow-lg rounded-lg p-[10%]  max-w-sm w-full text-center backdrop-blur-lg"
+                >
+                  {/* Quote in the background */}
+                  <p className="absolute top-10 left-10 text-[60px] text-rose-200 font-bold leading-none transform -translate-x-6 -translate-y-6">
+                    <FaQuoteLeft></FaQuoteLeft>
+                  </p>
 
-                {/* Review content */}
-                <div className="relative z-10">
-                  <p className="text-slate-600 mb-4">{review.description}</p>
-                  <div className="flex justify-center mb-4">
-                    {Array.from({ length: review.rating }).map((_, index) => (
-                      <span key={index} className="text-yellow-400 text-xl">
-                        &#9733;
-                      </span>
-                    ))}
-                    {Array.from({ length: 5 - review.rating }).map(
-                      (_, index) => (
-                        <span key={index} className="text-gray-300 text-xl">
+                  {/* Review content */}
+                  <div className="relative z-10">
+                    <p className="text-slate-600 mb-4">{review.description}</p>
+                    <div className="flex justify-center mb-4">
+                      {Array.from({ length: review.rating }).map((_, index) => (
+                        <span key={index} className="text-yellow-400 text-xl">
                           &#9733;
                         </span>
-                      )
-                    )}
+                      ))}
+                      {Array.from({ length: 5 - review.rating }).map(
+                        (_, index) => (
+                          <span key={index} className="text-gray-300 text-xl">
+                            &#9733;
+                          </span>
+                        )
+                      )}
+                    </div>
+                    <h3 className="font-bold text-slate-600 text-lg">
+                      {review.name}
+                    </h3>
+                    <p className="text-sm text-slate-600">{review.title}</p>
                   </div>
-                  <h3 className="font-bold text-slate-600 text-lg">
-                    {review.name}
-                  </h3>
-                  <p className="text-sm text-slate-600">{review.title}</p>
                 </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </div>
-        <div className="slider-controler flex justify-center items-center gap-x-5 mt-5">
-          <div className="swiper-button-prev bg-rose-100 hover:bg-rose-200 cursor-pointer font-bold text-rose-600 p-3 rounded-full">
-            <FaArrowLeftLong size={20} />
+              </SwiperSlide>
+            ))}
           </div>
-          <div className="swiper-button-next bg-rose-100 hover:bg-rose-200 cursor-pointer font-bold text-rose-600 p-3 rounded-full">
-            <FaArrowRightLong size={20} />
+          <div className="slider-controler flex justify-center items-center gap-x-5 mt-5">
+            <div className="swiper-button-prev bg-rose-100 hover:bg-rose-200 cursor-pointer font-bold text-rose-600 p-3 rounded-full">
+              <FaArrowLeftLong size={20} />
+            </div>
+            <div className="swiper-button-next bg-rose-100 hover:bg-rose-200 cursor-pointer font-bold text-rose-600 p-3 rounded-full">
+              <FaArrowRightLong size={20} />
+            </div>
           </div>
-        </div>
-      </Swiper>
-    </div>
+        </Swiper>
+      </div>
+    </>
   );
 };
 

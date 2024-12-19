@@ -1,3 +1,4 @@
+import AuthorSection from "../AuthorSection/AuthorSection";
 import Banner from "../Banner/Banner";
 import CategorySection from "../CategorySection/CategorySection";
 import DiscountSection from "../DiscountSection/DiscountSection";
@@ -13,6 +14,7 @@ const Home = () => {
       <NumberSection></NumberSection>
       <CategorySection></CategorySection>
       <FeaturedSection></FeaturedSection>
+      <AuthorSection></AuthorSection>
       <DiscountSection></DiscountSection>
       <ReviewSection></ReviewSection>
       <Faqs></Faqs>
