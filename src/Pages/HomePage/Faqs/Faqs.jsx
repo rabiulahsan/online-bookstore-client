@@ -4,16 +4,19 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+// Register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
 const Faqs = () => {
   const faqRefs = useRef([]);
+  const faqImageRef = useRef(null); // Reference for the FAQ image
 
+  // Animation for FAQ items
   useGSAP(() => {
     faqRefs.current.forEach((faq) => {
       gsap.fromTo(
         faq,
-        { x: 200 }, // Initial position: off-screen to the left
+        { x: 200 }, // Initial position: off-screen to the right
         {
           x: 0, // Final position: at its original position
           opacity: 1,
@@ -21,27 +24,50 @@ const Faqs = () => {
           ease: "power3.out",
           scrollTrigger: {
             trigger: faq,
-            start: "top 80%", // Animation starts when FAQ enters the viewport
-            end: "top 40%", // Animation ends when FAQ is closer to the center
+            start: "top 80%", // Start animation when FAQ enters the viewport
+            end: "top 40%", // End animation closer to the center
             scrub: 1,
-            markers: true,
-            toggleActions: "reverse play reverse reverse", // Animates in and out
+            markers: true, // Enable markers for debugging
+            toggleActions: "reverse play reverse reverse",
           },
         }
       );
     });
+
+    //animation for faf image
+    gsap.fromTo(
+      faqImageRef.current,
+      { x: -200, opacity: 0 }, // Initial position: off-screen to the left
+      {
+        x: 0, // Final position: at its original position
+        opacity: 1,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: faqImageRef.current,
+          start: "top 80%", // Start animation when image enters the viewport
+          end: "top 40%", // End animation closer to the center
+          scrub: 1,
+          markers: true, // Enable markers for debugging
+          toggleActions: "reverse play reverse reverse",
+        },
+      }
+    );
   });
 
   return (
     <div className="py-[5%] faq-container">
       <p className="font-bold text-slate-600 text-3xl pb-[5%] text-center">
-        Here is Some of Yours Questions
+        Here is Some of Your Questions
       </p>
       <div className="flex items-center gap-x-7">
-        <div className="pl-[5%]">
+        <div
+          className="pl-[5%] faq-image"
+          ref={faqImageRef} // Assign ref to the FAQ image
+        >
           <img src="/faq.png" alt="faq-image" />
         </div>
-        <div className="mx-[5%] px-[4%] faq-item faq-item">
+        <div className="mx-[5%] px-[4%] faq-item">
           {faqs.map((faq, index) => (
             <div
               key={faq.id}
@@ -57,6 +83,7 @@ const Faqs = () => {
 };
 
 export default Faqs;
+
 const faqs = [
   {
     id: 1,
