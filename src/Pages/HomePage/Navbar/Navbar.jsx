@@ -1,15 +1,23 @@
 import { LuUserPlus } from "react-icons/lu";
 import { MdOutlineLogout } from "react-icons/md";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ActiveLink from "../../../Components/ActiveLink/ActiveLink";
+import UseAuth from "../../../Hooks/UseAuth/UseAuth";
 
 const Navbar = () => {
+  const { user, logOut } = UseAuth();
+  const navigate = useNavigate();
+
   const handleLogOut = () => {
-    console.log("Clicked log out button");
+    // console.log("Clicked log out button");
+    logOut()
+      .then(navigate("/"))
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
-  const user = null;
   return (
     <div>
       <div className="hidden md:flex justify-between items-center w-full py-5 px-[5%] relative bg-slate-100  ">
