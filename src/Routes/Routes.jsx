@@ -27,7 +27,6 @@ export const router = createBrowserRouter([
         path: "/master-admin-login",
         element: <AdminPage></AdminPage>,
       },
-
       {
         path: "/create-account",
         element: <CreateAccount></CreateAccount>,
