@@ -48,54 +48,6 @@
     "featured": false
   },
   {
-    "title": "The Hound of the Baskervilles",
-    "author": ["Arthur Conan Doyle"],
-    "isbn": "978-0451528018",
-    "category": ["Mystery"],
-    "price": 10,
-    "publication_date": "1902-04-01",
-    "publisher": "George Newnes Ltd",
-    "language": "English",
-    "pages": 256,
-    "edition": "Latest",
-    "rating": {
-      "average": 4.5,
-      "reviews_count": 142
-    },
-    "description": "The Hound of the Baskervilles is one of the most famous Sherlock Holmes novels. The story is set on the moors of Devonshire, where Sir Charles Baskerville has died under mysterious circumstances. Holmes and Watson are called upon to protect the new heir, Sir Henry Baskerville, from the legendary hound that is said to haunt the Baskerville family. The novel is notable for its atmospheric setting, its exploration of the supernatural, and its intricate plot. The story features a memorable cast of characters, including the villainous Stapleton and his beautiful sister. The Hound of the Baskervilles is a classic of detective fiction and has been adapted into numerous films and television series.",
-    "image": "",
-    "tags": ["Detective", "Crime", "Suspense", "Classic Mystery"],
-    "reviews": [],
-    "created_at": "2024-12-20T12:00:00Z",
-    "updated_at": "2024-12-20T12:00:00Z",
-    "discount": "0%",
-    "featured": true
-  },
-  {
-    "title": "The Cuckoo’s Calling",
-    "author": ["Robert Galbraith"],
-    "isbn": "978-0316206846",
-    "category": ["Mystery"],
-    "price": 11,
-    "publication_date": "2013-04-18",
-    "publisher": "Sphere",
-    "language": "English",
-    "pages": 464,
-    "edition": "Latest",
-    "rating": {
-      "average": 4.0,
-      "reviews_count": 120
-    },
-    "description": "The Cuckoo’s Calling is the first novel in the Cormoran Strike series by Robert Galbraith, a pseudonym for J.K. Rowling. The story follows private investigator Cormoran Strike as he investigates the apparent suicide of supermodel Lula Landry. With the help of his new assistant, Robin Ellacott, Strike delves into the world of fashion and celebrity to uncover the truth. The novel is notable for its complex characters, its detailed depiction of London, and its intricate plot. The Cuckoo’s Calling received critical acclaim for its engaging story and well-drawn characters. It has been adapted into a television series and has spawned several sequels.",
-    "image": "",
-    "tags": ["Modern Mystery", "Crime", "Detective"],
-    "reviews": [],
-    "created_at": "2024-12-20T12:00:00Z",
-    "updated_at": "2024-12-20T12:00:00Z",
-    "discount": "30%",
-    "featured": false
-  },
-  {
     "title": "The Silkworm",
     "author": ["Robert Galbraith"],
     "isbn": "978-0316206877",

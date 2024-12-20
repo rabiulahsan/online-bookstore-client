@@ -11,22 +11,21 @@ const useLoggedUser = () => {
   useEffect(() => {
     if (loading || !user?.email) return;
 
-    const verifyAuthor = async () => {
+    const getLoggedUser = async () => {
       setGetUserIsLoading(true);
       try {
         const res = await axiosSecure.get(`/api/getuser?email=${user.email}`);
         // console.log(res.data);
         setLoggedUser(res.data.user);
-        // setIsAuthor(res.data.isAuthor);
       } catch (error) {
         console.error("Error verifying author:", error);
-        // setIsAuthor(false); // Default to false on error
+        setLoggedUser(null); // Default to false on error
       } finally {
         setGetUserIsLoading(false);
       }
     };
 
-    verifyAuthor();
+    getLoggedUser();
   }, [user?.email, loading, axiosSecure]);
 
   return [loggedUser, getUserIsLoading];

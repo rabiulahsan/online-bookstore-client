@@ -23,54 +23,7 @@
     "discount": "0%",
     "featured": false
   },
-  {
-    "title": "Treasure Island",
-    "author": ["Robert Louis Stevenson"],
-    "isbn": "9780141321004",
-    "category": ["Adventure"],
-    "price": 7,
-    "publication_date": "1883-11-14",
-    "publisher": "Cassell & Company",
-    "language": "English",
-    "pages": 292,
-    "edition": "Penguin Classics",
-    "rating": {
-      "average": 4.2,
-      "reviews_count": 125
-    },
-    "description": "Treasure Island is a classic adventure novel by Robert Louis Stevenson. The story follows young Jim Hawkins as he embarks on a perilous journey to find buried treasure after discovering a pirate's map. Along the way, he encounters a host of memorable characters, including the infamous Long John Silver. The novel is renowned for its vivid depiction of pirate life, thrilling plot, and timeless themes of courage, loyalty, and betrayal. Treasure Island has captivated readers for generations and remains a quintessential tale of adventure and discovery.",
-    "image": "",
-    "tags": ["Classic", "Adventure", "Pirates"],
-    "reviews": [],
-    "created_at": "2024-12-20T12:00:00Z",
-    "updated_at": "2024-12-20T12:00:00Z",
-    "discount": "20%",
-    "featured": false
-  },
-  {
-    "title": "The Alchemist",
-    "author": ["Paulo Coelho"],
-    "isbn": "9780061122415",
-    "category": ["Adventure"],
-    "price": 9,
-    "publication_date": "1988-05-01",
-    "publisher": "HarperOne",
-    "language": "English",
-    "pages": 208,
-    "edition": "25th Anniversary",
-    "rating": {
-      "average": 4.4,
-      "reviews_count": 150
-    },
-    "description": "The Alchemist is a philosophical novel by Paulo Coelho that tells the story of Santiago, a young shepherd who dreams of finding a worldly treasure located somewhere in Egypt. His journey takes him from his homeland in Spain to the Egyptian desert, where he meets a series of characters who guide him in his quest. The novel is a profound exploration of personal legend, destiny, and the pursuit of one's dreams. It emphasizes the importance of listening to one's heart and following one's dreams, no matter how challenging the journey may be. The Alchemist has inspired millions of readers worldwide with its message of hope and self-discovery.",
-    "image": "",
-    "tags": ["Philosophy", "Adventure", "Inspirational"],
-    "reviews": [],
-    "created_at": "2024-12-20T12:00:00Z",
-    "updated_at": "2024-12-20T12:00:00Z",
-    "discount": "0%",
-    "featured": true
-  },
+
   {
     "title": "Into the Wild",
     "author": ["Jon Krakauer"],

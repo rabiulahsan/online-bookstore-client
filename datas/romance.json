@@ -47,30 +47,7 @@
     "discount": "20%",
     "featured": false
   },
-  {
-    "title": "An Offer from a Gentleman",
-    "author": ["Julia Quinn"],
-    "isbn": "9780380815586",
-    "category": ["Romance"],
-    "price": 7,
-    "publication_date": "2001-07-01",
-    "publisher": "Avon",
-    "language": "English",
-    "pages": 384,
-    "edition": "Revised",
-    "rating": {
-      "average": 4.2,
-      "reviews_count": 112
-    },
-    "description": "An Offer from a Gentleman is the third book in Julia Quinn's Bridgerton series. This Cinderella-inspired tale follows Sophie Beckett, the illegitimate daughter of an earl who is treated as a servant by her stepmother. One night, she sneaks into a masquerade ball and catches the eye of Benedict Bridgerton. They share a magical night, but Sophie disappears before Benedict can learn her identity. Years later, their paths cross again, and Benedict is determined to find the mysterious woman who captured his heart. The novel is a heartwarming story of love, identity, and the power of dreams, with a strong message about finding one's place in the world.",
-    "image": "",
-    "tags": ["Historical Romance", "Family Saga", "Romantic Fiction"],
-    "reviews": [],
-    "created_at": "2024-12-20T12:00:00Z",
-    "updated_at": "2024-12-20T12:00:00Z",
-    "discount": "0%",
-    "featured": false
-  },
+
   {
     "title": "Romancing Mister Bridgerton",
     "author": ["Julia Quinn"],
@@ -95,30 +72,7 @@
     "discount": "0%",
     "featured": false
   },
-  {
-    "title": "Me Before You",
-    "author": ["Jojo Moyes"],
-    "isbn": "9780143124542",
-    "category": ["Romance"],
-    "price": 10,
-    "publication_date": "2012-01-05",
-    "publisher": "Penguin Books",
-    "language": "English",
-    "pages": 480,
-    "edition": "Deluxe",
-    "rating": {
-      "average": 4.5,
-      "reviews_count": 145
-    },
-    "description": "Me Before You is a contemporary romance novel by Jojo Moyes. The story follows Louisa Clark, a quirky and cheerful young woman who takes a job as a caregiver for Will Traynor, a wealthy and successful man who has been left paralyzed after an accident. Will is initially bitter and resentful, but Louisa's warmth and determination gradually break through his defenses. As they spend more time together, they develop a deep bond that changes both of their lives. The novel explores themes of love, loss, and the importance of living life to the fullest. It is a heart-wrenching and emotional story that has resonated with readers around the world.",
-    "image": "",
-    "tags": ["Contemporary Romance", "Emotional", "Inspirational"],
-    "reviews": [],
-    "created_at": "2024-12-20T12:00:00Z",
-    "updated_at": "2024-12-20T12:00:00Z",
-    "discount": "30%",
-    "featured": true
-  },
+
   {
     "title": "After You",
     "author": ["Jojo Moyes"],

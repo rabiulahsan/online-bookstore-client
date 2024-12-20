@@ -1,29 +1,5 @@
 [
   {
-    "title": "The Fellowship of the Ring",
-    "author": ["J.R.R. Tolkien"],
-    "isbn": "978-0547928210",
-    "category": ["Fantasy", "Adventure"],
-    "price": 10,
-    "publication_date": "1954-07-29",
-    "publisher": "George Allen & Unwin",
-    "language": "English",
-    "pages": 423,
-    "edition": "Revised",
-    "rating": {
-      "average": 4.6,
-      "reviews_count": 145
-    },
-    "description": "The Fellowship of the Ring is the first volume in J.R.R. Tolkien's epic fantasy series, The Lord of the Rings. It introduces readers to the world of Middle-earth and follows the journey of Frodo Baggins, a hobbit who inherits a powerful ring. Along with a diverse group of companions, Frodo sets out on a perilous quest to destroy the ring and thwart the dark lord Sauron. The novel is renowned for its rich world-building, complex characters, and themes of friendship, bravery, and sacrifice. Tolkien's masterful storytelling has captivated readers for generations, making this book a timeless classic in the fantasy genre.",
-    "image": "",
-    "tags": ["Epic Fantasy", "Middle-earth", "Classic"],
-    "reviews": [],
-    "created_at": "2024-12-20T12:00:00Z",
-    "updated_at": "2024-12-20T12:00:00Z",
-    "discount": "40%",
-    "featured": false
-  },
-  {
     "title": "The Two Towers",
     "author": ["J.R.R. Tolkien"],
     "isbn": "978-0547928203",
@@ -263,30 +239,7 @@
     "discount": "30%",
     "featured": false
   },
-  {
-    "title": "A Clash of Kings",
-    "author": ["George R.R. Martin"],
-    "isbn": "978-0553108033",
-    "category": ["Fantasy", "Epic"],
-    "price": 11,
-    "publication_date": "1998-11-16",
-    "publisher": "Bantam Spectra",
-    "language": "English",
-    "pages": 768,
-    "edition": "Revised",
-    "rating": {
-      "average": 4.7,
-      "reviews_count": 140
-    },
-    "description": "A Clash of Kings is the second book in George R.R. Martin's A Song of Ice and Fire series. The novel continues the story of the Seven Kingdoms of Westeros, where multiple claimants to the throne vie for power. The narrative is marked by political intrigue, epic battles, and the introduction of new characters and plotlines. Martin's ability to weave complex story arcs and develop multifaceted characters makes this a compelling continuation of the series. Themes of power, loyalty, and survival are explored in a richly detailed world that captivates readers.",
-    "image": "",
-    "tags": ["Epic Fantasy", "Westeros", "Intrigue"],
-    "reviews": [],
-    "created_at": "2024-12-20T12:00:00Z",
-    "updated_at": "2024-12-20T12:00:00Z",
-    "discount": "0%",
-    "featured": false
-  },
+
   {
     "title": "A Storm of Swords",
     "author": ["George R.R. Martin"],
@@ -327,30 +280,6 @@
       "reviews_count": 140
     },
     "description": "A Feast for Crows is the fourth book in George R.R. Martin's A Song of Ice and Fire series. The novel follows the aftermath of the War of the Five Kings, with the Seven Kingdoms in turmoil. New alliances are formed, and old ones are tested as characters navigate the treacherous political landscape. The story is marked by complex character arcs and unexpected developments. Martin's ability to weave multiple storylines and create a vivid, immersive world makes this a compelling read. Themes of power, loyalty, and survival are explored in a narrative that keeps readers engaged.",
-    "image": "",
-    "tags": ["Epic Fantasy", "Westeros", "Intrigue"],
-    "reviews": [],
-    "created_at": "2024-12-20T12:00:00Z",
-    "updated_at": "2024-12-20T12:00:00Z",
-    "discount": "0%",
-    "featured": false
-  },
-  {
-    "title": "A Dance with Dragons",
-    "author": ["George R.R. Martin"],
-    "isbn": "978-0553801477",
-    "category": ["Fantasy", "Epic"],
-    "price": 12,
-    "publication_date": "2011-07-12",
-    "publisher": "Bantam Spectra",
-    "language": "English",
-    "pages": 1016,
-    "edition": "Revised",
-    "rating": {
-      "average": 4.6,
-      "reviews_count": 150
-    },
-    "description": "A Dance with Dragons is the fifth book in George R.R. Martin's A Song of Ice and Fire series. The novel continues the complex and interwoven storylines of the characters in Westeros and beyond. As the battle for the Iron Throne rages on, new threats emerge from the north and across the sea. The narrative is filled with political intrigue, epic battles, and shocking twists. Martin's masterful storytelling and deep character development make this a compelling addition to the series. Themes of power, loyalty, and survival are explored in a richly detailed world that keeps readers on the edge of their seats.",
     "image": "",
     "tags": ["Epic Fantasy", "Westeros", "Intrigue"],
     "reviews": [],

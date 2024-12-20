@@ -1,29 +1,5 @@
 [
   {
-    "title": "Foundation",
-    "author": ["Isaac Asimov"],
-    "isbn": "978-0553293357",
-    "category": ["Science Fiction"],
-    "price": 8,
-    "publication_date": "1951-05-01",
-    "publisher": "Gnome Press",
-    "language": "English",
-    "pages": 255,
-    "edition": "Revised",
-    "rating": {
-      "average": 4.7,
-      "reviews_count": 140
-    },
-    "description": "Foundation is the first novel in Isaac Asimov's Foundation series. It is a science fiction classic that tells the story of the fall of the Galactic Empire and the efforts of a group of scientists to preserve knowledge and shorten the ensuing dark age. The novel introduces the concept of 'psychohistory,' a mathematical approach to predicting the future, and follows the establishment of the Foundation, a repository of knowledge, on the remote planet Terminus. Asimov's intricate plotting and exploration of themes such as the rise and fall of civilizations, the role of science and technology, and the nature of power make Foundation a must-read for science fiction enthusiasts.",
-    "image": "",
-    "tags": ["Classic Sci-Fi", "Galactic Empire", "Futuristic"],
-    "reviews": [],
-    "created_at": "2024-12-20T12:00:00Z",
-    "updated_at": "2024-12-20T12:00:00Z",
-    "discount": "20%",
-    "featured": false
-  },
-  {
     "title": "Foundation and Empire",
     "author": ["Isaac Asimov"],
     "isbn": "978-0553293371",
@@ -119,30 +95,7 @@
     "discount": "0%",
     "featured": false
   },
-  {
-    "title": "Dune",
-    "author": ["Frank Herbert"],
-    "isbn": "978-0441013593",
-    "category": ["Science Fiction", "Adventure"],
-    "price": 12,
-    "publication_date": "1965-08-01",
-    "publisher": "Chilton Books",
-    "language": "English",
-    "pages": 412,
-    "edition": "Revised",
-    "rating": {
-      "average": 4.8,
-      "reviews_count": 150
-    },
-    "description": "Dune is a science fiction masterpiece by Frank Herbert. Set in a distant future amidst a huge interstellar empire, the novel tells the story of young Paul Atreides, whose family accepts the stewardship of the desert planet Arrakis. As the only source of the most valuable substance in the universe, 'melange' or 'spice,' control of Arrakis is highly contested. The story explores themes of politics, religion, and ecology, as Paul navigates the treacherous political landscape and discovers his own destiny. Herbert's intricate world-building, complex characters, and exploration of profound themes make Dune a landmark in science fiction literature and a must-read for fans of the genre.",
-    "image": "",
-    "tags": ["Epic Sci-Fi", "Space Opera", "Political"],
-    "reviews": [],
-    "created_at": "2024-12-20T12:00:00Z",
-    "updated_at": "2024-12-20T12:00:00Z",
-    "discount": "15%",
-    "featured": true
-  },
+
   {
     "title": "Dune Messiah",
     "author": ["Frank Herbert"],
@@ -167,30 +120,7 @@
     "discount": "0%",
     "featured": false
   },
-  {
-    "title": "Children of Dune",
-    "author": ["Frank Herbert"],
-    "isbn": "978-0441104024",
-    "category": ["Science Fiction", "Adventure"],
-    "price": 11,
-    "publication_date": "1976-04-01",
-    "publisher": "Putnam",
-    "language": "English",
-    "pages": 444,
-    "edition": "Revised",
-    "rating": {
-      "average": 4.5,
-      "reviews_count": 140
-    },
-    "description": "Children of Dune is the third novel in Frank Herbert's Dune series. The story follows the next generation of the Atreides family, focusing on Paul Atreides' twin children, Leto II and Ghanima. As they navigate the political and social complexities of their world, they must also contend with the legacy of their father's rule and the expectations placed upon them. The novel explores themes of power, identity, and the struggle between tradition and change. Herbert's rich world-building, complex characters, and exploration of philosophical and ethical questions make Children of Dune a captivating and intellectually stimulating read.",
-    "image": "",
-    "tags": ["Epic Sci-Fi", "Space Opera", "Political"],
-    "reviews": [],
-    "created_at": "2024-12-20T12:00:00Z",
-    "updated_at": "2024-12-20T12:00:00Z",
-    "discount": "0%",
-    "featured": false
-  },
+
   {
     "title": "God Emperor of Dune",
     "author": ["Frank Herbert"],
@@ -263,30 +193,7 @@
     "discount": "0%",
     "featured": false
   },
-  {
-    "title": "Ender’s Game",
-    "author": ["Orson Scott Card"],
-    "isbn": "978-0812550702",
-    "category": ["Science Fiction", "Adventure"],
-    "price": 9,
-    "publication_date": "1985-01-15",
-    "publisher": "Tor Books",
-    "language": "English",
-    "pages": 324,
-    "edition": "Revised",
-    "rating": {
-      "average": 4.7,
-      "reviews_count": 150
-    },
-    "description": "Ender's Game is a science fiction novel by Orson Scott Card. The story follows Andrew 'Ender' Wiggin, a young boy who is recruited into a military training program to prepare for an impending alien invasion. The novel explores themes of leadership, morality, and the ethics of war. Ender's journey from a bullied child to a brilliant military strategist is both compelling and thought-provoking. Card's exploration of the psychological and emotional challenges faced by Ender, as well as the broader implications of his actions, make Ender's Game a powerful and enduring work of science fiction.",
-    "image": "",
-    "tags": ["Epic Sci-Fi", "Space Opera", "Military"],
-    "reviews": [],
-    "created_at": "2024-12-20T12:00:00Z",
-    "updated_at": "2024-12-20T12:00:00Z",
-    "discount": "0%",
-    "featured": false
-  },
+
   {
     "title": "Speaker for the Dead",
     "author": ["Orson Scott Card"],
