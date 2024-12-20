@@ -77,7 +77,7 @@ const UserSignup = () => {
   return (
     <div className="bg-gray-100 min-h-screen flex items-center justify-center py-[2%]">
       <div className="bg-white shadow-lg rounded-lg py-[3%] px-[4%]  max-w-lg w-full">
-        <h1 className="text-green-600 font-bold text-2xl text-center">
+        <h1 className="text-rose-600 font-bold text-2xl text-center">
           Provide Your Information
         </h1>
         <form
@@ -143,7 +143,7 @@ const UserSignup = () => {
               type="password"
               {...register("password", {
                 required: true,
-                minLength: 6,
+                minLength: 8,
                 maxLength: 20,
                 pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/, // At least one uppercase, lowercase, number, and special character
               })}
@@ -217,7 +217,7 @@ const UserSignup = () => {
 
           <div className="form-control mt-6 flex justify-center items-center">
             <input
-              className="cursor-pointer text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-sm focus:outline-none "
+              className="cursor-pointer text-center bg-rose-600 hover:bg-rose-700 text-white font-semibold py-2 px-6 rounded-sm focus:outline-none "
               type="submit"
               value="Sign Up"
             />
@@ -226,9 +226,9 @@ const UserSignup = () => {
 
         <p className="mt-5  text-slate-600 text-center">
           Already have an account?{" "}
-          <Link to="/patient/login">
+          <Link to="/user/login">
             {" "}
-            <span className="underline font-bold text-green-600">login</span>
+            <span className="underline font-bold text-rose-500">login</span>
           </Link>
         </p>
       </div>
