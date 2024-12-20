@@ -50,7 +50,7 @@ const AuthorSignup = () => {
           .then((response) => response.json())
           .then((responseData) => {
             console.log("Author data saved:", responseData);
-            if (responseData.userId) {
+            if (responseData.authorId) {
               reset();
               logOut()
                 .then(navigate("/author/login"))
