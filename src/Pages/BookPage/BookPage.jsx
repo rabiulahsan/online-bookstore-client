@@ -130,7 +130,7 @@ const BookPage = () => {
         </div>
 
         {/* right side  */}
-        <div className="w-[70%] border border-slate-500">he</div>
+        <div className="w-[70%] border border-slate-500"></div>
       </div>
     </div>
   );
