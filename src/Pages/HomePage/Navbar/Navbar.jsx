@@ -4,10 +4,22 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import ActiveLink from "../../../Components/ActiveLink/ActiveLink";
 import useAuth from "../../../Hooks/UseAuth/UseAuth";
+import useAllAuthors from "../../../Hooks/UseAllAuthors/UseAllAuthors";
+import useVerifyAuthor from "../../../Hooks/useVerifyAuthor/useVerifyAuthor";
+import useVerifyUser from "../../../Hooks/useVerifyUser/useVerifyUser";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
   const navigate = useNavigate();
+
+  const [allAuthor, isLoading] = useAllAuthors();
+  // console.log(allAuthor);
+
+  const [isAuthor] = useVerifyAuthor();
+  const [isUser] = useVerifyUser();
+
+  // console.log(isAuthor);
+  // console.log(isUser);
 
   const handleLogOut = () => {
     // console.log("Clicked log out button");

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useAllAuthor = () => {
+const useAllAuthors = () => {
   const [allAuthor, setAllAuthor] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -10,7 +10,7 @@ const useAllAuthor = () => {
       .then((data) => {
         // Filter Author with verified: true
         const verifiedAuthor = data.filter(
-          (doctor) => doctor.verified === true
+          (author) => author.verified === true
         );
         setAllAuthor(verifiedAuthor);
         setIsLoading(false);
@@ -20,4 +20,4 @@ const useAllAuthor = () => {
   return [allAuthor, isLoading];
 };
 
-export default useAllAuthor;
+export default useAllAuthors;
