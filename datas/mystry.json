@@ -2,7 +2,7 @@
   {
     "title": "A Study in Scarlet",
     "author": ["Arthur Conan Doyle"],
-    "isbn": "",
+    "isbn": "978-0451524935",
     "category": ["Mystery"],
     "price": 7,
     "publication_date": "1887-11-01",
@@ -14,19 +14,19 @@
       "average": 4.2,
       "reviews_count": 78
     },
-    "description": "",
+    "description": "A Study in Scarlet is the first novel featuring Sherlock Holmes and Dr. Watson. The story begins with Dr. Watson meeting Sherlock Holmes, who is looking for someone to share a flat with. They move into 221B Baker Street, and soon Holmes is called upon to investigate a murder. The novel is notable for its introduction of Holmes's character and his methods of deduction. The story is divided into two parts: the first part is set in London, where Holmes and Watson investigate the murder, and the second part is set in the United States, where the background of the murder is revealed. The novel is a classic of detective fiction and has been adapted into numerous films and television series.",
     "image": "",
     "tags": ["Detective", "Crime", "Classic Mystery"],
     "reviews": [],
-    "created_at": "",
-    "updated_at": "",
-    "discount":"",
-    "featured":
+    "created_at": "2024-12-20T12:00:00Z",
+    "updated_at": "2024-12-20T12:00:00Z",
+    "discount": "0%",
+    "featured": false
   },
   {
     "title": "The Sign of Four",
     "author": ["Arthur Conan Doyle"],
-    "isbn": "",
+    "isbn": "978-0451526342",
     "category": ["Mystery"],
     "price": 8,
     "publication_date": "1890-02-01",
@@ -38,19 +38,19 @@
       "average": 4.1,
       "reviews_count": 95
     },
-    "description": "",
+    "description": "The Sign of Four is the second novel featuring Sherlock Holmes and Dr. Watson. The story begins with Mary Morstan, a young woman who seeks Holmes's help in solving the mystery of her father's disappearance and the strange gifts of pearls she has been receiving. Holmes and Watson are drawn into a complex case involving a hidden treasure, a secret pact, and a series of murders. The novel is notable for its exploration of Holmes's character, including his use of drugs and his relationship with Watson. The story is set in London and features a thrilling chase along the River Thames. The Sign of Four is a classic of detective fiction and has been adapted into numerous films and television series.",
     "image": "",
     "tags": ["Detective", "Crime", "Classic Mystery"],
     "reviews": [],
-    "created_at": "",
-    "updated_at": "",
-    "discount":"",
-    "featured":
+    "created_at": "2024-12-20T12:00:00Z",
+    "updated_at": "2024-12-20T12:00:00Z",
+    "discount": "0%",
+    "featured": false
   },
   {
     "title": "The Hound of the Baskervilles",
     "author": ["Arthur Conan Doyle"],
-    "isbn": "",
+    "isbn": "978-0451528018",
     "category": ["Mystery"],
     "price": 10,
     "publication_date": "1902-04-01",
@@ -62,19 +62,19 @@
       "average": 4.5,
       "reviews_count": 142
     },
-    "description": "",
+    "description": "The Hound of the Baskervilles is one of the most famous Sherlock Holmes novels. The story is set on the moors of Devonshire, where Sir Charles Baskerville has died under mysterious circumstances. Holmes and Watson are called upon to protect the new heir, Sir Henry Baskerville, from the legendary hound that is said to haunt the Baskerville family. The novel is notable for its atmospheric setting, its exploration of the supernatural, and its intricate plot. The story features a memorable cast of characters, including the villainous Stapleton and his beautiful sister. The Hound of the Baskervilles is a classic of detective fiction and has been adapted into numerous films and television series.",
     "image": "",
     "tags": ["Detective", "Crime", "Suspense", "Classic Mystery"],
     "reviews": [],
-    "created_at": "",
-    "updated_at": "",
-    "discount":"",
-    "featured":
+    "created_at": "2024-12-20T12:00:00Z",
+    "updated_at": "2024-12-20T12:00:00Z",
+    "discount": "0%",
+    "featured": true
   },
   {
     "title": "The Cuckoo’s Calling",
     "author": ["Robert Galbraith"],
-    "isbn": "",
+    "isbn": "978-0316206846",
     "category": ["Mystery"],
     "price": 11,
     "publication_date": "2013-04-18",
@@ -86,19 +86,19 @@
       "average": 4.0,
       "reviews_count": 120
     },
-    "description": "",
+    "description": "The Cuckoo’s Calling is the first novel in the Cormoran Strike series by Robert Galbraith, a pseudonym for J.K. Rowling. The story follows private investigator Cormoran Strike as he investigates the apparent suicide of supermodel Lula Landry. With the help of his new assistant, Robin Ellacott, Strike delves into the world of fashion and celebrity to uncover the truth. The novel is notable for its complex characters, its detailed depiction of London, and its intricate plot. The Cuckoo’s Calling received critical acclaim for its engaging story and well-drawn characters. It has been adapted into a television series and has spawned several sequels.",
     "image": "",
     "tags": ["Modern Mystery", "Crime", "Detective"],
     "reviews": [],
-    "created_at": "",
-    "updated_at": "",
-    "discount":"",
-    "featured":
+    "created_at": "2024-12-20T12:00:00Z",
+    "updated_at": "2024-12-20T12:00:00Z",
+    "discount": "30%",
+    "featured": false
   },
   {
     "title": "The Silkworm",
     "author": ["Robert Galbraith"],
-    "isbn": "",
+    "isbn": "978-0316206877",
     "category": ["Mystery"],
     "price": 9,
     "publication_date": "2014-06-19",
@@ -110,19 +110,19 @@
       "average": 4.2,
       "reviews_count": 88
     },
-    "description": "",
+    "description": "The Silkworm is the second novel in the Cormoran Strike series by Robert Galbraith. The story follows private investigator Cormoran Strike as he investigates the disappearance of novelist Owen Quine. Quine's wife believes he has gone into hiding, but Strike soon discovers that there is more to the case than meets the eye. The investigation leads Strike and his assistant, Robin Ellacott, into the world of publishing, where they uncover a web of secrets and lies. The novel is notable for its complex characters, its detailed depiction of the publishing industry, and its intricate plot. The Silkworm received critical acclaim for its engaging story and well-drawn characters. It has been adapted into a television series.",
     "image": "",
     "tags": ["Modern Mystery", "Crime", "Suspense", "Detective"],
     "reviews": [],
-    "created_at": "",
-    "updated_at": "",
-    "discount":"",
-    "featured":
+    "created_at": "2024-12-20T12:00:00Z",
+    "updated_at": "2024-12-20T12:00:00Z",
+    "discount": "0%",
+    "featured": false
   },
   {
     "title": "Career of Evil",
     "author": ["Robert Galbraith"],
-    "isbn": "",
+    "isbn": "978-0316349932",
     "category": ["Mystery"],
     "price": 12,
     "publication_date": "2015-10-20",
@@ -134,19 +134,19 @@
       "average": 4.3,
       "reviews_count": 135
     },
-    "description": "",
+    "description": "Career of Evil is the third novel in the Cormoran Strike series by Robert Galbraith. The story follows private investigator Cormoran Strike and his assistant, Robin Ellacott, as they investigate a series of gruesome murders. The case becomes personal when Robin receives a severed leg in the mail, and Strike realizes that someone from his past is targeting them. The investigation leads them into the dark world of fetishism and revenge. The novel is notable for its complex characters, its exploration of the darker side of human nature, and its intricate plot. Career of Evil received critical acclaim for its engaging story and well-drawn characters. It has been adapted into a television series.",
     "image": "",
     "tags": ["Modern Mystery", "Crime", "Suspense", "Detective"],
     "reviews": [],
-    "created_at": "",
-    "updated_at": "",
-    "discount":"",
-    "featured":
+    "created_at": "2024-12-20T12:00:00Z",
+    "updated_at": "2024-12-20T12:00:00Z",
+    "discount": "20%",
+    "featured": false
   },
   {
     "title": "Lethal White",
     "author": ["Robert Galbraith"],
-    "isbn": "",
+    "isbn": "978-0316422734",
     "category": ["Mystery"],
     "price": 8,
     "publication_date": "2018-09-18",
@@ -158,19 +158,19 @@
       "average": 4.1,
       "reviews_count": 102
     },
-    "description": "",
+    "description": "Lethal White is the fourth novel in the Cormoran Strike series by Robert Galbraith. The story follows private investigator Cormoran Strike and his assistant, Robin Ellacott, as they investigate a complex case involving blackmail, murder, and political intrigue. The novel begins with Billy, a troubled young man, coming to Strike's office with a story about witnessing a child being strangled many years ago. As Strike and Robin delve deeper into the case, they uncover a web of secrets and lies that lead them into the corridors of power. The novel is notable for its intricate plot, its exploration of the characters' personal lives, and its detailed depiction of London. Lethal White received critical acclaim for its engaging story and well-drawn characters. It has been adapted into a television series.",
     "image": "",
     "tags": ["Modern Mystery", "Crime", "Suspense", "Detective"],
     "reviews": [],
-    "created_at": "",
-    "updated_at": "",
-    "discount":"",
-    "featured":
+    "created_at": "2024-12-20T12:00:00Z",
+    "updated_at": "2024-12-20T12:00:00Z",
+    "discount": "0%",
+    "featured": false
   },
   {
     "title": "Troubled Blood",
     "author": ["Robert Galbraith"],
-    "isbn": "",
+    "isbn": "978-0316498937",
     "category": ["Mystery"],
     "price": 10,
     "publication_date": "2020-09-15",
@@ -182,13 +182,13 @@
       "average": 4.4,
       "reviews_count": 145
     },
-    "description": "",
+    "description": "Troubled Blood is the fifth novel in the Cormoran Strike series by Robert Galbraith. The story follows private investigator Cormoran Strike and his assistant, Robin Ellacott, as they investigate a cold case involving the disappearance of a doctor, Margot Bamborough, in 1974. The investigation takes them into the world of astrology, serial killers, and dark secrets. The novel is notable for its complex characters, its exploration of the impact of past traumas, and its intricate plot. Troubled Blood received critical acclaim for its engaging story and well-drawn characters. It has been adapted into a television series.",
     "image": "",
     "tags": ["Modern Mystery", "Crime", "Suspense", "Detective"],
     "reviews": [],
-    "created_at": "",
-    "updated_at": "",
-    "discount":"",
-    "featured":
+    "created_at": "2024-12-20T12:00:00Z",
+    "updated_at": "2024-12-20T12:00:00Z",
+    "discount": "0%",
+    "featured": false
   }
 ]

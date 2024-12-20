@@ -2,7 +2,7 @@
   {
     "title": "Life of Pi",
     "author": ["Yann Martel"],
-    "isbn": "",
+    "isbn": "9780156027328",
     "category": ["Adventure"],
     "price": 10,
     "publication_date": "2001-09-11",
@@ -14,19 +14,19 @@
       "average": 4.3,
       "reviews_count": 140
     },
-    "description": "",
+    "description": "Life of Pi is a fantasy adventure novel by Yann Martel. It tells the story of Pi Patel, a young boy who survives a shipwreck and is left stranded on a lifeboat in the Pacific Ocean with a Bengal tiger named Richard Parker. The novel explores themes of spirituality, survival, and the human-animal bond. Through Pi's journey, readers are taken on a profound exploration of faith, resilience, and the will to live. The book is celebrated for its imaginative storytelling and deep philosophical insights, making it a modern classic that resonates with readers of all ages.",
     "image": "",
     "tags": ["Adventure", "Spirituality", "Survival"],
     "reviews": [],
-    "created_at": "",
-    "updated_at": "",
-    "discount":"",
-    "featured":
+    "created_at": "2024-12-20T12:00:00Z",
+    "updated_at": "2024-12-20T12:00:00Z",
+    "discount": "0%",
+    "featured": false
   },
   {
     "title": "Treasure Island",
     "author": ["Robert Louis Stevenson"],
-    "isbn": "",
+    "isbn": "9780141321004",
     "category": ["Adventure"],
     "price": 7,
     "publication_date": "1883-11-14",
@@ -38,19 +38,19 @@
       "average": 4.2,
       "reviews_count": 125
     },
-    "description": "",
+    "description": "Treasure Island is a classic adventure novel by Robert Louis Stevenson. The story follows young Jim Hawkins as he embarks on a perilous journey to find buried treasure after discovering a pirate's map. Along the way, he encounters a host of memorable characters, including the infamous Long John Silver. The novel is renowned for its vivid depiction of pirate life, thrilling plot, and timeless themes of courage, loyalty, and betrayal. Treasure Island has captivated readers for generations and remains a quintessential tale of adventure and discovery.",
     "image": "",
     "tags": ["Classic", "Adventure", "Pirates"],
     "reviews": [],
-    "created_at": "",
-    "updated_at": "",
-    "discount":"",
-    "featured":
+    "created_at": "2024-12-20T12:00:00Z",
+    "updated_at": "2024-12-20T12:00:00Z",
+    "discount": "20%",
+    "featured": false
   },
   {
     "title": "The Alchemist",
     "author": ["Paulo Coelho"],
-    "isbn": "",
+    "isbn": "9780061122415",
     "category": ["Adventure"],
     "price": 9,
     "publication_date": "1988-05-01",
@@ -62,19 +62,19 @@
       "average": 4.4,
       "reviews_count": 150
     },
-    "description": "",
+    "description": "The Alchemist is a philosophical novel by Paulo Coelho that tells the story of Santiago, a young shepherd who dreams of finding a worldly treasure located somewhere in Egypt. His journey takes him from his homeland in Spain to the Egyptian desert, where he meets a series of characters who guide him in his quest. The novel is a profound exploration of personal legend, destiny, and the pursuit of one's dreams. It emphasizes the importance of listening to one's heart and following one's dreams, no matter how challenging the journey may be. The Alchemist has inspired millions of readers worldwide with its message of hope and self-discovery.",
     "image": "",
     "tags": ["Philosophy", "Adventure", "Inspirational"],
     "reviews": [],
-    "created_at": "",
-    "updated_at": "",
-    "discount":"",
-    "featured":
+    "created_at": "2024-12-20T12:00:00Z",
+    "updated_at": "2024-12-20T12:00:00Z",
+    "discount": "0%",
+    "featured": true
   },
   {
     "title": "Into the Wild",
     "author": ["Jon Krakauer"],
-    "isbn": "",
+    "isbn": "9780385486804",
     "category": ["Adventure"],
     "price": 8,
     "publication_date": "1996-01-13",
@@ -86,19 +86,19 @@
       "average": 4.3,
       "reviews_count": 110
     },
-    "description": "",
+    "description": "Into the Wild is a non-fiction book by Jon Krakauer that tells the true story of Christopher McCandless, a young man who abandoned his possessions, gave his savings to charity, and hitchhiked to Alaska to live in the wilderness. The book explores McCandless's journey, his motivations, and the impact of his decisions on those he left behind. Through interviews, letters, and McCandless's own journal entries, Krakauer paints a compelling portrait of a young man driven by a desire for adventure and a quest for meaning. Into the Wild is a poignant exploration of the human spirit, the allure of the wilderness, and the consequences of living on the edge.",
     "image": "",
     "tags": ["Biography", "Adventure", "Survival", "Non-Fiction"],
     "reviews": [],
-    "created_at": "",
-    "updated_at": "",
-    "discount":"",
-    "featured":
+    "created_at": "2024-12-20T12:00:00Z",
+    "updated_at": "2024-12-20T12:00:00Z",
+    "discount": "25%",
+    "featured": false
   },
   {
     "title": "Hatchet",
     "author": ["Gary Paulsen"],
-    "isbn": "",
+    "isbn": "9781416936473",
     "category": ["Adventure"],
     "price": 6,
     "publication_date": "1986-11-01",
@@ -110,19 +110,19 @@
       "average": 4.2,
       "reviews_count": 95
     },
-    "description": "",
+    "description": "Hatchet is a young adult wilderness survival novel by Gary Paulsen. The story follows thirteen-year-old Brian Robeson, who is stranded in the Canadian wilderness after a plane crash. Armed with only a hatchet, Brian must learn to survive on his own, facing challenges such as finding food, building shelter, and protecting himself from wildlife. The novel is a gripping tale of resilience, ingenuity, and the human spirit's ability to overcome adversity. Hatchet has become a beloved classic in young adult literature, inspiring readers with its powerful message of self-reliance and determination.",
     "image": "",
     "tags": ["Survival", "Young Adult", "Adventure"],
     "reviews": [],
-    "created_at": "",
-    "updated_at": "",
-    "discount":"",
-    "featured":
+    "created_at": "2024-12-20T12:00:00Z",
+    "updated_at": "2024-12-20T12:00:00Z",
+    "discount": "40%",
+    "featured": false
   },
   {
     "title": "The River",
     "author": ["Gary Paulsen"],
-    "isbn": "",
+    "isbn": "9780307929617",
     "category": ["Adventure"],
     "price": 6,
     "publication_date": "1991-10-01",
@@ -134,19 +134,19 @@
       "average": 4.1,
       "reviews_count": 88
     },
-    "description": "",
+    "description": "The River is the sequel to Gary Paulsen's acclaimed novel Hatchet. In this continuation of Brian Robeson's story, Brian is asked to return to the wilderness to teach survival techniques to government researchers. Accompanied by Derek Holtzer, a government psychologist, Brian faces new challenges when a sudden storm leaves Derek in a coma and Brian must navigate the river to find help. The River is a thrilling adventure that tests Brian's survival skills and determination. It explores themes of courage, resourcefulness, and the bond between humans and nature, making it a compelling read for fans of wilderness survival stories.",
     "image": "",
     "tags": ["Survival", "Young Adult", "Adventure"],
     "reviews": [],
-    "created_at": "",
-    "updated_at": "",
-    "discount":"",
-    "featured":
+    "created_at": "2024-12-20T12:00:00Z",
+    "updated_at": "2024-12-20T12:00:00Z",
+    "discount": "20%",
+    "featured": false
   },
   {
     "title": "Brian’s Winter",
     "author": ["Gary Paulsen"],
-    "isbn": "",
+    "isbn": "9780307929587",
     "category": ["Adventure"],
     "price": 7,
     "publication_date": "1996-01-01",
@@ -158,19 +158,19 @@
       "average": 4.0,
       "reviews_count": 84
     },
-    "description": "",
+    "description": "Brian’s Winter is a young adult novel by Gary Paulsen, and it serves as an alternate ending to his earlier novel, Hatchet. In this story, Brian Robeson must survive the harsh winter in the Canadian wilderness after his plane crash. The novel explores Brian's ingenuity and resilience as he learns to hunt, build shelter, and stay warm in the freezing temperatures. Paulsen's vivid descriptions of the wilderness and Brian's survival tactics make this a gripping read. The book highlights themes of perseverance, self-reliance, and the human spirit's ability to adapt and overcome challenges.",
     "image": "",
     "tags": ["Survival", "Young Adult", "Adventure"],
     "reviews": [],
-    "created_at": "",
-    "updated_at": "",
-    "discount":"",
-    "featured":
+    "created_at": "2024-12-20T12:00:00Z",
+    "updated_at": "2024-12-20T12:00:00Z",
+    "discount": "0%",
+    "featured": false
   },
   {
     "title": "Brian’s Return",
     "author": ["Gary Paulsen"],
-    "isbn": "",
+    "isbn": "9780307929594",
     "category": ["Adventure"],
     "price": 8,
     "publication_date": "1999-01-01",
@@ -182,19 +182,19 @@
       "average": 4.1,
       "reviews_count": 90
     },
-    "description": "",
+    "description": "Brian’s Return is the fourth novel in Gary Paulsen's series about Brian Robeson. After his previous adventures in the wilderness, Brian finds it difficult to adjust to normal life. He decides to return to the wild, where he feels most at home. The novel follows Brian as he prepares for his journey and faces new challenges in the wilderness. Paulsen's detailed descriptions of nature and Brian's survival skills make this a captivating read. The book explores themes of self-discovery, the call of the wild, and the importance of following one's true path.",
     "image": "",
     "tags": ["Survival", "Young Adult", "Adventure"],
     "reviews": [],
-    "created_at": "",
-    "updated_at": "",
-    "discount":"",
-    "featured":
+    "created_at": "2024-12-20T12:00:00Z",
+    "updated_at": "2024-12-20T12:00:00Z",
+    "discount": "0%",
+    "featured": false
   },
   {
     "title": "Brian’s Hunt",
     "author": ["Gary Paulsen"],
-    "isbn": "",
+    "isbn": "9780307929600",
     "category": ["Adventure"],
     "price": 7,
     "publication_date": "2003-01-01",
@@ -206,13 +206,13 @@
       "average": 4.0,
       "reviews_count": 83
     },
-    "description": "",
+    "description": "Brian’s Hunt is the fifth and final novel in Gary Paulsen's series about Brian Robeson. In this installment, Brian returns to the wilderness and discovers that a bear has attacked a family he knows. Determined to track down the bear, Brian embarks on a hunt that tests his survival skills and courage. The novel is a thrilling adventure that showcases Brian's growth and his deep connection to the natural world. Paulsen's masterful storytelling and vivid descriptions make this a fitting conclusion to the series. The book explores themes of revenge, justice, and the bond between humans and nature.",
     "image": "",
     "tags": ["Survival", "Young Adult", "Adventure"],
     "reviews": [],
-    "created_at": "",
-    "updated_at": "",
-    "discount":"",
-    "featured":
+    "created_at": "2024-12-20T12:00:00Z",
+    "updated_at": "2024-12-20T12:00:00Z",
+    "discount": "0%",
+    "featured": false
   }
 ]
