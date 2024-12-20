@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import StaggerAnimation from "../../Components/StaggerAnimation/StaggerAnimation";
 import useGetAllBooks from "../../Hooks/useGetAllBooks/useGetAllBooks";
-import { use } from "react";
+
+import BookPageCard from "./BookPageCard";
 
 //todo skeleton animation added for the loading books
 
 const BookPage = () => {
   const [allBooks, isLoading] = useGetAllBooks();
   //   console.log(allBooks);
-  const [categoriesBook, setCategoriesBook] = useState(allBooks);
+  const [categoriesBook, setCategoriesBook] = useState([]);
 
   const [sort, setSort] = useState("");
   const [selectedCategories, setSelectedCategories] = useState([]);
@@ -18,7 +19,7 @@ const BookPage = () => {
   useEffect(() => {
     const fetchCategorizedBooks = async () => {
       if (selectedCategories.length === 0) {
-        setCategoriesBook(allBooks); // Reset to all books if no category is selected
+        setCategoriesBook(allBooks || []); // Reset to all books or empty array if no books are loaded
         return;
       }
 
@@ -31,8 +32,8 @@ const BookPage = () => {
 
         // Await the response JSON
         const data = await response.json();
-        console.log(data); // Ensure you log the data to check its structure
-        setCategoriesBook(data); // Update books with fetched data
+        console.log(data); // Log the data to ensure it's structured correctly
+        setCategoriesBook(data.data); // Update books with fetched data
       } catch (error) {
         console.error("Error fetching categorized books:", error);
       }
@@ -67,7 +68,7 @@ const BookPage = () => {
 
       {/* all books */}
 
-      <div className=" flex items-center gap-x-4 px-[5%]">
+      <div className=" flex  gap-x-4 px-[5%]">
         {/* left side  */}
 
         <div className="p-[4%] w-[30%]   border-r border-slate-300">
@@ -130,7 +131,17 @@ const BookPage = () => {
         </div>
 
         {/* right side  */}
-        <div className="w-[70%] border border-slate-500"></div>
+        <div className="w-[70%] border border-slate-500">
+          {isLoading ? (
+            <p>Loading....</p>
+          ) : (
+            <div className="grid gap-x-9 gap-y-7 grid-cols-1 lg:grid-cols-3 px-[8%] my-[4%] ">
+              {categoriesBook.map((book) => (
+                <BookPageCard key={book?._id} book={book}></BookPageCard>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
