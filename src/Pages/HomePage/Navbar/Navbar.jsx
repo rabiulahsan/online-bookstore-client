@@ -3,10 +3,10 @@ import { MdOutlineLogout } from "react-icons/md";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import ActiveLink from "../../../Components/ActiveLink/ActiveLink";
-import UseAuth from "../../../Hooks/UseAuth/UseAuth";
+import useAuth from "../../../Hooks/UseAuth/UseAuth";
 
 const Navbar = () => {
-  const { user, logOut } = UseAuth();
+  const { user, logOut } = useAuth();
   const navigate = useNavigate();
 
   const handleLogOut = () => {
