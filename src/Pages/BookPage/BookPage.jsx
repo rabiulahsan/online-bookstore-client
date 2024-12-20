@@ -17,34 +17,51 @@ const BookPage = () => {
 
   // Fetch books when categories
   useEffect(() => {
-    const fetchCategorizedBooks = async () => {
-      if (selectedCategories.length === 0) {
-        setCategoriesBook(allBooks || []); // Reset to all books or empty array if no books are loaded
-        return;
-      }
-
+    const fetchAndFilterBooks = async () => {
       try {
-        const categoriesQuery = selectedCategories.join(",");
-        console.log(categoriesQuery);
-        const response = await fetch(
-          `http://localhost:5000/api/books/category?categories=${categoriesQuery}`
-        );
+        let books = allBooks || []; // Default to all books
 
-        // Await the response JSON
-        const data = await response.json();
-        console.log(data); // Log the data to ensure it's structured correctly
-        setCategoriesBook(data.data); // Update books with fetched data
+        // Fetch books based on selected categories if any
+        if (selectedCategories.length > 0) {
+          const categoriesQuery = selectedCategories.join(",");
+          const response = await fetch(
+            `http://localhost:5000/api/books/category?categories=${categoriesQuery}`
+          );
+          const data = await response.json();
+          books = data.data; // Update books based on category
+        }
+
+        // Apply discount filter if applicable
+        if (discount) {
+          books = books.filter((book) => {
+            const bookDiscount = parseInt(book.discount.replace("%", ""), 10);
+            if (discount === "b") {
+              return bookDiscount >= 25;
+            } else if (discount === "a") {
+              return bookDiscount >= 10 && bookDiscount < 25;
+            }
+            return true; // Default case
+          });
+        }
+
+        // Apply sorting if applicable
+        if (sort === "lowToHigh") {
+          books = books.sort((a, b) => a.price - b.price); // Sort by price ascending
+        } else if (sort === "highToLow") {
+          books = books.sort((a, b) => b.price - a.price); // Sort by price descending
+        }
+
+        setCategoriesBook(books); // Update the state with filtered and sorted books
       } catch (error) {
-        console.error("Error fetching categorized books:", error);
+        console.error("Error fetching, filtering, or sorting books:", error);
       }
     };
 
-    fetchCategorizedBooks();
-  }, [selectedCategories, allBooks]); // Refetch when selectedCategories changes
+    fetchAndFilterBooks();
+  }, [selectedCategories, allBooks, discount, sort]); // Trigger when dependencies change
 
-  //   console.log(categoriesBook);
-
-  const discounts = ["10-25%", "25%+"];
+  console.log(discount);
+  console.log(categoriesBook);
 
   const toggleCategory = (category) => {
     if (selectedCategories.includes(category)) {
@@ -82,7 +99,7 @@ const BookPage = () => {
                 onChange={(e) => setSort(e.target.value)}
                 className="border border-slate-200 w-full  bg-transparent rounded-sm px-5 py-3 text-slate-600 font-semibold"
               >
-                <option value="">Select</option>
+                <option value="">Default</option>
                 <option value="lowToHigh">Price: Low to High</option>
                 <option value="highToLow">Price: High to Low</option>
               </select>
@@ -114,16 +131,18 @@ const BookPage = () => {
             <div className="px-5">
               <p className="font-semibold text-gray-600 mb-2">Discount</p>
               {discounts.map((d) => (
-                <label key={d} className="flex items-center mb-2">
+                <label key={d.value} className="flex items-center mb-2">
                   <input
                     type="radio"
                     name="discount"
-                    value={d}
-                    checked={discount === d}
-                    onChange={() => setDiscount(d)}
+                    value={d.value}
+                    checked={discount === d.value}
+                    onChange={() => setDiscount(d.value)}
                     className="w-5 h-5 p-1 "
                   />
-                  <span className="ml-2 text-gray-700">{d}</span>
+                  <span className="ml-2 text-slate-600 font-semibold">
+                    {d.show}
+                  </span>
                 </label>
               ))}
             </div>
@@ -156,4 +175,9 @@ const categories = [
   "Romance",
   "Science Fiction",
   "Fantasy",
+];
+
+const discounts = [
+  { show: "25% +", value: "b" },
+  { show: "10% - 25%", value: "a" },
 ];

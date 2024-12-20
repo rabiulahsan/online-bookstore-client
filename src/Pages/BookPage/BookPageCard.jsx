@@ -10,7 +10,7 @@ const BookPageCard = ({ book }) => {
         <img
           src={book?.image}
           alt={book?.title}
-          className="w-[220px] h-[320px] mx-auto  rounded-xl  shadow-[-8px_8px_12px_rgba(0,0,0,0.6)] transform group-hover:-translate-y-4 transition-transform duration-300"
+          className="w-[220px] h-[320px] mx-auto  rounded-xl  shadow-[-6px_6px_8px_rgba(0,0,0,0.6)] transform group-hover:-translate-y-4 transition-transform duration-300"
         />
         <p className="font-bold text-slate-700 text-xl mb-2 mt-4 text-center">
           {book?.title}
