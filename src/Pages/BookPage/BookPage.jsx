@@ -54,7 +54,7 @@ const BookPage = () => {
     }
   };
   return (
-    <div className="bg-slate-100 px-[5%]">
+    <div className="bg-slate-100 px-[4%]">
       {/* book page header section  */}
       <div className="flex items-center justify-center py-[2%] gap-x-[2%]">
         <span className="flex-grow h-[3px] bg-gradient-to-r from-transparent to-rose-500"></span>
@@ -68,10 +68,10 @@ const BookPage = () => {
 
       {/* all books */}
 
-      <div className=" flex  gap-x-4 px-[5%]">
+      <div className=" flex  gap-x-4 px-[3%] py-[2%]">
         {/* left side  */}
 
-        <div className="p-[4%] w-[30%]   border-r border-slate-300">
+        <div className="p-[4%] w-[25%]   border-r border-slate-300 ">
           <div className="mb-4">
             <label className="block text-slate-500 font-bold text-lg mb-2">
               Sort by :
@@ -131,11 +131,11 @@ const BookPage = () => {
         </div>
 
         {/* right side  */}
-        <div className="w-[70%] border border-slate-500">
+        <div className="w-[75%] ">
           {isLoading ? (
             <p>Loading....</p>
           ) : (
-            <div className="grid gap-x-9 gap-y-7 grid-cols-1 lg:grid-cols-3 px-[8%] my-[4%] ">
+            <div className="grid  gap-y-12 grid-cols-1 lg:grid-cols-3 px-[5%] my-[4%] ">
               {categoriesBook.map((book) => (
                 <BookPageCard key={book?._id} book={book}></BookPageCard>
               ))}
