@@ -51,9 +51,6 @@ const Navbar = () => {
             <span className="text-slate-500 font-semibold">
               <ActiveLink to="/books">Books</ActiveLink>
             </span>
-            <span className="text-slate-500 font-semibold">
-              <ActiveLink to="/discounts">Discounts</ActiveLink>
-            </span>
 
             {user && (
               <>

@@ -27,12 +27,12 @@ const StaggerAnimation = ({ text }) => {
       y: -70,
       opacity: 0,
       delay: 0.5,
-      stagger: 0.15,
+      stagger: 0.1,
     });
   });
   return (
-    <div className="text-center my-[4%]">
-      <p ref={textRef} className="text font-bold text-4xl text-slate-700">
+    <div className="text-center my-[3%]">
+      <p ref={textRef} className="text font-bold text-5xl ">
         {text}
       </p>
     </div>
