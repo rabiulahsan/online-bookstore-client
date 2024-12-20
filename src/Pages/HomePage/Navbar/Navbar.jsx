@@ -7,11 +7,14 @@ import useAuth from "../../../Hooks/UseAuth/UseAuth";
 import useAllAuthors from "../../../Hooks/UseAllAuthors/UseAllAuthors";
 import useVerifyAuthor from "../../../Hooks/useVerifyAuthor/useVerifyAuthor";
 import useVerifyUser from "../../../Hooks/useVerifyUser/useVerifyUser";
+import useLoggedUser from "../../../Hooks/useLoggedUser/useLoggedUser";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
+  // console.log(user);
   const navigate = useNavigate();
-
+  const [loggedUser] = useLoggedUser();
+  console.log(loggedUser);
   const [allAuthor, isLoading] = useAllAuthors();
   // console.log(allAuthor);
 

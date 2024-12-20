@@ -20,7 +20,7 @@ const useVerifyAuthor = () => {
         );
         setIsAuthor(res.data.isAuthor);
       } catch (error) {
-        console.error("Error verifying instructor:", error);
+        console.error("Error verifying author:", error);
         setIsAuthor(false); // Default to false on error
       } finally {
         setIsLoading(false);

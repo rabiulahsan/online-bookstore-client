@@ -6,6 +6,7 @@ import UserLogin from "../Pages/LoginFunction/UserLogin/UserLogin";
 import UserSignup from "../Pages/LoginFunction/UserLogin/UserSignup";
 import AuthorSignup from "../Pages/LoginFunction/AuthorLogin/AuthorSignup";
 import AuthorLogin from "../Pages/LoginFunction/AuthorLogin/AuthorLogin";
+import AdminPage from "../Pages/AdminPage/AdminPage";
 
 export const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/master-admin-login",
+        element: <AdminPage></AdminPage>,
       },
 
       {

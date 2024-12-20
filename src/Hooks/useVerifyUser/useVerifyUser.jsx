@@ -20,7 +20,7 @@ const useVerifyUser = () => {
         );
         setIsUser(res.data.isUser);
       } catch (error) {
-        console.error("Error verifying instructor:", error);
+        console.error("Error verifying user:", error);
         setIsUser(false); // Default to false on error
       } finally {
         setIsLoading(false);

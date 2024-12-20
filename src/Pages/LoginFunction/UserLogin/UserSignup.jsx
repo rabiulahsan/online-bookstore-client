@@ -52,7 +52,7 @@ const UserSignup = () => {
             if (responseData.userId) {
               reset();
               logOut()
-                .then(navigate("/patient/login"))
+                .then(navigate("/user/login"))
                 .catch((error) => {
                   console.log(error);
                 });
