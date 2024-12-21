@@ -7,31 +7,30 @@ import BookPageCard from "./BookPageCard";
 //todo skeleton animation added for the loading books
 
 const BookPage = () => {
-  const [allBooks, isLoading] = useGetAllBooks();
-  //   console.log(allBooks);
+  const [allBooks, isLoading] = useGetAllBooks(); // Assuming useGetAllBooks is a custom hook
   const [categoriesBook, setCategoriesBook] = useState([]);
-
   const [sort, setSort] = useState("");
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [discount, setDiscount] = useState("");
+  const [searchInput, setSearchInput] = useState("");
 
-  // Fetch books when categories
+  // Function to fetch and filter books
   useEffect(() => {
     const fetchAndFilterBooks = async () => {
       try {
         let books = allBooks || []; // Default to all books
 
-        // Fetch books based on selected categories if any
+        // Filter by selected categories
         if (selectedCategories.length > 0) {
           const categoriesQuery = selectedCategories.join(",");
           const response = await fetch(
             `http://localhost:5000/api/books/category?categories=${categoriesQuery}`
           );
           const data = await response.json();
-          books = data.data; // Update books based on category
+          books = data.data; // Update books based on categories
         }
 
-        // Apply discount filter if applicable
+        // Filter by discount
         if (discount) {
           books = books.filter((book) => {
             const bookDiscount = parseInt(book.discount.replace("%", ""), 10);
@@ -44,24 +43,32 @@ const BookPage = () => {
           });
         }
 
-        // Apply sorting if applicable
+        // Sort by price
         if (sort === "lowToHigh") {
-          books = books.sort((a, b) => a.price - b.price); // Sort by price ascending
+          books = books.sort((a, b) => a.price - b.price);
         } else if (sort === "highToLow") {
-          books = books.sort((a, b) => b.price - a.price); // Sort by price descending
+          books = books.sort((a, b) => b.price - a.price);
         }
 
-        setCategoriesBook(books); // Update the state with filtered and sorted books
+        // Filter by search input
+        if (searchInput.trim() !== "") {
+          books = books.filter((book) =>
+            book.title.toLowerCase().includes(searchInput.toLowerCase())
+          );
+        }
+
+        setCategoriesBook(books); // Update the filtered and sorted list
       } catch (error) {
         console.error("Error fetching, filtering, or sorting books:", error);
       }
     };
 
     fetchAndFilterBooks();
-  }, [selectedCategories, allBooks, discount, sort]); // Trigger when dependencies change
+  }, [allBooks, selectedCategories, discount, sort, searchInput]); // Trigger when any dependency changes
 
-  console.log(discount);
-  console.log(categoriesBook);
+  const handleSearch = (e) => {
+    setSearchInput(e.target.value); // Update the search input
+  };
 
   const toggleCategory = (category) => {
     if (selectedCategories.includes(category)) {
@@ -70,6 +77,15 @@ const BookPage = () => {
       setSelectedCategories([...selectedCategories, category]);
     }
   };
+
+  const handleClear = () => {
+    setSelectedCategories([]);
+    setSearchInput("");
+    setDiscount("");
+    setSort("");
+    setCategoriesBook(allBooks); // Reset to all books
+  };
+
   return (
     <div className="bg-slate-100 px-[4%]">
       {/* book page header section  */}
@@ -85,6 +101,37 @@ const BookPage = () => {
 
       {/* all books */}
 
+      {/* search bar  */}
+      <div className="">
+        <div className="">
+          {/* Search Icon and Input */}
+
+          <input
+            type="text"
+            placeholder="Search your doctor..."
+            value={searchInput}
+            onChange={handleSearch}
+            className="w-[400px] outline-none text-slate-700 border border-slate-300 rounded-sm  shadow-sm py-[10px] px-4 "
+            // onKeyDown={handleSearch}
+          />
+
+          {/* Search Button */}
+          {/* <button
+            onClick={handleSearch}
+            className=" text-white font-semibold px-6 py-[10px] ml-5 bg-green-600 hover:bg-green-700 transition rounded-sm"
+          >
+            Search
+          </button> */}
+        </div>
+        <div className="">
+          <button
+            onClick={handleClear}
+            className="font-semibold text-white bg-slate-600 hover:bg-slate-700 px-5 py-3 rounded-sm"
+          >
+            Clear All
+          </button>
+        </div>
+      </div>
       <div className=" flex  gap-x-4 px-[3%] py-[2%]">
         {/* left side  */}
 
