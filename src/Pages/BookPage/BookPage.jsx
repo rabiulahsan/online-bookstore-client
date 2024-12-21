@@ -2,22 +2,27 @@ import { useEffect, useState } from "react";
 import StaggerAnimation from "../../Components/StaggerAnimation/StaggerAnimation";
 import useGetAllBooks from "../../Hooks/useGetAllBooks/useGetAllBooks";
 import { MdOutlineCancel } from "react-icons/md";
-
 import BookPageCard from "./BookPageCard";
-import { use } from "react";
-import useLoggedUser from "../../Hooks/useLoggedUser/useLoggedUser";
+import useGetFav from "../../Hooks/useGetFav/useGetFav";
 
 //todo skeleton animation added for the loading books
 
 const BookPage = () => {
-  const [allBooks, isLoading] = useGetAllBooks(); // Assuming useGetAllBooks is a custom hook
+  const [allBooks, isAllBookLoading] = useGetAllBooks(); // Assuming useGetAllBooks is a custom hook
+  const [, isFavLoading] = useGetFav();
+  const [isDataReady, setIsDataReady] = useState(false);
   const [categoriesBook, setCategoriesBook] = useState([]);
   const [sort, setSort] = useState("");
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [discount, setDiscount] = useState("");
   const [searchInput, setSearchInput] = useState("");
-  const [loggedUser, getUserIsLoading] = useLoggedUser();
-  // console.log(loggedUser);
+
+  // Combined loading effect
+  useEffect(() => {
+    if (!isAllBookLoading && !isFavLoading) {
+      setIsDataReady(true);
+    }
+  }, [isAllBookLoading, isFavLoading]);
 
   // Function to fetch and filter books
   useEffect(() => {
@@ -226,7 +231,7 @@ const BookPage = () => {
                 </p>
               ))}
           </div>
-          {isLoading ? (
+          {!isDataReady ? (
             <p>Loading....</p>
           ) : (
             <div className="grid  gap-y-12 gap-x-4 grid-cols-1 lg:grid-cols-3 px-[5%] my-[4%] ">

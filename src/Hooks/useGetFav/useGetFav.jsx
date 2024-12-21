@@ -4,28 +4,31 @@ import useAxiosSecure from "../useAxiosSecure/useAxiosSecure";
 
 const useGetFav = () => {
   const [favouriteData, setFavouriteData] = useState([]);
-  const [isFavLoading, setIsFavLoading] = useState([]);
+  const [isFavLoading, setIsFavLoading] = useState(false);
   const [loggedUser] = useLoggedUser();
   const [axiosSecure] = useAxiosSecure();
 
   useEffect(() => {
     const fetchFavourites = async () => {
-      setIsFavLoading(true); // Set loading to true before the request is made
       try {
+        setIsFavLoading(true); // Start loading
         if (loggedUser && loggedUser._id) {
           const res = await axiosSecure.get(
-            `http://localhost:5000/api/favs/getall/${loggedUser._id}`
+            `http://localhost:5000/api/favs/getall/${loggedUser?._id}`
           );
-          setFavouriteData(res.data[0]?.bookmarks);
+          setFavouriteData(res.data[0]?.bookmarks || []);
         }
       } catch (error) {
-        console.log("Error getting favourite data:", error);
+        console.error("Error getting favourite data:", error);
       } finally {
-        setIsFavLoading(false); // Set loading to false after the request is complete
+        setIsFavLoading(false); // Stop loading
       }
     };
 
-    fetchFavourites();
+    // Only fetch if `loggedUser` is available and stable
+    if (loggedUser && loggedUser._id) {
+      fetchFavourites();
+    }
   }, [loggedUser, axiosSecure]);
 
   return [favouriteData, isFavLoading];

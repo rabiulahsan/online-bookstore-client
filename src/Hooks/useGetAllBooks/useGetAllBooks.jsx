@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const useGetAllBooks = () => {
   const [allBooks, setAllBooks] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isAllBookLoading, setisAllBookLoading] = useState(true);
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -20,14 +20,14 @@ const useGetAllBooks = () => {
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
-        setIsLoading(false);
+        setisAllBookLoading(false);
       }
     };
 
     fetchBooks();
   }, []);
 
-  return [allBooks, isLoading];
+  return [allBooks, isAllBookLoading];
 };
 
 export default useGetAllBooks;
