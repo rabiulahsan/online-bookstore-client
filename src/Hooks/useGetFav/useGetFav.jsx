@@ -16,7 +16,7 @@ const useGetFav = () => {
           const res = await axiosSecure.get(
             `http://localhost:5000/api/favs/getall/${loggedUser._id}`
           );
-          setFavouriteData(res.data);
+          setFavouriteData(res.data[0]?.bookmarks);
         }
       } catch (error) {
         console.log("Error getting favourite data:", error);
