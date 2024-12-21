@@ -10,12 +10,13 @@ const BookmarkButton = ({ book }) => {
   const [loggedUser] = useLoggedUser();
   const [saved, setSaved] = useState(false);
   const [favouriteData] = useGetFav();
+  console.log(book);
 
   // Check if the book is already in favorites
   useEffect(() => {
     const isBookSaved = favouriteData?.some((data) => data.bookId === book._id);
     setSaved(isBookSaved);
-  }, [favouriteData, book._id]);
+  }, [favouriteData, book]);
 
   // Toggle favorite state
   const handleToggleFav = async () => {
@@ -24,10 +25,9 @@ const BookmarkButton = ({ book }) => {
         if (saved) {
           // If already saved, remove from favorites
           const result = await axiosSecure.delete(
-            `http://localhost:5000/api/favs/remove/${loggedUser._id}/${book._id}`
+            `http://localhost:5000/api/favs/remove/${loggedUser._id}/${book?.bookId}`
           );
           console.log("Bookmark removed successfully:", result.data);
-          setSaved(false); // Update state to false
         } else {
           // If not saved, add to favorites
           const result = await axiosSecure.post(
