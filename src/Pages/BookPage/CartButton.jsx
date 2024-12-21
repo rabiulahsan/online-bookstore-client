@@ -2,7 +2,7 @@
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const CartButton = ({ book }) => {
-  console.log(book);
+  //   console.log(book);
   return (
     <div>
       <p
