@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import StaggerAnimation from "../../Components/StaggerAnimation/StaggerAnimation";
 import useGetAllBooks from "../../Hooks/useGetAllBooks/useGetAllBooks";
+import { MdOutlineCancel } from "react-icons/md";
 
 import BookPageCard from "./BookPageCard";
 
@@ -88,6 +89,10 @@ const BookPage = () => {
     setDiscount("");
     setSort("");
     setCategoriesBook(allBooks); // Reset to all books
+  };
+
+  const handleCategoryCancel = (category) => {
+    setSelectedCategories(selectedCategories.filter((c) => c !== category));
   };
 
   return (
@@ -194,6 +199,23 @@ const BookPage = () => {
 
         {/* right side  */}
         <div className="w-[75%] ">
+          <div className="flex items-center gap-x-3 flex-wrap w-[90%] mx-auto mb-[6%]">
+            {selectedCategories.length > 0 &&
+              selectedCategories.map((category, i) => (
+                <p
+                  key={i}
+                  onClick={(i) => handleCategoryCancel(category)}
+                  className="flex items-center gap-x-2 px-4 py-2 rounded-sm bg-slate-200 text-slate-700 font-semibold cursor-pointer hover:bg-slate-300"
+                >
+                  <span className="flex items-center leading-none">
+                    {category}
+                  </span>
+                  <span className="flex items-center justify-center">
+                    <MdOutlineCancel className="text-lg" />
+                  </span>
+                </p>
+              ))}
+          </div>
           {isLoading ? (
             <p>Loading....</p>
           ) : (
