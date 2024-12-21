@@ -229,7 +229,7 @@ const BookPage = () => {
           {isLoading ? (
             <p>Loading....</p>
           ) : (
-            <div className="grid  gap-y-12 grid-cols-1 lg:grid-cols-3 px-[5%] my-[4%] ">
+            <div className="grid  gap-y-12 gap-x-4 grid-cols-1 lg:grid-cols-3 px-[5%] my-[4%] ">
               {categoriesBook.map((book) => (
                 <BookPageCard key={book?._id} book={book}></BookPageCard>
               ))}

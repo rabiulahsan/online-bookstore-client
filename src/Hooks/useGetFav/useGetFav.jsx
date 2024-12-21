@@ -16,7 +16,6 @@ const useGetFav = () => {
           const res = await axiosSecure.get(
             `http://localhost:5000/api/favs/getall/${loggedUser._id}`
           );
-          console.log(res.data);
           setFavouriteData(res.data);
         }
       } catch (error) {
