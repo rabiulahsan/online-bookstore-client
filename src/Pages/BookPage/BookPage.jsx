@@ -82,7 +82,6 @@ const BookPage = () => {
   };
 
   //logic for clear button
-
   const handleClear = () => {
     setSelectedCategories([]);
     setSearchInput("");
@@ -91,6 +90,7 @@ const BookPage = () => {
     setCategoriesBook(allBooks); // Reset to all books
   };
 
+  //logic for category cancel
   const handleCategoryCancel = (category) => {
     setSelectedCategories(selectedCategories.filter((c) => c !== category));
   };
@@ -136,7 +136,13 @@ const BookPage = () => {
       <div className=" flex  gap-x-4 px-[3%] py-[2%]">
         {/* left side  */}
 
-        <div className="p-[4%] w-[25%]   border-r border-slate-300 ">
+        <div className="px-[4%] w-[25%]   border-r border-slate-300 ">
+          <div className="flex items-center justify-center gap-x-2 px-4 py-2 mb-5 border border-slate-200 bg-transparent shadow-md rounded-sm text-slate-600 backdrop-blur-md">
+            <p className="">Total Books:</p>
+            <p className="text-lg font-bold text-slate-600">
+              {categoriesBook?.length}
+            </p>
+          </div>
           <div className="mb-4">
             <label className="block text-slate-500 font-bold text-lg mb-2">
               Sort by :
@@ -204,7 +210,7 @@ const BookPage = () => {
               selectedCategories.map((category, i) => (
                 <p
                   key={i}
-                  onClick={(i) => handleCategoryCancel(category)}
+                  onClick={() => handleCategoryCancel(category)}
                   className="flex items-center gap-x-2 px-4 py-2 rounded-sm bg-slate-200 text-slate-700 font-semibold cursor-pointer hover:bg-slate-300"
                 >
                   <span className="flex items-center leading-none">
