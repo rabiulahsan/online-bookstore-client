@@ -4,6 +4,8 @@ import useGetAllBooks from "../../Hooks/useGetAllBooks/useGetAllBooks";
 import { MdOutlineCancel } from "react-icons/md";
 
 import BookPageCard from "./BookPageCard";
+import { use } from "react";
+import useLoggedUser from "../../Hooks/useLoggedUser/useLoggedUser";
 
 //todo skeleton animation added for the loading books
 
@@ -14,6 +16,8 @@ const BookPage = () => {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [discount, setDiscount] = useState("");
   const [searchInput, setSearchInput] = useState("");
+  const [loggedUser, getUserIsLoading] = useLoggedUser();
+  // console.log(loggedUser);
 
   // Function to fetch and filter books
   useEffect(() => {

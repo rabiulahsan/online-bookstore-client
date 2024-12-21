@@ -1,8 +1,8 @@
 import { useLoaderData } from "react-router-dom";
+import useGetFav from "../../Hooks/useGetFav/useGetFav";
 
 const FavouritePage = () => {
-  const loadedData = useLoaderData();
-  console.log(loadedData);
+  const [favouriteData, isFavLoading] = useGetFav();
   return <div></div>;
 };
 
