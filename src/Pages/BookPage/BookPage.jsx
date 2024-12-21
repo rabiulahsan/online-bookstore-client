@@ -66,10 +66,12 @@ const BookPage = () => {
     fetchAndFilterBooks();
   }, [allBooks, selectedCategories, discount, sort, searchInput]); // Trigger when any dependency changes
 
+  // Function to handle search input
   const handleSearch = (e) => {
     setSearchInput(e.target.value); // Update the search input
   };
 
+  //logic for category filter
   const toggleCategory = (category) => {
     if (selectedCategories.includes(category)) {
       setSelectedCategories(selectedCategories.filter((c) => c !== category));
@@ -77,6 +79,8 @@ const BookPage = () => {
       setSelectedCategories([...selectedCategories, category]);
     }
   };
+
+  //logic for clear button
 
   const handleClear = () => {
     setSelectedCategories([]);
@@ -102,31 +106,23 @@ const BookPage = () => {
       {/* all books */}
 
       {/* search bar  */}
-      <div className="">
-        <div className="">
+      <div className=" flex items-center justify-center gap-x-5  w-[75%] mx-auto mb-4">
+        <div className="w-1/2">
           {/* Search Icon and Input */}
 
           <input
             type="text"
-            placeholder="Search your doctor..."
+            placeholder="Search your book..."
             value={searchInput}
             onChange={handleSearch}
-            className="w-[400px] outline-none text-slate-700 border border-slate-300 rounded-sm  shadow-sm py-[10px] px-4 "
+            className="w-full outline-none bg-transparent text-slate-700 border-2 border-slate-200 rounded-sm  shadow-sm py-2 px-4 "
             // onKeyDown={handleSearch}
           />
-
-          {/* Search Button */}
-          {/* <button
-            onClick={handleSearch}
-            className=" text-white font-semibold px-6 py-[10px] ml-5 bg-green-600 hover:bg-green-700 transition rounded-sm"
-          >
-            Search
-          </button> */}
         </div>
         <div className="">
           <button
             onClick={handleClear}
-            className="font-semibold text-white bg-slate-600 hover:bg-slate-700 px-5 py-3 rounded-sm"
+            className="font-semibold text-white bg-rose-500 hover:bg-rose-600 px-5 py-2 rounded-sm"
           >
             Clear All
           </button>
