@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
-import { AiOutlineShoppingCart } from "react-icons/ai";
+
 import { FaStar } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import { IoBookmark, IoBookmarkOutline } from "react-icons/io5";
 import useVerifyUser from "../../Hooks/useVerifyUser/useVerifyUser";
+import CartButton from "./CartButton";
+import BookmarkButton from "./BookmarkButton";
 
 const BookPageCard = ({ book }) => {
   const [isUser] = useVerifyUser();
@@ -34,18 +35,8 @@ const BookPageCard = ({ book }) => {
       {/* if user then only displayed this button */}
       {isUser && (
         <div className="  text-rose-600 font-bold flex items-center justify-center gap-x-3 my-3">
-          <span
-            className="bg-rose-100 hover:bg-rose-200 px-5 py-[10px] rounded-sm text-2xl flex items-center justify-center cursor-pointer"
-            title="Add to cart"
-          >
-            <AiOutlineShoppingCart></AiOutlineShoppingCart>
-          </span>
-          <span
-            className="bg-rose-100 hover:bg-rose-200 px-5 py-[10px] rounded-sm text-2xl flex items-center justify-center cursor-pointer"
-            title="Add to favourite book"
-          >
-            <IoBookmarkOutline></IoBookmarkOutline>
-          </span>
+          <CartButton book={book}></CartButton>
+          <BookmarkButton book={book}></BookmarkButton>
         </div>
       )}
     </div>
