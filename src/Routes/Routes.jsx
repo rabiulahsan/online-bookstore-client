@@ -6,7 +6,7 @@ import UserLogin from "../Pages/LoginFunction/UserLogin/UserLogin";
 import UserSignup from "../Pages/LoginFunction/UserLogin/UserSignup";
 import AuthorSignup from "../Pages/LoginFunction/AuthorLogin/AuthorSignup";
 import AuthorLogin from "../Pages/LoginFunction/AuthorLogin/AuthorLogin";
-import AdminPage from "../Pages/AdminPage/AdminPage";
+import AdminLogin from "../Pages/LoginFunction/AdminLogin/AdminLogin";
 import BookPage from "../Pages/BookPage/BookPage";
 import FavouritePage from "../Pages/FavouritePage/FavouritePage";
 
@@ -30,7 +30,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/master-admin-login",
-        element: <AdminPage></AdminPage>,
+        element: <AdminLogin></AdminLogin>,
       },
       {
         path: "/create-account",
