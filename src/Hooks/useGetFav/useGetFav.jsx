@@ -19,7 +19,7 @@ const useGetFav = () => {
           setFavouriteData(res.data[0]?.bookmarks || []);
         }
       } catch (error) {
-        console.error("Error getting favourite data:", error);
+        console.log("Error getting favourite data:", error);
       } finally {
         setIsFavLoading(false); // Stop loading
       }

@@ -2,12 +2,15 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import useLoggedUser from "../../Hooks/useLoggedUser/useLoggedUser";
 import useAxiosSecure from "../../Hooks/useAxiosSecure/useAxiosSecure";
 import { useState } from "react";
+import useGetCart from "../../Hooks/useGetCart/useGetCart";
 
 /* eslint-disable react/prop-types */
 const CartButton = ({ singleBookData }) => {
   const { title, discount, image, price, _id } = singleBookData;
   const [loggedUser] = useLoggedUser();
   const [axiosSecure] = useAxiosSecure();
+  const [cartData, isCartLoading] = useGetCart();
+  console.log(cartData);
 
   const [cart, setCart] = useState(null);
   const handleAddCart = async () => {
@@ -37,7 +40,7 @@ const CartButton = ({ singleBookData }) => {
         setCart(true); // Update state to true
       }
     } catch (error) {
-      console.error("Error Adding to Cart:", error);
+      console.log("Error Adding to Cart:", error);
     }
   };
   return (
