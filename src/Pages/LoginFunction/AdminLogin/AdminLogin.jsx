@@ -65,7 +65,7 @@ const AdminLogin = () => {
     <div className="bg-slate-100 min-h-screen flex items-center justify-center py-[2%]">
       <div className="bg-white shadow-lg rounded-lg py-[3%] px-[4%]  max-w-lg w-full">
         <h1 className="text-rose-500 font-bold text-2xl text-center">
-          Log into your account
+          Log into your Admin Panel
         </h1>
         <form
           onSubmit={handleSubmit(onSubmit)}

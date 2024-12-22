@@ -8,18 +8,19 @@ import useAllAuthors from "../../../Hooks/UseAllAuthors/UseAllAuthors";
 import useVerifyAuthor from "../../../Hooks/useVerifyAuthor/useVerifyAuthor";
 import useVerifyUser from "../../../Hooks/useVerifyUser/useVerifyUser";
 import useLoggedUser from "../../../Hooks/useLoggedUser/useLoggedUser";
+import useVerifyAdmin from "../../../Hooks/useVerifyAdmin/useVerifyAdmin";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
   // console.log(user);
   const navigate = useNavigate();
   const [loggedUser] = useLoggedUser();
-  console.log(loggedUser);
   const [allAuthor, isLoading] = useAllAuthors();
   // console.log(allAuthor);
 
   const [isAuthor] = useVerifyAuthor();
   const [isUser] = useVerifyUser();
+  const [isAdmin] = useVerifyAdmin();
 
   // console.log(isAuthor);
   // console.log(isUser);
