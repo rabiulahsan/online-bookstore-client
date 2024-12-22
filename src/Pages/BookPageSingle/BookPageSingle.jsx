@@ -13,12 +13,17 @@ const BookPageSingle = () => {
         <div className="w-[70%]">
           <div className="flex items-center gap-x-5">
             {/* img section  */}
-            <div className="w-[45%]">
+            <div className="w-[45%] relative">
               <img
                 src={singleBookData?.image}
                 alt={singleBookData?.title}
                 className="object-cover w-[200px] h-auto mx-auto  rounded-xl  shadow-[-6px_6px_8px_rgba(0,0,0,0.6)]"
               />
+              {parseInt(singleBookData?.discount.split("%"), 10) > 0 && (
+                <p className="absolute bg-rose-500 text-white font-bold  px-4 py-2 rounded-sm top-3 right-[16%]">
+                  {singleBookData?.discount}
+                </p>
+              )}
             </div>
             {/* details section  */}
             <div className="w-[55%]  ">
