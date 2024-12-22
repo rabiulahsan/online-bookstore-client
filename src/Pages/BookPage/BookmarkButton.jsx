@@ -25,13 +25,14 @@ const BookmarkButton = ({ book }) => {
         if (saved) {
           // If already saved, remove from favorites
           const result = await axiosSecure.delete(
-            `http://localhost:5000/api/favs/remove/${loggedUser._id}/${book?.bookId}`
+            `/api/favs/remove/${loggedUser._id}/${book?._id}`
           );
+          setSaved(false);
           console.log("Bookmark removed successfully:", result.data);
         } else {
           // If not saved, add to favorites
           const result = await axiosSecure.post(
-            `http://localhost:5000/api/favs/add/${loggedUser._id}`,
+            `/api/favs/add/${loggedUser._id}`,
             book
           );
           console.log("Bookmark added successfully:", result.data.result);
