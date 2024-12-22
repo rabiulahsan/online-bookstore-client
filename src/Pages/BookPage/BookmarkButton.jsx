@@ -9,7 +9,7 @@ const BookmarkButton = ({ book }) => {
   const [axiosSecure] = useAxiosSecure();
   const [loggedUser] = useLoggedUser();
   const [saved, setSaved] = useState(false);
-  const [favouriteData] = useGetFav();
+  const [favouriteData, isFavLoading] = useGetFav();
   console.log(book);
 
   // Check if the book is already in favorites
@@ -45,15 +45,17 @@ const BookmarkButton = ({ book }) => {
   };
 
   return (
-    <div>
-      <p
-        className="bg-rose-100 hover:bg-rose-200 px-5 py-[10px] rounded-sm text-2xl flex items-center justify-center cursor-pointer"
-        title={saved ? "Remove from wishlist book" : "Add to wishlist book"}
-        onClick={handleToggleFav}
-      >
-        {saved ? <IoBookmark /> : <IoBookmarkOutline />}
-      </p>
-    </div>
+    <>
+      {!isFavLoading && (
+        <p
+          className="bg-rose-100 hover:bg-rose-200 px-5 py-[10px] rounded-sm text-2xl flex items-center justify-center cursor-pointer"
+          title={saved ? "Remove from wishlist book" : "Add to wishlist book"}
+          onClick={handleToggleFav}
+        >
+          {saved ? <IoBookmark /> : <IoBookmarkOutline />}
+        </p>
+      )}
+    </>
   );
 };
 

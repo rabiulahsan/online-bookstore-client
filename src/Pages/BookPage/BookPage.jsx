@@ -8,21 +8,13 @@ import useGetFav from "../../Hooks/useGetFav/useGetFav";
 //todo skeleton animation added for the loading books
 
 const BookPage = () => {
-  const [allBooks, isAllBookLoading] = useGetAllBooks(); // Assuming useGetAllBooks is a custom hook
+  const [allBooks] = useGetAllBooks(); // Assuming useGetAllBooks is a custom hook
   const [, isFavLoading] = useGetFav();
-  const [isDataReady, setIsDataReady] = useState(false);
   const [categoriesBook, setCategoriesBook] = useState([]);
   const [sort, setSort] = useState("");
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [discount, setDiscount] = useState("");
   const [searchInput, setSearchInput] = useState("");
-
-  // Combined loading effect
-  useEffect(() => {
-    if (!isAllBookLoading && !isFavLoading) {
-      setIsDataReady(true);
-    }
-  }, [isAllBookLoading, isFavLoading]);
 
   // Function to fetch and filter books
   useEffect(() => {
@@ -231,7 +223,7 @@ const BookPage = () => {
                 </p>
               ))}
           </div>
-          {!isDataReady ? (
+          {isFavLoading ? (
             <p>Loading....</p>
           ) : (
             <div className="grid  gap-y-12 gap-x-4 grid-cols-1 lg:grid-cols-3 px-[5%] my-[4%] ">

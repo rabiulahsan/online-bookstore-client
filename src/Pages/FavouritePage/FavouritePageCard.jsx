@@ -17,7 +17,7 @@ const FavouritePageCard = ({ book, onRemoveBookmark }) => {
   const [loggedUser] = useLoggedUser();
   const [saved, setSaved] = useState(false);
   const [favouriteData] = useGetFav();
-  console.log(book);
+  // console.log(book);
 
   // Check if the book is already in favorites
   useEffect(() => {
