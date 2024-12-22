@@ -1,9 +1,13 @@
 import { FaStarHalfAlt } from "react-icons/fa";
 import { FaRegStar, FaStar } from "react-icons/fa6";
 import { useLoaderData } from "react-router-dom";
+import CartButton from "./CartButton";
+import SaveButton from "./SaveButton";
 
 const BookPageSingle = () => {
   const singleBookData = useLoaderData();
+
+  // const [saved, setSaved] = useState(false);
   console.log(singleBookData);
   return (
     <div className="px-[8%] py-[5%] bg-slate-100">
@@ -109,6 +113,11 @@ const BookPageSingle = () => {
                     ${singleBookData?.price}
                   </span>
                 )}
+              </div>
+
+              <div className="flex items-center gap-x-4">
+                <CartButton singleBookData={singleBookData}></CartButton>
+                <SaveButton></SaveButton>
               </div>
             </div>
           </div>
