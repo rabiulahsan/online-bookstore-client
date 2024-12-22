@@ -47,7 +47,7 @@ const BookmarkButton = ({ book }) => {
     <div>
       <p
         className="bg-rose-100 hover:bg-rose-200 px-5 py-[10px] rounded-sm text-2xl flex items-center justify-center cursor-pointer"
-        title={saved ? "Remove from favorite book" : "Add to favorite book"}
+        title={saved ? "Remove from wishlist book" : "Add to wishlist book"}
         onClick={handleToggleFav}
       >
         {saved ? <IoBookmark /> : <IoBookmarkOutline />}

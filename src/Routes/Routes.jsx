@@ -9,6 +9,7 @@ import AuthorLogin from "../Pages/LoginFunction/AuthorLogin/AuthorLogin";
 import AdminLogin from "../Pages/LoginFunction/AdminLogin/AdminLogin";
 import BookPage from "../Pages/BookPage/BookPage";
 import FavouritePage from "../Pages/FavouritePage/FavouritePage";
+import BookPageSingle from "../Pages/BookPageSingle/BookPageSingle";
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +28,15 @@ export const router = createBrowserRouter([
       {
         path: "/favourites",
         element: <FavouritePage></FavouritePage>,
+      },
+      {
+        path: "/books/:bookId",
+        element: <BookPageSingle></BookPageSingle>,
+        loader: ({ params }) => {
+          return fetch(
+            `http://localhost:5000/api/books/getsinglebook/${params.bookId}`
+          );
+        },
       },
       {
         path: "/master-admin-login",

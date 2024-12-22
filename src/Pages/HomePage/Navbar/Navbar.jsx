@@ -56,7 +56,7 @@ const Navbar = () => {
             {user && (
               <>
                 <span className="text-slate-500 font-semibold">
-                  <ActiveLink to="/favourites">Favourites</ActiveLink>
+                  <ActiveLink to="/favourites">WishLIst</ActiveLink>
                 </span>
                 <span className="text-slate-500 font-semibold">
                   <ActiveLink to="/my-books">My Books</ActiveLink>
