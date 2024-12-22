@@ -4,7 +4,7 @@ import useLoggedUser from "../useLoggedUser/useLoggedUser";
 
 const useGetCart = () => {
   const [cartData, setCartData] = useState([]);
-  const [isCartLoading, setIsCartLoading] = useState(false);
+  const [isCartLoading, setIsCartLoading] = useState(true);
   const [loggedUser] = useLoggedUser();
   const [axiosSecure] = useAxiosSecure();
 

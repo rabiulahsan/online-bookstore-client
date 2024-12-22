@@ -4,7 +4,7 @@ import useAxiosSecure from "../useAxiosSecure/useAxiosSecure";
 
 const useGetFav = () => {
   const [favouriteData, setFavouriteData] = useState([]);
-  const [isFavLoading, setIsFavLoading] = useState(false);
+  const [isFavLoading, setIsFavLoading] = useState(true);
   const [loggedUser] = useLoggedUser();
   const [axiosSecure] = useAxiosSecure();
 
