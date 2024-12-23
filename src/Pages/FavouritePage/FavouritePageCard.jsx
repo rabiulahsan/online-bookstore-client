@@ -3,12 +3,13 @@
 import { FaStar } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import useVerifyUser from "../../Hooks/useVerifyUser/useVerifyUser";
-import CartButton from "../BookPage/CartButton";
+
 import { IoBookmark, IoBookmarkOutline } from "react-icons/io5";
 import useAxiosSecure from "../../Hooks/useAxiosSecure/useAxiosSecure";
 import useLoggedUser from "../../Hooks/useLoggedUser/useLoggedUser";
 import { useEffect, useState } from "react";
 import useGetFav from "../../Hooks/useGetFav/useGetFav";
+import CartButton from "../BookPageSingle/CartButton";
 
 const FavouritePageCard = ({ book, onRemoveBookmark }) => {
   const [isUser] = useVerifyUser();
@@ -16,8 +17,8 @@ const FavouritePageCard = ({ book, onRemoveBookmark }) => {
   const [axiosSecure] = useAxiosSecure();
   const [loggedUser] = useLoggedUser();
   const [saved, setSaved] = useState(false);
-  const [favouriteData] = useGetFav();
-  // console.log(book);
+  const [favouriteData, isFavLoading] = useGetFav();
+  console.log(favouriteData);
 
   // Check if the book is already in favorites
   useEffect(() => {
@@ -55,43 +56,55 @@ const FavouritePageCard = ({ book, onRemoveBookmark }) => {
 
   return (
     <div className="">
-      <div className="flex flex-col items-center group ">
-        <Link to={`/books/${book?._id}`}>
-          <img
-            src={book?.image}
-            alt={book?.title}
-            className="w-[220px] h-[320px] mx-auto  rounded-xl  shadow-[-6px_6px_8px_rgba(0,0,0,0.6)] transform group-hover:-translate-y-4 transition-transform duration-300"
-          />
+      {isFavLoading ? (
+        <p className="text-center font-bold text-slate-600 text-xl">
+          Loading...
+        </p>
+      ) : favouriteData?.length <= 0 ? (
+        <p className="text-center font-bold text-slate-600 text-xl">
+          You have no book in wishlist
+        </p>
+      ) : (
+        <div className="">
+          <div className="flex flex-col items-center group ">
+            <Link to={`/books/${book?._id}`}>
+              <img
+                src={book?.image}
+                alt={book?.title}
+                className="w-[220px] h-[320px] mx-auto  rounded-xl  shadow-[-6px_6px_8px_rgba(0,0,0,0.6)] transform group-hover:-translate-y-4 transition-transform duration-300"
+              />
 
-          <p className="font-bold text-slate-700 text-lg mb-2 mt-4 text-center">
-            {book?.title}
-          </p>
-          <p className="flex items-center justify-between w-[220px]">
-            <span className="text-gray-600 ">{book?.author}</span>
-            <span className="text-slate-600 flex items-center font-semibold gap-x-1">
-              {book?.rating?.average}
-              {"  "}
-              <FaStar className="text-lg text-yellow-500"></FaStar>
-            </span>
-          </p>
-        </Link>
-      </div>
-
-      {/* if user then only displayed this button */}
-      {isUser && (
-        <div className="  text-rose-600 font-bold flex items-center justify-center gap-x-3 my-3">
-          <CartButton book={book}></CartButton>
-          <div>
-            <p
-              className="bg-rose-100 hover:bg-rose-200 px-5 py-[10px] rounded-sm text-2xl flex items-center justify-center cursor-pointer"
-              title={
-                saved ? "Remove from favorite book" : "Add to favorite book"
-              }
-              onClick={handleToggleFav}
-            >
-              {saved ? <IoBookmark /> : <IoBookmarkOutline />}
-            </p>
+              <p className="font-bold text-slate-700 text-lg mb-2 mt-4 text-center">
+                {book?.title}
+              </p>
+              <p className="flex items-center justify-between w-[220px]">
+                <span className="text-gray-600 ">{book?.author}</span>
+                <span className="text-slate-600 flex items-center font-semibold gap-x-1">
+                  {book?.rating?.average}
+                  {"  "}
+                  <FaStar className="text-lg text-yellow-500"></FaStar>
+                </span>
+              </p>
+            </Link>
           </div>
+
+          {/* if user then only displayed this button */}
+          {isUser && (
+            <div className="  text-rose-600 font-bold flex items-center justify-center gap-x-3 my-3">
+              <CartButton singleBookData={book}></CartButton>
+              <div>
+                <p
+                  className="bg-rose-100 hover:bg-rose-200 px-5 py-[10px] rounded-sm text-2xl flex items-center justify-center cursor-pointer"
+                  title={
+                    saved ? "Remove from favorite book" : "Add to favorite book"
+                  }
+                  onClick={handleToggleFav}
+                >
+                  {saved ? <IoBookmark /> : <IoBookmarkOutline />}
+                </p>
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>

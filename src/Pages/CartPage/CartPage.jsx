@@ -13,6 +13,7 @@ const CartPage = () => {
 
   const handleItemDelete = async (bookId) => {
     try {
+      console.log(bookId);
       // Call the API to delete the book
       const response = await axiosSecure.delete(
         `/api/carts/remove/${loggedUser?._id}/${bookId}`
@@ -63,13 +64,7 @@ const CartPage = () => {
               />
               <p>{cart?.title}</p>
               <p>{cart?.discount}</p>
-              <p>
-                $
-                {(
-                  cart?.price -
-                  (cart?.price * parseInt(cart?.discount.split("%"), 10)) / 100
-                ).toFixed(2)}
-              </p>
+              <p>${cart?.price}</p>
               <p
                 onClick={() => handleItemDelete(cart?.bookId)}
                 className="flex items-center gap-x-2 bg-rose-500 hover:bg-rose-600 text-white font-semibold px-4 py-2 rounded-sm cursor-pointer mt-4"

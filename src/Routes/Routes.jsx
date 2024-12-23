@@ -31,7 +31,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/books",
-        element: <BookPage></BookPage>,
+        element: (
+          <CartProvider>
+            <BookPage></BookPage>,
+          </CartProvider>
+        ),
       },
       {
         path: "/favourites",
@@ -39,7 +43,12 @@ export const router = createBrowserRouter([
       },
       {
         path: "/books/:bookId",
-        element: <BookPageSingle></BookPageSingle>,
+        element: (
+          <CartProvider>
+            <BookPageSingle></BookPageSingle>
+          </CartProvider>
+        ),
+
         loader: ({ params }) => {
           return fetch(
             `http://localhost:5000/api/books/getsinglebook/${params.bookId}`

@@ -63,7 +63,7 @@ const CartButton = ({ singleBookData }) => {
           <AiOutlineShoppingCart className="text-2xl"></AiOutlineShoppingCart>
         </button>
       ) : (
-        <p className="font-bold text-slate-600">
+        <p className="font-bold text-sm text-slate-600">
           This item is already in the cart.
         </p>
       )}

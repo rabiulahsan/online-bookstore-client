@@ -7,7 +7,6 @@ import useAuth from "../../../Hooks/UseAuth/UseAuth";
 // import useAllAuthors from "../../../Hooks/UseAllAuthors/UseAllAuthors";
 import useVerifyAuthor from "../../../Hooks/useVerifyAuthor/useVerifyAuthor";
 import useVerifyUser from "../../../Hooks/useVerifyUser/useVerifyUser";
-import useLoggedUser from "../../../Hooks/useLoggedUser/useLoggedUser";
 import useVerifyAdmin from "../../../Hooks/useVerifyAdmin/useVerifyAdmin";
 import { CartContext } from "../../../Providers/CartProvider";
 import { useContext } from "react";
@@ -17,8 +16,7 @@ const Navbar = () => {
   const { cartData } = cart;
   const { user, logOut } = useAuth();
   const navigate = useNavigate();
-  const [loggedUser] = useLoggedUser();
-  console.log(loggedUser?._id);
+
   // const [allAuthor, isLoading] = useAllAuthors();
   // console.log(allAuthor);
 
@@ -100,12 +98,20 @@ const Navbar = () => {
               <MdOutlineLogout className="text-xl font-semibold" />
             </button>
           ) : (
-            <Link to="/create-account">
-              <button className="flex gap-x-2 items-center font-bold text-white bg-rose-500 px-7 py-[10px] rounded-sm hover:bg-slate-800">
-                Log in
-                <LuUserPlus className="text-xl font-semibold" />
-              </button>
-            </Link>
+            <>
+              <Link to="/create-account">
+                <button className="flex gap-x-2 items-center font-bold text-white bg-rose-500 px-7 py-[10px] rounded-sm hover:bg-slate-800">
+                  Log in
+                  <LuUserPlus className="text-xl font-semibold" />
+                </button>
+              </Link>
+              <Link to="/master-admin-login">
+                <button className="flex gap-x-2 items-center font-bold text-white bg-rose-500 px-7 py-[10px] rounded-sm hover:bg-slate-800">
+                  Admin Login
+                  <LuUserPlus className="text-xl font-semibold" />
+                </button>
+              </Link>
+            </>
           )}
         </div>
       </div>

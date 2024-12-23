@@ -3,8 +3,9 @@
 import { FaStar } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import useVerifyUser from "../../Hooks/useVerifyUser/useVerifyUser";
-import CartButton from "./CartButton";
+
 import BookmarkButton from "./BookmarkButton";
+import CartButton from "../BookPageSingle/CartButton";
 
 const BookPageCard = ({ book }) => {
   const [isUser] = useVerifyUser();
@@ -42,7 +43,8 @@ const BookPageCard = ({ book }) => {
       {/* if user then only displayed this button */}
       {isUser && (
         <div className="  text-rose-600 font-bold flex items-center justify-center gap-x-3 my-3">
-          <CartButton book={book}></CartButton>
+          {/* <CartButton book={book}></CartButton> */}
+          <CartButton singleBookData={book}></CartButton>
           <BookmarkButton book={book}></BookmarkButton>
         </div>
       )}
