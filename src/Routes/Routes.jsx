@@ -71,7 +71,7 @@ export const router = createBrowserRouter([
     element: <DashboardLayout></DashboardLayout>,
     children: [
       {
-        path: "/dashboard/author",
+        path: "/dashboard/author/profile",
         element: <AuthorDashboard></AuthorDashboard>,
       },
     ],

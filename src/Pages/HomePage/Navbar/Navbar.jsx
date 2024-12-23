@@ -61,7 +61,9 @@ const Navbar = () => {
 
             {isAuthor && (
               <span className="text-slate-500 font-semibold">
-                <ActiveLink to="/dashboard/author">Dashboard</ActiveLink>
+                <ActiveLink to="/dashboard/author/profile">
+                  Dashboard
+                </ActiveLink>
               </span>
             )}
           </div>

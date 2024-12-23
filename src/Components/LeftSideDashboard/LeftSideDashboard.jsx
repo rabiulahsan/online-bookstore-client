@@ -32,10 +32,12 @@ const LeftSideDashboard = () => {
       <div className="p-[8%]">
         <ul className=" flex flex-col gap-y-2">
           {/* profile button  */}
-          <Link to="/dashboard/author">
+          <Link to="/dashboard/author/profile">
             <li
               className={`flex items-center justify-start gap-x-5 cursor-pointer  px-5 py-4 rounded-sm hover:bg-slate-600 ${
-                path === "/dashboard/author" ? "bg-rose-500 text-white" : ""
+                path === "/dashboard/author/profile"
+                  ? "bg-rose-500 text-white"
+                  : ""
               }`}
             >
               <span>
