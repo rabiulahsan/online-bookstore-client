@@ -10,6 +10,8 @@ import AdminLogin from "../Pages/LoginFunction/AdminLogin/AdminLogin";
 import BookPage from "../Pages/BookPage/BookPage";
 import FavouritePage from "../Pages/FavouritePage/FavouritePage";
 import BookPageSingle from "../Pages/BookPageSingle/BookPageSingle";
+import DashboardLayout from "../Layouts/DashboardLayout";
+import AuthorDashboard from "../Pages/AuthorDashboard/AuthorDashboard";
 
 export const router = createBrowserRouter([
   {
@@ -61,6 +63,16 @@ export const router = createBrowserRouter([
       {
         path: "/author/login",
         element: <AuthorLogin></AuthorLogin>,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <DashboardLayout></DashboardLayout>,
+    children: [
+      {
+        path: "/dashboard/author",
+        element: <AuthorDashboard></AuthorDashboard>,
       },
     ],
   },

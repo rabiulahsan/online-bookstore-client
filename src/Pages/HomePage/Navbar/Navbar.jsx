@@ -54,14 +54,15 @@ const Navbar = () => {
             </span>
 
             {user && (
-              <>
-                <span className="text-slate-500 font-semibold">
-                  <ActiveLink to="/favourites">WishLIst</ActiveLink>
-                </span>
-                <span className="text-slate-500 font-semibold">
-                  <ActiveLink to="/my-books">My Books</ActiveLink>
-                </span>
-              </>
+              <span className="text-slate-500 font-semibold">
+                <ActiveLink to="/favourites">WishLIst</ActiveLink>
+              </span>
+            )}
+
+            {isAuthor && (
+              <span className="text-slate-500 font-semibold">
+                <ActiveLink to="/dashboard/author">Dashboard</ActiveLink>
+              </span>
             )}
           </div>
         </div>
