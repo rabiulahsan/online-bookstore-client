@@ -9,8 +9,12 @@ import useVerifyAuthor from "../../../Hooks/useVerifyAuthor/useVerifyAuthor";
 import useVerifyUser from "../../../Hooks/useVerifyUser/useVerifyUser";
 import useLoggedUser from "../../../Hooks/useLoggedUser/useLoggedUser";
 import useVerifyAdmin from "../../../Hooks/useVerifyAdmin/useVerifyAdmin";
+import { CartContext } from "../../../Providers/CartProvider";
+import { useContext } from "react";
 
 const Navbar = () => {
+  const cart = useContext(CartContext);
+  const { cartData } = cart;
   const { user, logOut } = useAuth();
   const navigate = useNavigate();
   const [loggedUser] = useLoggedUser();
@@ -76,11 +80,16 @@ const Navbar = () => {
 
         <div className="nav-options flex items-center gap-x-4">
           {isUser && user && (
-            <span className=" border border-rose-500 rounded-full p-2 bg-rose-500 hover:bg-rose-600 cursor-pointer">
-              <Link to={`/cart`}>
-                <AiOutlineShoppingCart className="text-2xl font-semibold text-white"></AiOutlineShoppingCart>
+            <div className="relative">
+              <Link to="/cart" className="inline-block">
+                <span className="border border-rose-500 rounded-full p-2 bg-rose-500 hover:bg-rose-600 cursor-pointer relative inline-flex items-center justify-center">
+                  <AiOutlineShoppingCart className="text-2xl font-semibold text-white"></AiOutlineShoppingCart>
+                </span>
+                <span className="bg-slate-700 text-white font-bold text-xs absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 rounded-full px-1.5 py-0.5">
+                  {cartData?.length || 0}
+                </span>
               </Link>
-            </span>
+            </div>
           )}
           {user ? (
             <button
