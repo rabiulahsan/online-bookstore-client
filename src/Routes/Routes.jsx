@@ -11,7 +11,9 @@ import BookPage from "../Pages/BookPage/BookPage";
 import FavouritePage from "../Pages/FavouritePage/FavouritePage";
 import BookPageSingle from "../Pages/BookPageSingle/BookPageSingle";
 import DashboardLayout from "../Layouts/DashboardLayout";
-import AuthorDashboard from "../Pages/AuthorDashboard/AuthorDashboard";
+import AuthorDashboard from "../Pages/AuthorDashboard/AuthorDashboard/AuthorDashboard";
+import AuthorMybook from "../Pages/AuthorDashboard/AuthorMybook/AuthorMybook";
+import AuthorNewbook from "../Pages/AuthorDashboard/AuthorNewbook/AuthorNewbook";
 
 export const router = createBrowserRouter([
   {
@@ -73,6 +75,14 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/author/profile",
         element: <AuthorDashboard></AuthorDashboard>,
+      },
+      {
+        path: "/dashboard/author/mybook",
+        element: <AuthorMybook></AuthorMybook>,
+      },
+      {
+        path: "/dashboard/author/newbook",
+        element: <AuthorNewbook></AuthorNewbook>,
       },
     ],
   },

@@ -19,10 +19,10 @@ const LeftSideDashboard = () => {
       });
   };
   return (
-    <div className="bg-slate-700  min-h-screen">
+    <div className="bg-slate-700  min-h-screen sticky top-0">
       <div className="py-[5%] border-b border-slate-50">
         <p>
-          <Link href="/">
+          <Link href="localhost:5173/">
             <p className="text-3xl font-bold font-playball text-white text-center">
               <span className="text-rose-500">Book</span>Verse
             </p>
@@ -34,10 +34,10 @@ const LeftSideDashboard = () => {
           {/* profile button  */}
           <Link to="/dashboard/author/profile">
             <li
-              className={`flex items-center justify-start gap-x-5 cursor-pointer  px-5 py-4 rounded-sm hover:bg-slate-600 ${
+              className={`flex items-center justify-start gap-x-5 cursor-pointer  px-5 py-4 rounded-sm  ${
                 path === "/dashboard/author/profile"
                   ? "bg-rose-500 text-white"
-                  : ""
+                  : "hover:bg-slate-600"
               }`}
             >
               <span>
@@ -50,10 +50,10 @@ const LeftSideDashboard = () => {
           {/* my books button  */}
           <Link to="/dashboard/author/mybook">
             <li
-              className={`flex items-center justify-start gap-x-5 cursor-pointer  px-5 py-4 rounded-sm hover:bg-slate-600 ${
+              className={`flex items-center justify-start gap-x-5 cursor-pointer  px-5 py-4 rounded-sm  ${
                 path === "/dashboard/author/mybook"
                   ? "bg-rose-500 text-white"
-                  : ""
+                  : "hover:bg-slate-600"
               }`}
             >
               <span>
@@ -66,10 +66,10 @@ const LeftSideDashboard = () => {
           {/* new book button  */}
           <Link to="/dashboard/author/newbook">
             <li
-              className={`flex items-center justify-start gap-x-5 cursor-pointer  px-5 py-4 rounded-sm hover:bg-slate-600 ${
+              className={`flex items-center justify-start gap-x-5 cursor-pointer  px-5 py-4 rounded-sm  ${
                 path === "/dashboard/author/newbook"
                   ? "bg-rose-500 text-white"
-                  : ""
+                  : "hover:bg-slate-600"
               }`}
             >
               <span>
