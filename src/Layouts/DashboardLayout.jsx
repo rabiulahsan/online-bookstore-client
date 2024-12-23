@@ -3,7 +3,7 @@ import LeftSideDashboard from "../Components/LeftSideDashboard/LeftSideDashboard
 
 const DashboardLayout = () => {
   return (
-    <div className="flex  gap-x-6">
+    <div className="flex">
       <div className="w-1/4 border border-slate-500">
         <LeftSideDashboard></LeftSideDashboard>
       </div>

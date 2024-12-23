@@ -5,7 +5,7 @@ import { IoIosLogOut } from "react-icons/io";
 import useAuth from "../../Hooks/UseAuth/UseAuth";
 
 const LeftSideDashboard = () => {
-  const { user, logOut } = useAuth();
+  const { logOut } = useAuth();
   const navigate = useNavigate();
   const path = useLocation().pathname;
   console.log(path);
