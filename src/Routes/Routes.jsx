@@ -53,7 +53,7 @@ export const router = createBrowserRouter([
 
         loader: ({ params }) => {
           return fetch(
-            `http://localhost:5000/api/books/getsinglebook/${params.bookId}`
+            `https://online-bookstore-server.vercel.app/api/books/getsinglebook/${params.bookId}`
           );
         },
       },

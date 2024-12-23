@@ -14,7 +14,7 @@ const useGetFav = () => {
         setIsFavLoading(true); // Start loading
         if (loggedUser && loggedUser._id) {
           const res = await axiosSecure.get(
-            `http://localhost:5000/api/favs/getall/${loggedUser?._id}`
+            `https://online-bookstore-server.vercel.app/api/favs/getall/${loggedUser?._id}`
           );
           setFavouriteData(res.data[0]?.bookmarks || []);
         }

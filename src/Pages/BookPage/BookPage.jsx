@@ -3,18 +3,17 @@ import StaggerAnimation from "../../Components/StaggerAnimation/StaggerAnimation
 import useGetAllBooks from "../../Hooks/useGetAllBooks/useGetAllBooks";
 import { MdOutlineCancel } from "react-icons/md";
 import BookPageCard from "./BookPageCard";
-import useGetFav from "../../Hooks/useGetFav/useGetFav";
 
 //todo skeleton animation added for the loading books
 
 const BookPage = () => {
-  const [allBooks] = useGetAllBooks(); // Assuming useGetAllBooks is a custom hook
-  const [, isFavLoading] = useGetFav();
+  const [allBooks, isAllBookLoading] = useGetAllBooks(); // Assuming useGetAllBooks is a custom hook
   const [categoriesBook, setCategoriesBook] = useState([]);
   const [sort, setSort] = useState("");
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [discount, setDiscount] = useState("");
   const [searchInput, setSearchInput] = useState("");
+  console.log(allBooks);
 
   // Function to fetch and filter books
   useEffect(() => {
@@ -26,7 +25,7 @@ const BookPage = () => {
         if (selectedCategories.length > 0) {
           const categoriesQuery = selectedCategories.join(",");
           const response = await fetch(
-            `http://localhost:5000/api/books/category?categories=${categoriesQuery}`
+            `https://online-bookstore-server.vercel.app/api/books/category?categories=${categoriesQuery}`
           );
           const data = await response.json();
           books = data.data; // Update books based on categories
@@ -223,7 +222,7 @@ const BookPage = () => {
                 </p>
               ))}
           </div>
-          {isFavLoading ? (
+          {isAllBookLoading ? (
             <p>Loading....</p>
           ) : (
             <div className="grid  gap-y-12 gap-x-4 grid-cols-1 lg:grid-cols-3 px-[5%] my-[4%] ">
