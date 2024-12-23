@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure/useAxiosSecure";
 import useLoggedUser from "../../../Hooks/useLoggedUser/useLoggedUser";
 import { FaStar } from "react-icons/fa";
+import { ImBin } from "react-icons/im";
 
 const AuthorMybook = () => {
   const [myBooks, setMybooks] = useState([]);
@@ -29,12 +30,37 @@ const AuthorMybook = () => {
     fetchBooks();
   }, [loggedUser, axiosSecure]);
 
+  const handleBookDelete = async (bookId) => {
+    try {
+      // Call the API to delete the book
+      const response = await axiosSecure.delete(
+        `/api/books/deletebook/${bookId}`
+      );
+      console.log("Delete response:", response.data);
+
+      if (response.status === 200) {
+        // Update the state to reflect the deletion
+        setMybooks((prevBooks) =>
+          prevBooks.filter((book) => book._id !== bookId)
+        );
+      } else {
+        console.error("Failed to delete the book");
+      }
+    } catch (error) {
+      console.error("Error deleting the book:", error);
+    }
+  };
+
   console.log(myBooks);
   return (
     <div className="bg-white my-[5%] p-[5%]">
       <p className="font-bold text-xl text-slate-500">All Books</p>
       {isloading ? (
         <p>Loading...</p>
+      ) : myBooks.length <= 0 ? (
+        <p className="text-center my-[5%] font-bold text-slate-700 text-2xl">
+          You have no Book
+        </p>
       ) : (
         <div className="grid  gap-y-12 gap-x-4 grid-cols-1 lg:grid-cols-3 px-[5%] my-[4%] ">
           {myBooks?.map((book) => (
@@ -62,6 +88,17 @@ const AuthorMybook = () => {
                   <FaStar className="text-lg text-yellow-500"></FaStar>
                 </span>
               </p>
+              <div className="flex items-center justify-center">
+                <p
+                  onClick={() => handleBookDelete(book?._id)}
+                  className="flex items-center gap-x-2 bg-rose-500 hover:bg-rose-600 text-white font-semibold px-4 py-2 rounded-sm cursor-pointer mt-4"
+                >
+                  <span>
+                    <ImBin className="text-xl"></ImBin>
+                  </span>
+                  Delete
+                </p>
+              </div>
             </div>
           ))}
         </div>

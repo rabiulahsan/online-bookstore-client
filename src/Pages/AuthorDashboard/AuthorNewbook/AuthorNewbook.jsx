@@ -54,7 +54,7 @@ const AuthorNewbook = () => {
       <p className="font-bold text-xl text-slate-500 mb-5">Create a new book</p>
 
       <form onSubmit={handleSubmit(onSubmit)} className="my-6 px-[5%]">
-        <div className="grid gap-x-8 grid-cols-1 lg:grid-cols-2">
+        <div className="grid gap-x-8 gap-y-5 grid-cols-1 lg:grid-cols-2">
           {/* Title */}
           <div className="form-control w-full ">
             <label className="label   block font-semibold text-gray-700">
