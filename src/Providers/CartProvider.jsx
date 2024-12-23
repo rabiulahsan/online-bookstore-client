@@ -30,7 +30,7 @@ const CartProvider = ({ children }) => {
           );
 
           const data = await res.json();
-          console.log(data);
+          // console.log(data);
 
           setCartData(data?.items || []); // Update state with cart items
           setIsCartLoading(false); // Ensure loading state is updated

@@ -12,9 +12,9 @@ import useVerifyAdmin from "../../../Hooks/useVerifyAdmin/useVerifyAdmin";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
-  // console.log(user);
   const navigate = useNavigate();
   const [loggedUser] = useLoggedUser();
+  console.log(loggedUser?._id);
   // const [allAuthor, isLoading] = useAllAuthors();
   // console.log(allAuthor);
 
@@ -75,9 +75,9 @@ const Navbar = () => {
         </div>
 
         <div className="nav-options flex items-center gap-x-4">
-          {isUser && (
+          {isUser && user && (
             <span className=" border border-rose-500 rounded-full p-2 bg-rose-500 hover:bg-rose-600 cursor-pointer">
-              <Link to={`/cart/${loggedUser?._id}`}>
+              <Link to={`/cart`}>
                 <AiOutlineShoppingCart className="text-2xl font-semibold text-white"></AiOutlineShoppingCart>
               </Link>
             </span>

@@ -17,6 +17,7 @@ import AuthorNewbook from "../Pages/AuthorDashboard/AuthorNewbook/AuthorNewbook"
 import DashboardProfilePage from "../Pages/AdminDashboard/DashboardProfilePage/DashboardProfilePage";
 import AdminAllAuthor from "../Pages/AdminDashboard/AdminAllAuthor/AdminAllAuthor";
 import CartPage from "../Pages/CartPage/CartPage";
+import CartProvider from "../Providers/CartProvider";
 
 export const router = createBrowserRouter([
   {
@@ -46,13 +47,12 @@ export const router = createBrowserRouter([
         },
       },
       {
-        path: "/cart/:userId",
-        element: <CartPage></CartPage>,
-        loader: ({ params }) => {
-          return fetch(
-            `http://localhost:5000/api/carts/getall/${params.userId}`
-          );
-        },
+        path: "/cart",
+        element: (
+          <CartProvider>
+            <CartPage></CartPage>
+          </CartProvider>
+        ),
       },
       {
         path: "/master-admin-login",

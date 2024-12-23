@@ -6,7 +6,7 @@ const useVerifyUser = () => {
   const { user, loading } = useAuth();
   const [axiosSecure] = useAxiosSecure();
 
-  const [isUser, setIsUser] = useState(false);
+  const [isUser, setIsUser] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
