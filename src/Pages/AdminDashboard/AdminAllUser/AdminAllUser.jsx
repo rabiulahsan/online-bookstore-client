@@ -48,7 +48,7 @@ const AdminAllUser = () => {
       <p className="font-bold text-xl text-slate-500">All Books</p>
       {isLoading ? (
         <p>Loading...</p>
-      ) : users?.length <= 0 ? (
+      ) : users?.length === 0 ? (
         <p className="text-center my-[5%] font-bold text-slate-700 text-2xl">
           There is no User
         </p>

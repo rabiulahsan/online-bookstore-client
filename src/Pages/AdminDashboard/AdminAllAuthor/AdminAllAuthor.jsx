@@ -51,7 +51,7 @@ const AdminAllAuthor = () => {
       <p className="font-bold text-xl text-slate-500">All Books</p>
       {isallAuthorsLoading ? (
         <p>Loading...</p>
-      ) : allAuthors.length <= 0 ? (
+      ) : allAuthors.length === 0 ? (
         <p className="text-center my-[5%] font-bold text-slate-700 text-2xl">
           There is no author
         </p>
