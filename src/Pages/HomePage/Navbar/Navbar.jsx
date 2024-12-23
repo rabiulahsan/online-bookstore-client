@@ -11,7 +11,7 @@ import useLoggedUser from "../../../Hooks/useLoggedUser/useLoggedUser";
 import useVerifyAdmin from "../../../Hooks/useVerifyAdmin/useVerifyAdmin";
 
 const Navbar = () => {
-  const { logOut } = useAuth();
+  const { user, logOut } = useAuth();
   // console.log(user);
   const navigate = useNavigate();
   const [loggedUser] = useLoggedUser();
@@ -77,10 +77,12 @@ const Navbar = () => {
         <div className="nav-options flex items-center gap-x-4">
           {isUser && (
             <span className=" border border-rose-500 rounded-full p-2 bg-rose-500 hover:bg-rose-600 cursor-pointer">
-              <AiOutlineShoppingCart className="text-2xl font-semibold text-white"></AiOutlineShoppingCart>
+              <Link to={`/cart/${loggedUser?._id}`}>
+                <AiOutlineShoppingCart className="text-2xl font-semibold text-white"></AiOutlineShoppingCart>
+              </Link>
             </span>
           )}
-          {loggedUser ? (
+          {user ? (
             <button
               onClick={handleLogOut}
               className="flex gap-x-2 items-center font-bold text-slate-100 bg-rose-500 px-7 py-[10px] rounded-sm hover:bg-slate-800"

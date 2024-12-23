@@ -28,7 +28,7 @@ const LeftSideDashboard = () => {
     <div className="bg-slate-700  min-h-screen sticky top-0">
       <div className="py-[5%] border-b border-slate-50">
         <p>
-          <Link href="localhost:5173/">
+          <Link to="/">
             <p className="text-3xl font-bold font-playball text-white text-center">
               <span className="text-rose-500">Book</span>Verse
             </p>

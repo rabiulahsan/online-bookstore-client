@@ -16,6 +16,7 @@ import AuthorMybook from "../Pages/AuthorDashboard/AuthorMybook/AuthorMybook";
 import AuthorNewbook from "../Pages/AuthorDashboard/AuthorNewbook/AuthorNewbook";
 import DashboardProfilePage from "../Pages/AdminDashboard/DashboardProfilePage/DashboardProfilePage";
 import AdminAllAuthor from "../Pages/AdminDashboard/AdminAllAuthor/AdminAllAuthor";
+import CartPage from "../Pages/CartPage/CartPage";
 
 export const router = createBrowserRouter([
   {
@@ -41,6 +42,15 @@ export const router = createBrowserRouter([
         loader: ({ params }) => {
           return fetch(
             `http://localhost:5000/api/books/getsinglebook/${params.bookId}`
+          );
+        },
+      },
+      {
+        path: "/cart/:userId",
+        element: <CartPage></CartPage>,
+        loader: ({ params }) => {
+          return fetch(
+            `http://localhost:5000/api/carts/getall/${params.userId}`
           );
         },
       },
