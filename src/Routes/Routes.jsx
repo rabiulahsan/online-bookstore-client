@@ -15,6 +15,7 @@ import AuthorDashboard from "../Pages/AuthorDashboard/AuthorDashboard/AuthorDash
 import AuthorMybook from "../Pages/AuthorDashboard/AuthorMybook/AuthorMybook";
 import AuthorNewbook from "../Pages/AuthorDashboard/AuthorNewbook/AuthorNewbook";
 import DashboardProfilePage from "../Pages/AdminDashboard/DashboardProfilePage/DashboardProfilePage";
+import AdminAllAuthor from "../Pages/AdminDashboard/AdminAllAuthor/AdminAllAuthor";
 
 export const router = createBrowserRouter([
   {
@@ -91,7 +92,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/admin/allauthors",
-        element: <AuthorMybook></AuthorMybook>,
+        element: <AdminAllAuthor></AdminAllAuthor>,
       },
       {
         path: "/dashboard/admin/allbooks",

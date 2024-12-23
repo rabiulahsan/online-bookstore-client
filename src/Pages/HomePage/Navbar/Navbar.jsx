@@ -53,12 +53,11 @@ const Navbar = () => {
               <ActiveLink to="/books">Books</ActiveLink>
             </span>
 
-            {isUser ||
-              (isAuthor && (
-                <span className="text-slate-500 font-semibold">
-                  <ActiveLink to="/favourites">WishLIst</ActiveLink>
-                </span>
-              ))}
+            {(isUser || isAuthor) && (
+              <span className="text-slate-500 font-semibold">
+                <ActiveLink to="/favourites">WishLIst</ActiveLink>
+              </span>
+            )}
 
             {isAuthor && (
               <span className="text-slate-500 font-semibold">
