@@ -18,11 +18,10 @@ const useGetCart = () => {
           );
           console.log(res);
           setCartData(res.data?.items || []);
+          setIsCartLoading(false);
         }
       } catch (error) {
         console.log("Error getting Cart data:", error);
-      } finally {
-        setIsCartLoading(false); // Stop loading
       }
     };
 
