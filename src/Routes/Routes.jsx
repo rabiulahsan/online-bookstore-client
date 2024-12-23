@@ -14,6 +14,7 @@ import DashboardLayout from "../Layouts/DashboardLayout";
 import AuthorDashboard from "../Pages/AuthorDashboard/AuthorDashboard/AuthorDashboard";
 import AuthorMybook from "../Pages/AuthorDashboard/AuthorMybook/AuthorMybook";
 import AuthorNewbook from "../Pages/AuthorDashboard/AuthorNewbook/AuthorNewbook";
+import DashboardProfilePage from "../Pages/AdminDashboard/DashboardProfilePage/DashboardProfilePage";
 
 export const router = createBrowserRouter([
   {
@@ -82,6 +83,22 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/author/newbook",
+        element: <AuthorNewbook></AuthorNewbook>,
+      },
+      {
+        path: "/dashboard/admin/profile",
+        element: <DashboardProfilePage></DashboardProfilePage>,
+      },
+      {
+        path: "/dashboard/admin/allauthors",
+        element: <AuthorMybook></AuthorMybook>,
+      },
+      {
+        path: "/dashboard/admin/allbooks",
+        element: <AuthorNewbook></AuthorNewbook>,
+      },
+      {
+        path: "/dashboard/admin/allusers",
         element: <AuthorNewbook></AuthorNewbook>,
       },
     ],

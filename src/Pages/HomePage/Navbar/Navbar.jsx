@@ -4,18 +4,18 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import ActiveLink from "../../../Components/ActiveLink/ActiveLink";
 import useAuth from "../../../Hooks/UseAuth/UseAuth";
-import useAllAuthors from "../../../Hooks/UseAllAuthors/UseAllAuthors";
+// import useAllAuthors from "../../../Hooks/UseAllAuthors/UseAllAuthors";
 import useVerifyAuthor from "../../../Hooks/useVerifyAuthor/useVerifyAuthor";
 import useVerifyUser from "../../../Hooks/useVerifyUser/useVerifyUser";
 import useLoggedUser from "../../../Hooks/useLoggedUser/useLoggedUser";
 import useVerifyAdmin from "../../../Hooks/useVerifyAdmin/useVerifyAdmin";
 
 const Navbar = () => {
-  const { user, logOut } = useAuth();
+  const { logOut } = useAuth();
   // console.log(user);
   const navigate = useNavigate();
   const [loggedUser] = useLoggedUser();
-  const [allAuthor, isLoading] = useAllAuthors();
+  // const [allAuthor, isLoading] = useAllAuthors();
   // console.log(allAuthor);
 
   const [isAuthor] = useVerifyAuthor();
@@ -53,11 +53,12 @@ const Navbar = () => {
               <ActiveLink to="/books">Books</ActiveLink>
             </span>
 
-            {user && (
-              <span className="text-slate-500 font-semibold">
-                <ActiveLink to="/favourites">WishLIst</ActiveLink>
-              </span>
-            )}
+            {isUser ||
+              (isAuthor && (
+                <span className="text-slate-500 font-semibold">
+                  <ActiveLink to="/favourites">WishLIst</ActiveLink>
+                </span>
+              ))}
 
             {isAuthor && (
               <span className="text-slate-500 font-semibold">
@@ -66,16 +67,21 @@ const Navbar = () => {
                 </ActiveLink>
               </span>
             )}
+            {isAdmin && (
+              <span className="text-slate-500 font-semibold">
+                <ActiveLink to="/dashboard/admin/profile">Dashboard</ActiveLink>
+              </span>
+            )}
           </div>
         </div>
 
         <div className="nav-options flex items-center gap-x-4">
-          {user && (
+          {isUser && (
             <span className=" border border-rose-500 rounded-full p-2 bg-rose-500 hover:bg-rose-600 cursor-pointer">
               <AiOutlineShoppingCart className="text-2xl font-semibold text-white"></AiOutlineShoppingCart>
             </span>
           )}
-          {user ? (
+          {loggedUser ? (
             <button
               onClick={handleLogOut}
               className="flex gap-x-2 items-center font-bold text-slate-100 bg-rose-500 px-7 py-[10px] rounded-sm hover:bg-slate-800"
