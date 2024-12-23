@@ -9,7 +9,7 @@ const AdminAllAuthor = () => {
   console.log(allAuthors);
 
   useEffect(() => {
-    const fetchBooks = async () => {
+    const fetchAuthors = async () => {
       try {
         setIsallAuthorsLoading(true);
         const response = await axiosSecure.get(`/api/authors/getallauthors`);
@@ -21,7 +21,7 @@ const AdminAllAuthor = () => {
       }
     };
 
-    fetchBooks();
+    fetchAuthors();
   }, [axiosSecure]);
 
   const handleAuthorDelete = async (authorId) => {

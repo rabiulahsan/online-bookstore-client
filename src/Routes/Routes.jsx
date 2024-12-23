@@ -19,6 +19,7 @@ import AdminAllAuthor from "../Pages/AdminDashboard/AdminAllAuthor/AdminAllAutho
 import CartPage from "../Pages/CartPage/CartPage";
 import CartProvider from "../Providers/CartProvider";
 import AdminAllUser from "../Pages/AdminDashboard/AdminAllUser/AdminAllUser";
+import AdminAllBooks from "../Pages/AdminDashboard/AdminAllBooks/AdminAllBooks";
 
 export const router = createBrowserRouter([
   {
@@ -118,7 +119,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/admin/allbooks",
-        element: <AuthorNewbook></AuthorNewbook>,
+        element: <AdminAllBooks></AdminAllBooks>,
       },
       {
         path: "/dashboard/admin/allusers",

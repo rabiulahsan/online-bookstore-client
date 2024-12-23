@@ -8,7 +8,7 @@ const AdminAllUser = () => {
   const [axiosSecure] = useAxiosSecure();
 
   useEffect(() => {
-    const fetchBooks = async () => {
+    const fetchUsers = async () => {
       try {
         setIsLoading(true);
         const response = await axiosSecure.get(`/api/users/getallusers`);
@@ -20,7 +20,7 @@ const AdminAllUser = () => {
       }
     };
 
-    fetchBooks();
+    fetchUsers();
   }, [axiosSecure]);
 
   const handleUserDelete = async (userId) => {
