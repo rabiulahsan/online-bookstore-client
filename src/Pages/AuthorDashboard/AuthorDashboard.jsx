@@ -1,5 +1,5 @@
 const AuthorDashboard = () => {
-  return <div>this isauthor dashboard</div>;
+  return <div>this is author dashboard page</div>;
 };
 
 export default AuthorDashboard;
