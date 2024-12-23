@@ -12,11 +12,18 @@ const BookPageCard = ({ book }) => {
     <div className="">
       <div className="flex flex-col items-center group ">
         <Link to={`/books/${book?._id}`}>
-          <img
-            src={book?.image}
-            alt={book?.title}
-            className="w-[220px] h-[320px] mx-auto  rounded-xl  shadow-[-6px_6px_8px_rgba(0,0,0,0.6)] transform group-hover:-translate-y-4 transition-transform duration-300"
-          />
+          <div className="relative">
+            <img
+              src={book?.image}
+              alt={book?.title}
+              className="w-[220px] h-[320px]  mx-auto  rounded-xl  shadow-[-6px_6px_8px_rgba(0,0,0,0.6)] transform group-hover:-translate-y-4 transition-transform duration-300"
+            />
+            {parseInt(book?.discount.split("%"), 10) > 0 && (
+              <p className="absolute bg-rose-500 text-white font-bold  px-4 py-2 rounded-sm top-3 -right-8">
+                {book?.discount}
+              </p>
+            )}
+          </div>
 
           <p className="font-bold text-slate-700 text-lg mb-2 mt-4 text-center">
             {book?.title}

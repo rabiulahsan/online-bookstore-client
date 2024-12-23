@@ -10,7 +10,7 @@ const BookmarkButton = ({ book }) => {
   const [loggedUser] = useLoggedUser();
   const [saved, setSaved] = useState(false);
   const [favouriteData, isFavLoading] = useGetFav();
-  console.log(book);
+  // console.log(book);
 
   // Check if the book is already in favorites
   useEffect(() => {

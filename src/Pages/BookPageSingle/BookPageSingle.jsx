@@ -3,12 +3,16 @@ import { FaRegStar, FaStar } from "react-icons/fa6";
 import { useLoaderData } from "react-router-dom";
 import CartButton from "./CartButton";
 import SaveButton from "./SaveButton";
+import useVerifyAuthor from "../../Hooks/useVerifyAuthor/useVerifyAuthor";
+import useVerifyUser from "../../Hooks/useVerifyUser/useVerifyUser";
 
 const BookPageSingle = () => {
   const singleBookData = useLoaderData();
+  const [isUser] = useVerifyUser();
+  const [isAuthor] = useVerifyAuthor();
 
   // const [saved, setSaved] = useState(false);
-  console.log(singleBookData);
+  // console.log(singleBookData);
   return (
     <div className="px-[8%] py-[5%] bg-slate-100">
       {/* upper side  */}
@@ -95,7 +99,7 @@ const BookPageSingle = () => {
               <div className="">
                 {parseInt(singleBookData?.discount.split("%"), 10) > 0 ? (
                   <>
-                    <span className="line-through text-slate-600 text-lg">
+                    <span className="line-through text-slate-500 font-semibold text-lg mr-2">
                       ${singleBookData?.price}
                     </span>{" "}
                     <span className="text-slate-700 font-bold text-2xl">
@@ -115,9 +119,12 @@ const BookPageSingle = () => {
                 )}
               </div>
 
-              <div className="flex items-center gap-x-4">
-                <CartButton singleBookData={singleBookData}></CartButton>
-                <SaveButton></SaveButton>
+              <div className="flex items-center gap-x-4 mt-5">
+                {isUser && (
+                  <CartButton singleBookData={singleBookData}></CartButton>
+                )}
+
+                {isUser || (isAuthor && <SaveButton></SaveButton>)}
               </div>
             </div>
           </div>
