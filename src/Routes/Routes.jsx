@@ -18,6 +18,7 @@ import DashboardProfilePage from "../Pages/AdminDashboard/DashboardProfilePage/D
 import AdminAllAuthor from "../Pages/AdminDashboard/AdminAllAuthor/AdminAllAuthor";
 import CartPage from "../Pages/CartPage/CartPage";
 import CartProvider from "../Providers/CartProvider";
+import AdminAllUser from "../Pages/AdminDashboard/AdminAllUser/AdminAllUser";
 
 export const router = createBrowserRouter([
   {
@@ -105,6 +106,8 @@ export const router = createBrowserRouter([
         path: "/dashboard/author/newbook",
         element: <AuthorNewbook></AuthorNewbook>,
       },
+
+      // from now on this is for admin dashboard
       {
         path: "/dashboard/admin/profile",
         element: <DashboardProfilePage></DashboardProfilePage>,
@@ -119,7 +122,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/admin/allusers",
-        element: <AuthorNewbook></AuthorNewbook>,
+        element: <AdminAllUser></AdminAllUser>,
       },
     ],
   },
