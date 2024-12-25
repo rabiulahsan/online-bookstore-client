@@ -8,21 +8,13 @@ import useAuth from "../../../Hooks/UseAuth/UseAuth";
 import useVerifyAuthor from "../../../Hooks/useVerifyAuthor/useVerifyAuthor";
 import useVerifyUser from "../../../Hooks/useVerifyUser/useVerifyUser";
 import useVerifyAdmin from "../../../Hooks/useVerifyAdmin/useVerifyAdmin";
-import useGetCart from "../../../Hooks/useGetCart/useGetCart";
-import { useEffect, useState } from "react";
 
 const Navbar = () => {
-  const [cartData] = useGetCart();
   const { user, logOut } = useAuth();
   const navigate = useNavigate();
   const [isAuthor] = useVerifyAuthor();
   const [isUser] = useVerifyUser();
   const [isAdmin] = useVerifyAdmin();
-  const [cartLength, setCartLength] = useState(0);
-
-  useEffect(() => {
-    setCartLength(cartData?.length || 0);
-  }, [cartData]);
 
   const handleLogOut = () => {
     // console.log("Clicked log out button");
@@ -80,9 +72,9 @@ const Navbar = () => {
                 <span className="border border-rose-500 rounded-full p-2 bg-rose-500 hover:bg-rose-600 cursor-pointer relative inline-flex items-center justify-center">
                   <AiOutlineShoppingCart className="text-2xl font-semibold text-white"></AiOutlineShoppingCart>
                 </span>
-                <span className="bg-slate-700 text-white font-bold text-xs absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 rounded-full px-1.5 py-0.5">
-                  {cartLength}
-                </span>
+                {/* <span className="bg-slate-700 text-white font-bold text-xs absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 rounded-full px-1.5 py-0.5">
+                  {cartData?.length}
+                </span> */}
               </Link>
             </div>
           )}

@@ -13,7 +13,6 @@ import CartButton from "../BookPageSingle/CartButton";
 
 const FavouritePageCard = ({ book, onRemoveBookmark }) => {
   const [isUser] = useVerifyUser();
-
   const [axiosSecure] = useAxiosSecure();
   const [loggedUser] = useLoggedUser();
   const [saved, setSaved] = useState(false);

@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure/useAxiosSecure";
 import useLoggedUser from "../../../Hooks/useLoggedUser/useLoggedUser";
-import { FaStar } from "react-icons/fa";
-import { ImBin } from "react-icons/im";
+import AuthorMybookRow from "./AuthorMybookRow";
 
 const AuthorMybook = () => {
   const [myBooks, setMybooks] = useState([]);
@@ -62,45 +61,30 @@ const AuthorMybook = () => {
           You have no Book
         </p>
       ) : (
-        <div className="grid  gap-y-12 gap-x-4 grid-cols-1 lg:grid-cols-3 px-[5%] my-[4%] ">
-          {myBooks?.map((book) => (
-            <div className="flex flex-col items-center group" key={book?._id}>
-              <div className="relative">
-                <img
-                  src={book?.image}
-                  alt={book?.title}
-                  className=" w-[200px]  rounded-xl  shadow-[-8px_8px_12px_rgba(0,0,0,0.6)] transform group-hover:-translate-y-4 transition-transform duration-300"
-                />
-                {parseInt(book?.discount.split("%"), 10) > 0 && (
-                  <p className="absolute bg-rose-500 text-white font-bold  px-4 py-2 rounded-sm top-3 -right-8">
-                    {book?.discount}
-                  </p>
-                )}
-              </div>
-              <p className="font-bold text-slate-700 text-xl mb-3 mt-4">
-                {book?.title}
-              </p>
-              <p className="flex items-center justify-between w-[220px]">
-                <span className="text-gray-600 ">{book?.author}</span>
-                <span className="text-slate-600 flex items-center font-semibold gap-x-1">
-                  {book?.rating?.average}
-                  {"  "}
-                  <FaStar className="text-lg text-yellow-500"></FaStar>
-                </span>
-              </p>
-              <div className="flex items-center justify-center">
-                <p
-                  onClick={() => handleBookDelete(book?._id)}
-                  className="flex items-center gap-x-2 bg-rose-500 hover:bg-rose-600 text-white font-semibold px-4 py-2 rounded-sm cursor-pointer mt-4"
-                >
-                  <span>
-                    <ImBin className="text-xl"></ImBin>
-                  </span>
-                  Delete
-                </p>
-              </div>
-            </div>
-          ))}
+        <div className="my-[3%]   p-[3%] bg-white rounded-[10px] ">
+          <table className="table-fixed w-full ">
+            {/* head */}
+            <thead className="border border-t-0 border-l-0 border-r-0 border-b-slate-500 ">
+              <tr>
+                <th className="py-5">cover</th>
+                <th>name</th>
+                <th>price</th>
+                <th>discount</th>
+                <th>rating</th>
+                <th>edit</th>
+                <th>delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              {myBooks?.map((book) => (
+                <AuthorMybookRow
+                  key={book._id}
+                  book={book}
+                  handleBookDelete={handleBookDelete}
+                ></AuthorMybookRow>
+              ))}
+            </tbody>
+          </table>
         </div>
       )}
     </div>
