@@ -53,7 +53,7 @@ const AuthorMybook = () => {
   console.log(myBooks);
   return (
     <div className="bg-white my-[5%] p-[5%]">
-      <p className="font-bold text-xl text-slate-500">All Books</p>
+      <p className="font-bold text-2xl text-slate-600 text-center">All Books</p>
       {isloading ? (
         <p>Loading...</p>
       ) : myBooks.length <= 0 ? (
@@ -66,13 +66,13 @@ const AuthorMybook = () => {
             {/* head */}
             <thead className="border border-t-0 border-l-0 border-r-0 border-b-slate-500 ">
               <tr>
-                <th className="py-5">cover</th>
-                <th>name</th>
-                <th>price</th>
-                <th>discount</th>
-                <th>rating</th>
-                <th>edit</th>
-                <th>delete</th>
+                <th className="py-5">Cover</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Discount</th>
+                <th>Rating</th>
+                <th>Edit</th>
+                <th>Delete</th>
               </tr>
             </thead>
             <tbody>

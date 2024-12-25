@@ -36,7 +36,7 @@ const DeleteModals = ({ showModal, setShowModal, onConfirm, message }) => {
         ref={modalRef}
         className="bg-white pb-7 px-9 pt-12 rounded-xl w-[400px] relative"
       >
-        <p className="font-semibold text-red-500 text-center text-xl mb-7">
+        <p className="font-semibold text-slate-600 text-center text-xl mb-7">
           {message || "Are you sure you want to delete this?"}
         </p>
         <button
@@ -49,9 +49,9 @@ const DeleteModals = ({ showModal, setShowModal, onConfirm, message }) => {
         <div className="my-2 flex items-center justify-center gap-x-4">
           <button
             onClick={() => setShowModal(false)}
-            className="px-4 py-2 bg-slate-600 hover:bg-slate-700 font-semibold text-white rounded-sm"
+            className="px-4 py-2 bg-slate-600 hover:bg-slate-700 font-semibold text-white rounded-sm flex items-center justify-center gap-x-2 "
           >
-            No
+            Cancel
           </button>
           <button
             onClick={() => {
