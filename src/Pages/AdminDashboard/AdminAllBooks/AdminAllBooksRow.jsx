@@ -1,36 +1,30 @@
 /* eslint-disable react/prop-types */
-import { ImBin } from "react-icons/im";
-import DeleteModals from "../../../Components/DeleteModals/DeleteModals";
 import { useState } from "react";
+import DeleteModals from "../../../Components/DeleteModals/DeleteModals";
+import { ImBin } from "react-icons/im";
 
-const AdminAllUserRow = ({ user, handleUserDelete }) => {
+const AdminAllBooksRow = ({ book, handleBookDelete }) => {
   const [showModal, setShowModal] = useState(false);
-  //   console.log(user);
+  console.log(book);
 
-  // Function to delete user when confirmed
+  // Function to delete book when confirmed
   const handleConfirmDelete = () => {
-    handleUserDelete(user._id);
+    handleBookDelete(book._id);
   };
   return (
     <>
       <tr className="bg-slate-100 hover:bg-slate-200 w-full text-center border-t border-slate-400">
         <td className="py-3 font-semibold">
           <img
-            src={user.image}
-            alt={user.name}
-            className="h-[50px] w-[50px] object-contain mx-auto rounded-full"
+            src={book.image}
+            alt={book.title}
+            className="h-[50px] w-[50px] object-contain mx-auto "
           />
         </td>
-        <td className="font-bold">{user?.name}</td>
-        <td className="font-bold">{user?.email}</td>
+        <td className="font-bold">{book?.title}</td>
+        <td className="font-bold">{book?.author[0]}</td>
 
-        <td>
-          {new Date(user.createdAt).toLocaleDateString("en-US", {
-            month: "short",
-            day: "2-digit",
-            year: "numeric",
-          })}
-        </td>
+        <td>{book?.price}</td>
 
         <td>
           <span
@@ -47,10 +41,10 @@ const AdminAllUserRow = ({ user, handleUserDelete }) => {
         showModal={showModal}
         setShowModal={setShowModal}
         onConfirm={handleConfirmDelete}
-        message={`Are you sure you want to delete "${user.name}"?`}
+        message={`Are you sure you want to delete "${book.title}"?`}
       />
     </>
   );
 };
 
-export default AdminAllUserRow;
+export default AdminAllBooksRow;

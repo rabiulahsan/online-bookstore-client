@@ -45,7 +45,6 @@ const AdminAllUser = () => {
   console.log(users);
   return (
     <div className="bg-white my-[5%] p-[5%]">
-      <p className="font-bold text-2xl text-slate-600 text-center">All Books</p>
       {isLoading ? (
         <p>Loading...</p>
       ) : users?.length === 0 ? (
@@ -54,11 +53,14 @@ const AdminAllUser = () => {
         </p>
       ) : (
         <div className="my-[3%]   p-[3%] bg-white rounded-[10px] ">
+          <p className="font-bold text-2xl text-slate-600 text-center">
+            All Users
+          </p>
           <table className="table-fixed w-full ">
             {/* head */}
             <thead className="border border-t-0 border-l-0 border-r-0 border-b-slate-500 ">
               <tr>
-                <th className="py-5">image</th>
+                <th className="py-5">Image</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Created At</th>
