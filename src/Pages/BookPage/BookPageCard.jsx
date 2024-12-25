@@ -7,8 +7,8 @@ import useVerifyUser from "../../Hooks/useVerifyUser/useVerifyUser";
 import BookmarkButton from "./BookmarkButton";
 import CartButton from "../BookPageSingle/CartButton";
 
-const BookPageCard = ({ book, cartDataId, favArray }) => {
-  const [isUser] = useVerifyUser();
+const BookPageCard = ({ book, cartDataId, favArray, isUser }) => {
+  // const [isUser] = useVerifyUser();
   return (
     <div className="">
       <div className="flex flex-col items-center group ">

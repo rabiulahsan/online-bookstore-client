@@ -2,7 +2,6 @@
 
 import { FaStar } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import useVerifyUser from "../../Hooks/useVerifyUser/useVerifyUser";
 import { IoBookmark, IoBookmarkOutline } from "react-icons/io5";
 import useAxiosSecure from "../../Hooks/useAxiosSecure/useAxiosSecure";
 import useLoggedUser from "../../Hooks/useLoggedUser/useLoggedUser";
@@ -16,8 +15,8 @@ const FavouritePageCard = ({
   isFavLoading,
   cartDataId,
   favArray,
+  isUser,
 }) => {
-  const [isUser] = useVerifyUser();
   const [axiosSecure] = useAxiosSecure();
   const [loggedUser] = useLoggedUser();
   const [saved, setSaved] = useState(false);

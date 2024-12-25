@@ -5,14 +5,18 @@ import useAxiosSecure from "../useAxiosSecure/useAxiosSecure";
 const useGetFav = () => {
   const [favouriteData, setFavouriteData] = useState([]);
   const [favArray, setFavArray] = useState([]);
-  const [isFavLoading, setIsFavLoading] = useState(true);
+  const [isFavLoading, setIsFavLoading] = useState(false); // Start as false
   const [loggedUser] = useLoggedUser();
   const [axiosSecure] = useAxiosSecure();
 
   useEffect(() => {
     const fetchFavourites = async () => {
+      if (loggedUser?.role !== "user") {
+        return; // Skip API call for authors
+      }
+
+      setIsFavLoading(true); // Start loading
       try {
-        setIsFavLoading(true); // Start loading
         if (loggedUser && loggedUser._id) {
           const res = await axiosSecure.get(
             `/api/favs/getall/${loggedUser?._id}`
@@ -27,7 +31,6 @@ const useGetFav = () => {
       }
     };
 
-    // Only fetch if `loggedUser` is available and stable
     if (loggedUser && loggedUser._id) {
       fetchFavourites();
     }

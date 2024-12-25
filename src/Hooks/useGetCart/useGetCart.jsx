@@ -5,34 +5,37 @@ import useLoggedUser from "../useLoggedUser/useLoggedUser";
 const useGetCart = () => {
   const [cartData, setCartData] = useState([]);
   const [cartDataId, setCartDataId] = useState([]);
-
-  const [isCartLoading, setIsCartLoading] = useState(true);
+  const [isCartLoading, setIsCartLoading] = useState(false); // Start as false
   const [loggedUser] = useLoggedUser();
   const [axiosSecure] = useAxiosSecure();
 
   useEffect(() => {
     const fetchCarts = async () => {
+      if (loggedUser?.role !== "user") {
+        return; // Skip API call for authors
+      }
+
+      setIsCartLoading(true); // Start loading
       try {
-        setIsCartLoading(true); // Start loading
         if (loggedUser && loggedUser._id) {
           const res = await axiosSecure.get(
             `http://localhost:5000/api/carts/getall/${loggedUser?._id}`
           );
-          // console.log(res);
           setCartData(res.data?.items || []);
           setCartDataId(res.data?.itemsIdArray || []);
-          setIsCartLoading(false);
         }
       } catch (error) {
         console.log("Error getting Cart data:", error);
+      } finally {
+        setIsCartLoading(false); // Stop loading
       }
     };
 
-    // Only fetch if `loggedUser` is available and stable
     if (loggedUser && loggedUser._id) {
       fetchCarts();
     }
   }, [loggedUser, axiosSecure]);
+
   return [cartData, isCartLoading, cartDataId];
 };
 

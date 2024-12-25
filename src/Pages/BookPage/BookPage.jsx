@@ -5,6 +5,7 @@ import { MdOutlineCancel } from "react-icons/md";
 import BookPageCard from "./BookPageCard";
 import useGetCart from "../../Hooks/useGetCart/useGetCart";
 import useGetFav from "../../Hooks/useGetFav/useGetFav";
+import useVerifyUser from "../../Hooks/useVerifyUser/useVerifyUser";
 
 //todo skeleton animation added for the loading books
 
@@ -15,9 +16,9 @@ const BookPage = () => {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [discount, setDiscount] = useState(false);
   const [searchInput, setSearchInput] = useState("");
+  const [isUser] = useVerifyUser();
   const [, , cartDataId] = useGetCart();
   const [, , favArray] = useGetFav();
-  // console.log(allBooks);
 
   // Function to fetch and filter books
   useEffect(() => {
@@ -226,6 +227,7 @@ const BookPage = () => {
                   book={book}
                   cartDataId={cartDataId}
                   favArray={favArray}
+                  isUser={isUser}
                 ></BookPageCard>
               ))}
             </div>

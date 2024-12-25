@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import useLoggedUser from "../../Hooks/useLoggedUser/useLoggedUser";
 import useAxiosSecure from "../../Hooks/useAxiosSecure/useAxiosSecure";
 import useGetCart from "../../Hooks/useGetCart/useGetCart";
+import useVerifyUser from "../../Hooks/useVerifyUser/useVerifyUser";
+import useVerifyAuthor from "../../Hooks/useVerifyAuthor/useVerifyAuthor";
 
 const FavouritePage = () => {
   const [favouriteData, setFavouriteData] = useState([]);
@@ -12,6 +14,8 @@ const FavouritePage = () => {
   const [isFavLoading, setIsFavLoading] = useState(true);
   const [loggedUser] = useLoggedUser();
   const [axiosSecure] = useAxiosSecure();
+  const [isUser] = useVerifyUser();
+  const [isAuthor] = useVerifyAuthor();
   // console.log(favouriteData);
 
   useEffect(() => {
@@ -62,6 +66,8 @@ const FavouritePage = () => {
               isFavLoading={isFavLoading}
               cartDataId={cartDataId}
               favArray={favArray}
+              isAuthor={isAuthor}
+              isUser={isUser}
             ></FavouritePageCard>
           ))}
         </div>
