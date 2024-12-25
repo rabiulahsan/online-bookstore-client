@@ -17,8 +17,11 @@ const BookPage = () => {
   const [discount, setDiscount] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   const [isUser] = useVerifyUser();
-  const [, , cartDataId] = useGetCart();
-  const [, , favArray] = useGetFav();
+  const [, isCartLoading, cartDataId] = useGetCart();
+  const [, isFavLoading, favArray] = useGetFav();
+
+  const isLoading =
+    isAllBookLoading || (isUser && (isCartLoading || isFavLoading));
 
   // Function to fetch and filter books
   useEffect(() => {
@@ -217,7 +220,7 @@ const BookPage = () => {
                 </p>
               ))}
           </div>
-          {isAllBookLoading ? (
+          {isLoading ? (
             <p>Loading....</p>
           ) : (
             <div className="grid  gap-y-12 gap-x-4 grid-cols-1 lg:grid-cols-3 px-[5%] my-[4%] ">

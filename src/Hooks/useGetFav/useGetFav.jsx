@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
 import useLoggedUser from "../useLoggedUser/useLoggedUser";
 import useAxiosSecure from "../useAxiosSecure/useAxiosSecure";
+import useAuth from "../UseAuth/UseAuth";
 
 const useGetFav = () => {
   const [favouriteData, setFavouriteData] = useState([]);
   const [favArray, setFavArray] = useState([]);
-  const [isFavLoading, setIsFavLoading] = useState(false); // Start as false
+  const [isFavLoading, setIsFavLoading] = useState(true); // Start as false
   const [loggedUser] = useLoggedUser();
   const [axiosSecure] = useAxiosSecure();
+  const { user } = useAuth();
 
   useEffect(() => {
     const fetchFavourites = async () => {
-      if (loggedUser?.role !== "user") {
+      if (!user || loggedUser?.role !== "user") {
+        setIsFavLoading(false);
         return; // Skip API call for authors
       }
 

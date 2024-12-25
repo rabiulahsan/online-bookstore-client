@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../useAxiosSecure/useAxiosSecure";
 import useLoggedUser from "../useLoggedUser/useLoggedUser";
+import useAuth from "../UseAuth/UseAuth";
 
 const useGetCart = () => {
   const [cartData, setCartData] = useState([]);
   const [cartDataId, setCartDataId] = useState([]);
-  const [isCartLoading, setIsCartLoading] = useState(false); // Start as false
+  const [isCartLoading, setIsCartLoading] = useState(true); // Start as false
   const [loggedUser] = useLoggedUser();
   const [axiosSecure] = useAxiosSecure();
+  const { user } = useAuth();
 
   useEffect(() => {
     const fetchCarts = async () => {
-      if (loggedUser?.role !== "user") {
+      if (!user || loggedUser?.role !== "user") {
+        setIsCartLoading(false);
         return; // Skip API call for authors
       }
 
