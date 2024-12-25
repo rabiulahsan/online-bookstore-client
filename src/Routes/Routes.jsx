@@ -19,6 +19,7 @@ import AdminAllAuthor from "../Pages/AdminDashboard/AdminAllAuthor/AdminAllAutho
 import CartPage from "../Pages/CartPage/CartPage";
 import AdminAllUser from "../Pages/AdminDashboard/AdminAllUser/AdminAllUser";
 import AdminAllBooks from "../Pages/AdminDashboard/AdminAllBooks/AdminAllBooks";
+import AuthorBookUpdate from "../Pages/AuthorDashboard/AuthorBookUpdate/AuthorBookUpdate";
 
 export const router = createBrowserRouter([
   {
@@ -93,6 +94,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/author/newbook",
         element: <AuthorNewbook></AuthorNewbook>,
+      },
+      {
+        path: "/dashboard/author/updatebook",
+        element: <AuthorBookUpdate></AuthorBookUpdate>,
       },
 
       // from now on this is for admin dashboard

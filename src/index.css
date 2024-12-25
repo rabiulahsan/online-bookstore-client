@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .input-style {
-  @apply shadow-md border rounded w-full py-2 px-4 text-gray-700 leading-tight border-slate-300 focus:outline-none bg-slate-100;
+  @apply w-full outline-none bg-transparent text-slate-700 border-2 border-slate-200 rounded-sm  shadow-sm py-2 px-4;
 }
 
 .footer-link {

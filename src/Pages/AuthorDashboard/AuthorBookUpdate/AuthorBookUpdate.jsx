@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
-import useLoggedUser from "../../../Hooks/useLoggedUser/useLoggedUser";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure/useAxiosSecure";
 import useVerifyAuthor from "../../../Hooks/useVerifyAuthor/useVerifyAuthor";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure/useAxiosSecure";
+import useLoggedUser from "../../../Hooks/useLoggedUser/useLoggedUser";
 
-const AuthorNewbook = () => {
+const AuthorBookUpdate = () => {
   const [loggedUser] = useLoggedUser();
   const [axiosSecure] = useAxiosSecure();
   const [isAuthor] = useVerifyAuthor();
@@ -39,14 +39,14 @@ const AuthorNewbook = () => {
     try {
       if (isAuthor) {
         const result = await axiosSecure.post(
-          `http://localhost:5000/api/books/postbook/`,
+          `http://localhost:5000/api/books/updatebook/`,
           newBook
         );
         reset();
-        console.log("Book has been added successfully:", result.data.data);
+        console.log("Book has been updated successfully:", result.data.data);
       }
     } catch (error) {
-      console.log("Error Adding book:", error);
+      console.log("Error updating book:", error);
     }
   };
   return (
@@ -285,7 +285,7 @@ const AuthorNewbook = () => {
   );
 };
 
-export default AuthorNewbook;
+export default AuthorBookUpdate;
 
 const categories = [
   "Adventure",

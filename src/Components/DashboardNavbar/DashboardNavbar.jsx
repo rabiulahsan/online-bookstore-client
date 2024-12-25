@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/UseAuth/UseAuth";
 import useLoggedUser from "../../Hooks/useLoggedUser/useLoggedUser";
 import { useState } from "react";
@@ -21,10 +21,11 @@ const DashboardNavbar = () => {
   return (
     <div className=" boder-b border-slate-100 flex justify-between items-center">
       <div className="flex items-center gap-x-2">
-        <p className="font-semibold text-slate-500 text-2xl">
-          Welcome to Dashboard,{" "}
-        </p>
-        <p className="font-bold text-slate-600 text-3xl">{loggedUser?.name}</p>
+        <Link to="author/profile">
+          <p className="font-bold text-slate-600 text-3xl">
+            {loggedUser?.name}
+          </p>
+        </Link>
       </div>
       <div className="relative">
         <img
