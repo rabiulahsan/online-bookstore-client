@@ -71,7 +71,7 @@ const AuthorBookUpdate = () => {
               placeholder="Book Title"
               {...register("title", { required: true, maxLength: 100 })}
               className="input-style"
-              value={bookData?.title}
+              defaultValue={bookData?.title}
             />
             {errors.title && (
               <span className="text-red-600">Title is required</span>
@@ -88,7 +88,7 @@ const AuthorBookUpdate = () => {
               placeholder="Image URL"
               {...register("image", { required: true })}
               className="input-style"
-              value={bookData?.image}
+              defaultValue={bookData?.image}
             />
             {errors.image && (
               <span className="text-red-600">Image URL is required</span>
@@ -105,7 +105,7 @@ const AuthorBookUpdate = () => {
               placeholder="Author names (comma-separated)"
               {...register("author", { required: true })}
               className="input-style"
-              value={bookData?.author.map((author) => author)}
+              defaultValue={bookData?.author.map((author) => author)}
             />
             {errors.author && (
               <span className="text-red-600">Author(s) are required</span>
@@ -122,7 +122,7 @@ const AuthorBookUpdate = () => {
               placeholder="ISBN Number"
               {...register("isbn", { required: true })}
               className="input-style"
-              value={bookData?.isbn}
+              defaultValue={bookData?.isbn}
             />
             {errors.isbn && (
               <span className="text-red-600">ISBN is required</span>
@@ -139,7 +139,7 @@ const AuthorBookUpdate = () => {
               placeholder="Number of Pages"
               {...register("pages", { required: true, min: 1 })}
               className="input-style"
-              value={bookData?.pages}
+              defaultValue={bookData?.pages}
             />
             {errors.pages && (
               <span className="text-red-600">Pages are required</span>
@@ -156,7 +156,7 @@ const AuthorBookUpdate = () => {
               placeholder="Publisher Name"
               {...register("publisher", { required: true })}
               className="input-style"
-              value={bookData?.publisher}
+              defaultValue={bookData?.publisher}
             />
             {errors.publisher && (
               <span className="text-red-600">Publisher is required</span>
@@ -172,7 +172,7 @@ const AuthorBookUpdate = () => {
               type="date"
               {...register("publication_date", { required: true })}
               className="input-style"
-              value={bookData?.publication_date}
+              defaultValue={bookData?.publication_date}
             />
             {errors.publication_date && (
               <span className="text-red-600">Publication Date is required</span>
@@ -189,7 +189,7 @@ const AuthorBookUpdate = () => {
               placeholder="Edition (e.g., 1st, 2nd)"
               {...register("edition", { required: true })}
               className="input-style"
-              value={bookData?.edition}
+              defaultValue={bookData?.edition}
             />
             {errors.edition && (
               <span className="text-red-600">Edition is required</span>
@@ -206,7 +206,7 @@ const AuthorBookUpdate = () => {
                 <label key={category} className="flex items-center space-x-2">
                   <input
                     type="checkbox"
-                    value={category}
+                    defaultValue={category}
                     {...register("category", { required: true })}
                     className="checkbox checkbox-primary"
                     defaultChecked={bookData?.category?.includes(category)}
@@ -232,7 +232,7 @@ const AuthorBookUpdate = () => {
               placeholder="Tags (comma-separated)"
               {...register("tags", { required: true })}
               className="input-style"
-              value={bookData?.tags.map((tag) => tag)}
+              defaultValue={bookData?.tags.map((tag) => tag)}
             />
             {errors.tags && (
               <span className="text-red-600">Tags are required</span>
@@ -249,7 +249,7 @@ const AuthorBookUpdate = () => {
               placeholder="Price"
               {...register("price", { required: true, min: 0 })}
               className="input-style"
-              value={bookData?.price}
+              defaultValue={bookData?.price}
             />
             {errors.price && (
               <span className="text-red-600">Price is required</span>
@@ -266,7 +266,7 @@ const AuthorBookUpdate = () => {
               placeholder="Discount (%)"
               {...register("discount", { required: true, min: 0, max: 100 })}
               className="input-style"
-              value={parseInt(bookData?.discount.split("%"), 10)}
+              defaultValue={parseInt(bookData?.discount.split("%"), 10)}
             />
             {errors.discount && (
               <span className="text-red-600">
@@ -284,7 +284,7 @@ const AuthorBookUpdate = () => {
               placeholder="Short description of the book"
               {...register("description", { required: true })}
               className="textarea textarea-bordered input-style"
-              value={bookData?.description}
+              defaultValue={bookData?.description}
             ></textarea>
             {errors.description && (
               <span className="text-red-600">Description is required</span>
