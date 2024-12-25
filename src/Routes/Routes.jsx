@@ -17,7 +17,6 @@ import AuthorNewbook from "../Pages/AuthorDashboard/AuthorNewbook/AuthorNewbook"
 import DashboardProfilePage from "../Pages/AdminDashboard/DashboardProfilePage/DashboardProfilePage";
 import AdminAllAuthor from "../Pages/AdminDashboard/AdminAllAuthor/AdminAllAuthor";
 import CartPage from "../Pages/CartPage/CartPage";
-import CartProvider from "../Providers/CartProvider";
 import AdminAllUser from "../Pages/AdminDashboard/AdminAllUser/AdminAllUser";
 import AdminAllBooks from "../Pages/AdminDashboard/AdminAllBooks/AdminAllBooks";
 
@@ -33,11 +32,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/books",
-        element: (
-          <CartProvider>
-            <BookPage></BookPage>,
-          </CartProvider>
-        ),
+        element: <BookPage></BookPage>,
       },
       {
         path: "/favourites",
@@ -45,11 +40,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/books/:bookId",
-        element: (
-          <CartProvider>
-            <BookPageSingle></BookPageSingle>
-          </CartProvider>
-        ),
+        element: <BookPageSingle></BookPageSingle>,
 
         loader: ({ params }) => {
           return fetch(
@@ -59,11 +50,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/cart",
-        element: (
-          <CartProvider>
-            <CartPage></CartPage>
-          </CartProvider>
-        ),
+        element: <CartPage></CartPage>,
       },
       {
         path: "/master-admin-login",

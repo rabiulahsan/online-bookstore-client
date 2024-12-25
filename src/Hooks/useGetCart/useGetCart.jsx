@@ -16,7 +16,7 @@ const useGetCart = () => {
           const res = await axiosSecure.get(
             `http://localhost:5000/api/carts/getall/${loggedUser?._id}`
           );
-          console.log(res);
+          // console.log(res);
           setCartData(res.data?.items || []);
           setIsCartLoading(false);
         }

@@ -8,24 +8,21 @@ import useAuth from "../../../Hooks/UseAuth/UseAuth";
 import useVerifyAuthor from "../../../Hooks/useVerifyAuthor/useVerifyAuthor";
 import useVerifyUser from "../../../Hooks/useVerifyUser/useVerifyUser";
 import useVerifyAdmin from "../../../Hooks/useVerifyAdmin/useVerifyAdmin";
-import { CartContext } from "../../../Providers/CartProvider";
-import { useContext } from "react";
+import useGetCart from "../../../Hooks/useGetCart/useGetCart";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
-  const cart = useContext(CartContext);
-  const { cartData } = cart;
+  const [cartData] = useGetCart();
   const { user, logOut } = useAuth();
   const navigate = useNavigate();
-
-  // const [allAuthor, isLoading] = useAllAuthors();
-  // console.log(allAuthor);
-
   const [isAuthor] = useVerifyAuthor();
   const [isUser] = useVerifyUser();
   const [isAdmin] = useVerifyAdmin();
+  const [cartLength, setCartLength] = useState(0);
 
-  // console.log(isAuthor);
-  // console.log(isUser);
+  useEffect(() => {
+    setCartLength(cartData?.length || 0);
+  }, [cartData]);
 
   const handleLogOut = () => {
     // console.log("Clicked log out button");
@@ -84,7 +81,7 @@ const Navbar = () => {
                   <AiOutlineShoppingCart className="text-2xl font-semibold text-white"></AiOutlineShoppingCart>
                 </span>
                 <span className="bg-slate-700 text-white font-bold text-xs absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 rounded-full px-1.5 py-0.5">
-                  {cartData?.length || 0}
+                  {cartLength}
                 </span>
               </Link>
             </div>

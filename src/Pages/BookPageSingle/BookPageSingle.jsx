@@ -124,7 +124,7 @@ const BookPageSingle = () => {
                   <CartButton singleBookData={singleBookData}></CartButton>
                 )}
 
-                {isUser || (isAuthor && <SaveButton></SaveButton>)}
+                {(isUser || isAuthor) && <SaveButton></SaveButton>}
               </div>
             </div>
           </div>
