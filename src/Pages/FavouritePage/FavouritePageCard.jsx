@@ -3,21 +3,22 @@
 import { FaStar } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import useVerifyUser from "../../Hooks/useVerifyUser/useVerifyUser";
-
 import { IoBookmark, IoBookmarkOutline } from "react-icons/io5";
 import useAxiosSecure from "../../Hooks/useAxiosSecure/useAxiosSecure";
 import useLoggedUser from "../../Hooks/useLoggedUser/useLoggedUser";
 import { useEffect, useState } from "react";
-import useGetFav from "../../Hooks/useGetFav/useGetFav";
 import CartButton from "../BookPageSingle/CartButton";
 
-const FavouritePageCard = ({ book, onRemoveBookmark }) => {
+const FavouritePageCard = ({
+  book,
+  setFavouriteData,
+  favouriteData,
+  isFavLoading,
+}) => {
   const [isUser] = useVerifyUser();
   const [axiosSecure] = useAxiosSecure();
   const [loggedUser] = useLoggedUser();
   const [saved, setSaved] = useState(false);
-  const [favouriteData, isFavLoading] = useGetFav();
-  console.log(favouriteData);
 
   // Check if the book is already in favorites
   useEffect(() => {
@@ -36,8 +37,12 @@ const FavouritePageCard = ({ book, onRemoveBookmark }) => {
           const result = await axiosSecure.delete(
             `http://localhost:5000/api/favs/remove/${loggedUser._id}/${book?.bookId}`
           );
-          onRemoveBookmark(book?.bookId);
           console.log("Bookmark removed successfully:", result.data);
+
+          setSaved(false);
+          setFavouriteData((prev) =>
+            prev.filter((item) => item.bookId !== book.bookId)
+          );
         } else {
           // If not saved, add to favorites
           const result = await axiosSecure.post(
@@ -45,7 +50,10 @@ const FavouritePageCard = ({ book, onRemoveBookmark }) => {
             book
           );
           console.log("Bookmark added successfully:", result.data.result);
-          setSaved(true); // Update state to true
+
+          // Update the state
+          setSaved(true);
+          setFavouriteData((prev) => [...prev, book]);
         }
       }
     } catch (error) {

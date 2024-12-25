@@ -1,24 +1,37 @@
-import useGetFav from "../../Hooks/useGetFav/useGetFav";
 import StaggerAnimation from "../../Components/StaggerAnimation/StaggerAnimation";
 import FavouritePageCard from "./FavouritePageCard";
 import { useEffect, useState } from "react";
+import useLoggedUser from "../../Hooks/useLoggedUser/useLoggedUser";
+import useAxiosSecure from "../../Hooks/useAxiosSecure/useAxiosSecure";
 
 const FavouritePage = () => {
-  const [favouriteData, isFavLoading] = useGetFav();
-  const [favBooks, setFavBooks] = useState([]);
+  const [favouriteData, setFavouriteData] = useState([]);
+  const [isFavLoading, setIsFavLoading] = useState(true);
+  const [loggedUser] = useLoggedUser();
+  const [axiosSecure] = useAxiosSecure();
 
-  // Sync fetched data to local state
   useEffect(() => {
-    if (favouriteData) {
-      setFavBooks(favouriteData);
-    }
-  }, [favouriteData]);
+    const fetchFavourites = async () => {
+      try {
+        setIsFavLoading(true); // Start loading
+        if (loggedUser && loggedUser._id) {
+          const res = await axiosSecure.get(
+            `/api/favs/getall/${loggedUser?._id}`
+          );
+          setFavouriteData(res.data[0]?.bookmarks || []);
+        }
+      } catch (error) {
+        console.log("Error getting favourite data:", error);
+      } finally {
+        setIsFavLoading(false); // Stop loading
+      }
+    };
 
-  // Function to remove book locally after unbookmark
-  const handleRemoveBookmark = (bookId) => {
-    const newFavBook = favouriteData?.filter((book) => book.bookId !== bookId);
-    setFavBooks(newFavBook);
-  };
+    // Only fetch if `loggedUser` is available and stable
+    if (loggedUser && loggedUser._id) {
+      fetchFavourites();
+    }
+  }, [loggedUser, axiosSecure]);
 
   return (
     <div className="px-[4%] bg-slate-100">
@@ -36,11 +49,13 @@ const FavouritePage = () => {
         <p>Loading....</p>
       ) : (
         <div className="grid  gap-y-12 gap-x-4 grid-cols-1 lg:grid-cols-4 px-[5%] my-[4%] ">
-          {favBooks?.map((book) => (
+          {favouriteData?.map((book) => (
             <FavouritePageCard
               key={book._id}
               book={book}
-              onRemoveBookmark={handleRemoveBookmark}
+              setFavouriteData={setFavouriteData}
+              favouriteData={favouriteData}
+              isFavLoading={isFavLoading}
             ></FavouritePageCard>
           ))}
         </div>
