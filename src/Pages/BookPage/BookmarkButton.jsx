@@ -2,21 +2,22 @@
 import { IoBookmark, IoBookmarkOutline } from "react-icons/io5";
 import useLoggedUser from "../../Hooks/useLoggedUser/useLoggedUser";
 import useAxiosSecure from "../../Hooks/useAxiosSecure/useAxiosSecure";
-import useGetFav from "../../Hooks/useGetFav/useGetFav";
+
 import { useEffect, useState } from "react";
 
-const BookmarkButton = ({ book }) => {
+const BookmarkButton = ({ book, favArray }) => {
   const [axiosSecure] = useAxiosSecure();
   const [loggedUser] = useLoggedUser();
-  const [saved, setSaved] = useState(false);
-  const [favouriteData, isFavLoading] = useGetFav();
+  const [saved, setSaved] = useState(null);
   // console.log(book);
 
   // Check if the book is already in favorites
   useEffect(() => {
-    const isBookSaved = favouriteData?.some((data) => data.bookId === book._id);
-    setSaved(isBookSaved);
-  }, [favouriteData, book]);
+    if (favArray && book?._id) {
+      const isBookSaved = favArray.includes(book._id);
+      setSaved(isBookSaved);
+    }
+  }, [favArray, book?._id]);
 
   // Toggle favorite state
   const handleToggleFav = async () => {
@@ -45,17 +46,13 @@ const BookmarkButton = ({ book }) => {
   };
 
   return (
-    <>
-      {!isFavLoading && (
-        <p
-          className="bg-rose-100 hover:bg-rose-200 px-5 py-[10px] rounded-sm text-2xl flex items-center justify-center cursor-pointer"
-          title={saved ? "Remove from wishlist book" : "Add to wishlist book"}
-          onClick={handleToggleFav}
-        >
-          {saved ? <IoBookmark /> : <IoBookmarkOutline />}
-        </p>
-      )}
-    </>
+    <p
+      className="bg-rose-100 hover:bg-rose-200 px-5 py-[10px] rounded-sm text-2xl flex items-center justify-center cursor-pointer"
+      title={saved ? "Remove from wishlist book" : "Add to wishlist book"}
+      onClick={handleToggleFav}
+    >
+      {saved ? <IoBookmark /> : <IoBookmarkOutline />}
+    </p>
   );
 };
 

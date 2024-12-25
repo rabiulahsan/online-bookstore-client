@@ -4,6 +4,8 @@ import useLoggedUser from "../useLoggedUser/useLoggedUser";
 
 const useGetCart = () => {
   const [cartData, setCartData] = useState([]);
+  const [cartDataId, setCartDataId] = useState([]);
+
   const [isCartLoading, setIsCartLoading] = useState(true);
   const [loggedUser] = useLoggedUser();
   const [axiosSecure] = useAxiosSecure();
@@ -18,6 +20,7 @@ const useGetCart = () => {
           );
           // console.log(res);
           setCartData(res.data?.items || []);
+          setCartDataId(res.data?.itemsIdArray || []);
           setIsCartLoading(false);
         }
       } catch (error) {
@@ -30,7 +33,7 @@ const useGetCart = () => {
       fetchCarts();
     }
   }, [loggedUser, axiosSecure]);
-  return [cartData, isCartLoading];
+  return [cartData, isCartLoading, cartDataId];
 };
 
 export default useGetCart;

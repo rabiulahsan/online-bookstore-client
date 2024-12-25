@@ -13,7 +13,7 @@ const Banner = () => {
           listen online, or download for offline access—immerse yourself in
           endless stories, learning, and adventures anytime, anywhere.
         </p>
-        <Link to="/">
+        <Link to="/books">
           <button className="bg-rose-500 font-semibold text-white px-6 py-3 rounded-sm hover:bg-rose-600">
             Find Your Books
           </button>

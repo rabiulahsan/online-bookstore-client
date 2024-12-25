@@ -4,6 +4,7 @@ import useAxiosSecure from "../useAxiosSecure/useAxiosSecure";
 
 const useGetFav = () => {
   const [favouriteData, setFavouriteData] = useState([]);
+  const [favArray, setFavArray] = useState([]);
   const [isFavLoading, setIsFavLoading] = useState(true);
   const [loggedUser] = useLoggedUser();
   const [axiosSecure] = useAxiosSecure();
@@ -17,6 +18,7 @@ const useGetFav = () => {
             `/api/favs/getall/${loggedUser?._id}`
           );
           setFavouriteData(res.data[0]?.bookmarks || []);
+          setFavArray(res.data[0]?.bookmarksIdArray || []);
         }
       } catch (error) {
         console.log("Error getting favourite data:", error);
@@ -31,7 +33,7 @@ const useGetFav = () => {
     }
   }, [loggedUser, axiosSecure]);
 
-  return [favouriteData, isFavLoading];
+  return [favouriteData, isFavLoading, favArray];
 };
 
 export default useGetFav;

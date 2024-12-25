@@ -7,7 +7,7 @@ import useVerifyUser from "../../Hooks/useVerifyUser/useVerifyUser";
 import BookmarkButton from "./BookmarkButton";
 import CartButton from "../BookPageSingle/CartButton";
 
-const BookPageCard = ({ book }) => {
+const BookPageCard = ({ book, cartDataId, favArray }) => {
   const [isUser] = useVerifyUser();
   return (
     <div className="">
@@ -44,8 +44,11 @@ const BookPageCard = ({ book }) => {
       {isUser && (
         <div className="  text-rose-600 font-bold flex items-center justify-center gap-x-3 my-3">
           {/* <CartButton book={book}></CartButton> */}
-          <CartButton singleBookData={book}></CartButton>
-          <BookmarkButton book={book}></BookmarkButton>
+          <CartButton
+            singleBookData={book}
+            cartDataId={cartDataId}
+          ></CartButton>
+          <BookmarkButton book={book} favArray={favArray}></BookmarkButton>
         </div>
       )}
     </div>

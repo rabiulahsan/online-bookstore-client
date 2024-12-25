@@ -2,21 +2,21 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import useLoggedUser from "../../Hooks/useLoggedUser/useLoggedUser";
 import useAxiosSecure from "../../Hooks/useAxiosSecure/useAxiosSecure";
 import { useEffect, useState } from "react";
-import useGetCart from "../../Hooks/useGetCart/useGetCart";
 
 /* eslint-disable react/prop-types */
-const CartButton = ({ singleBookData }) => {
+const CartButton = ({ singleBookData, cartDataId }) => {
   const { title, discount, image, price, _id } = singleBookData;
   const [loggedUser] = useLoggedUser();
   const [axiosSecure] = useAxiosSecure();
   const [inCart, setInCart] = useState(true); // null to avoid flashing
-  const [cartData, isCartLoading] = useGetCart();
 
-  // Check if item is already in the cart
+  // Check if the item is already in the cart
   useEffect(() => {
-    const isinCart = cartData?.some((cart) => cart.bookId === _id);
-    setInCart(isinCart); // Set to true or false after loading
-  }, [cartData, isCartLoading, _id]);
+    if (cartDataId && _id) {
+      const isinCart = cartDataId.includes(_id);
+      setInCart(isinCart); // Set to true or false after the check
+    }
+  }, [cartDataId, _id]);
 
   const handleAddCart = async () => {
     const newPrice =
@@ -52,9 +52,7 @@ const CartButton = ({ singleBookData }) => {
 
   return (
     <div>
-      {isCartLoading ? (
-        <p>Loading...</p> // Show loading message while checking
-      ) : !inCart ? (
+      {!inCart ? (
         <button
           onClick={handleAddCart}
           className={`flex items-center gap-x-2 bg-rose-100 text-rose-600 font-bold px-6 py-2 rounded-sm border-2 border-rose-500 hover:bg-rose-200`}

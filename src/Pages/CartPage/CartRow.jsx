@@ -2,7 +2,7 @@ import { ImBin } from "react-icons/im";
 
 /* eslint-disable react/prop-types */
 const CartRow = ({ cart, handleItemDelete }) => {
-  console.log(cart);
+  // console.log(cart);
   return (
     <tr className="hover:bg-gray-200 w-full text-center  ">
       <td className="py-5 font-semibold">

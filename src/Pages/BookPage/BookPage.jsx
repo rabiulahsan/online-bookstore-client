@@ -3,6 +3,8 @@ import StaggerAnimation from "../../Components/StaggerAnimation/StaggerAnimation
 import useGetAllBooks from "../../Hooks/useGetAllBooks/useGetAllBooks";
 import { MdOutlineCancel } from "react-icons/md";
 import BookPageCard from "./BookPageCard";
+import useGetCart from "../../Hooks/useGetCart/useGetCart";
+import useGetFav from "../../Hooks/useGetFav/useGetFav";
 
 //todo skeleton animation added for the loading books
 
@@ -13,7 +15,9 @@ const BookPage = () => {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [discount, setDiscount] = useState(false);
   const [searchInput, setSearchInput] = useState("");
-  console.log(allBooks);
+  const [, isCartLoading, cartDataId] = useGetCart();
+  const [, isFavLoading, favArray] = useGetFav();
+  // console.log(allBooks);
 
   // Function to fetch and filter books
   useEffect(() => {
@@ -212,12 +216,17 @@ const BookPage = () => {
                 </p>
               ))}
           </div>
-          {isAllBookLoading ? (
+          {isCartLoading || isAllBookLoading || isFavLoading ? (
             <p>Loading....</p>
           ) : (
             <div className="grid  gap-y-12 gap-x-4 grid-cols-1 lg:grid-cols-3 px-[5%] my-[4%] ">
               {categoriesBook.map((book) => (
-                <BookPageCard key={book?._id} book={book}></BookPageCard>
+                <BookPageCard
+                  key={book?._id}
+                  book={book}
+                  cartDataId={cartDataId}
+                  favArray={favArray}
+                ></BookPageCard>
               ))}
             </div>
           )}

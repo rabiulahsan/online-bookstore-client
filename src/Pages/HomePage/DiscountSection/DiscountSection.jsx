@@ -32,7 +32,7 @@ const DiscountSection = () => {
           your favorite writers. The more you buy, the more discounts we have
           for you.
         </p>
-        <Link to="/">
+        <Link to="/books">
           <button className="bg-rose-500 text-white py-2 px-6 rounded-sm font-semibold hover:bg-rose-600">
             Buy Now
           </button>
