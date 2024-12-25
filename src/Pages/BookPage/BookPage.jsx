@@ -25,7 +25,7 @@ const BookPage = () => {
         if (selectedCategories.length > 0) {
           const categoriesQuery = selectedCategories.join(",");
           const response = await fetch(
-            `https://online-bookstore-server.vercel.app/api/books/category?categories=${categoriesQuery}`
+            `http://localhost:5000/api/books/category?categories=${categoriesQuery}`
           );
           const data = await response.json();
           books = data.data; // Update books based on categories

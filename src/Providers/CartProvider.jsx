@@ -19,7 +19,7 @@ const CartProvider = ({ children }) => {
 
         if (loggedUser && loggedUser._id && token) {
           const res = await fetch(
-            `https://online-bookstore-server.vercel.app/api/carts/getall/${loggedUser._id}`,
+            `http://localhost:5000/api/carts/getall/${loggedUser._id}`,
             {
               method: "GET",
               headers: {

@@ -8,7 +8,7 @@ const useGetAllBooks = () => {
     const fetchBooks = async () => {
       try {
         const response = await fetch(
-          "https://online-bookstore-server.vercel.app/api/books/getallbooks"
+          "http://localhost:5000/api/books/getallbooks"
         );
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);

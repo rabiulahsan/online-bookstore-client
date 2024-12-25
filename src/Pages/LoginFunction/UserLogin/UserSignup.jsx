@@ -39,7 +39,7 @@ const UserSignup = () => {
         };
 
         // Post the data to the API
-        fetch("https://online-bookstore-server.vercel.app/api/users/postuser", {
+        fetch("http://localhost:5000/api/users/postuser", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

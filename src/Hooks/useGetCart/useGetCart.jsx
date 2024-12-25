@@ -14,7 +14,7 @@ const useGetCart = () => {
         setIsCartLoading(true); // Start loading
         if (loggedUser && loggedUser._id) {
           const res = await axiosSecure.get(
-            `https://online-bookstore-server.vercel.app/api/carts/getall/${loggedUser?._id}`
+            `http://localhost:5000/api/carts/getall/${loggedUser?._id}`
           );
           console.log(res);
           setCartData(res.data?.items || []);

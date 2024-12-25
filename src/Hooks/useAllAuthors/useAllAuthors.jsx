@@ -5,9 +5,7 @@ const useAllAuthors = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch(
-      "https://online-bookstore-server.vercel.app/api/authors/getallauthors"
-    )
+    fetch("http://localhost:5000/api/authors/getallauthors")
       .then((res) => res.json())
       .then((data) => {
         // Filter Author with verified: true

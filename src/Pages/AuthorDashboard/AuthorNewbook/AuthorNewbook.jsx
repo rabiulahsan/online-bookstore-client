@@ -39,7 +39,7 @@ const AuthorNewbook = () => {
     try {
       if (isAuthor) {
         const result = await axiosSecure.post(
-          `https://online-bookstore-server.vercel.app/api/books/postbook/`,
+          `http://localhost:5000/api/books/postbook/`,
           newBook
         );
         reset();

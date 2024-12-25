@@ -22,7 +22,7 @@ const UserLogin = () => {
   const checkUser = async (email) => {
     try {
       const response = await fetch(
-        "https://online-bookstore-server.vercel.app/api/users/getallusers"
+        "http://localhost:5000/api/users/getallusers"
       );
       const data = await response.json();
       // console.log(data);
