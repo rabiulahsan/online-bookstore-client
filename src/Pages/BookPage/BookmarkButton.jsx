@@ -9,12 +9,14 @@ const BookmarkButton = ({ book, favArray }) => {
   const [axiosSecure] = useAxiosSecure();
   const [loggedUser] = useLoggedUser();
   const [saved, setSaved] = useState(null);
+  // console.log(favArray);
   // console.log(book);
 
   // Check if the book is already in favorites
   useEffect(() => {
     if (favArray && book?._id) {
       const isBookSaved = favArray.includes(book._id);
+      console.log("done");
       setSaved(isBookSaved);
     }
   }, [favArray, book?._id]);

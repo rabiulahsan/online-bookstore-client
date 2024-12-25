@@ -1,22 +1,22 @@
+/* eslint-disable react/prop-types */
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import useLoggedUser from "../../Hooks/useLoggedUser/useLoggedUser";
 import useAxiosSecure from "../../Hooks/useAxiosSecure/useAxiosSecure";
 import { useEffect, useState } from "react";
 
-/* eslint-disable react/prop-types */
-const CartButton = ({ singleBookData, cartDataId }) => {
-  const { title, discount, image, price, _id } = singleBookData;
+const FavPageCartBtn = ({ singleBookData, cartDataId }) => {
+  const { title, discount, image, price, bookId } = singleBookData;
   const [loggedUser] = useLoggedUser();
   const [axiosSecure] = useAxiosSecure();
   const [inCart, setInCart] = useState(true); // null to avoid flashing
-
+  console.log(singleBookData);
   // Check if the item is already in the cart
   useEffect(() => {
-    if (cartDataId && _id) {
-      const isinCart = cartDataId.includes(_id);
+    if (cartDataId && bookId) {
+      const isinCart = cartDataId.includes(bookId);
       setInCart(isinCart); // Set to true or false after the check
     }
-  }, [cartDataId, _id]);
+  }, [cartDataId, bookId]);
 
   const handleAddCart = async () => {
     const newPrice =
@@ -29,7 +29,7 @@ const CartButton = ({ singleBookData, cartDataId }) => {
           ).toFixed(2)
         : price;
     const item = {
-      bookId: _id,
+      bookId: bookId,
       title,
       discount,
       image,
@@ -69,4 +69,4 @@ const CartButton = ({ singleBookData, cartDataId }) => {
   );
 };
 
-export default CartButton;
+export default FavPageCartBtn;

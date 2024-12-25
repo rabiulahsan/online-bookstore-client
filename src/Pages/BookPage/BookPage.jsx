@@ -15,8 +15,8 @@ const BookPage = () => {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [discount, setDiscount] = useState(false);
   const [searchInput, setSearchInput] = useState("");
-  const [, isCartLoading, cartDataId] = useGetCart();
-  const [, isFavLoading, favArray] = useGetFav();
+  const [, , cartDataId] = useGetCart();
+  const [, , favArray] = useGetFav();
   // console.log(allBooks);
 
   // Function to fetch and filter books
@@ -216,7 +216,7 @@ const BookPage = () => {
                 </p>
               ))}
           </div>
-          {isCartLoading || isAllBookLoading || isFavLoading ? (
+          {isAllBookLoading ? (
             <p>Loading....</p>
           ) : (
             <div className="grid  gap-y-12 gap-x-4 grid-cols-1 lg:grid-cols-3 px-[5%] my-[4%] ">

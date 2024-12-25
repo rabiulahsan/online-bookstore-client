@@ -7,13 +7,15 @@ import { IoBookmark, IoBookmarkOutline } from "react-icons/io5";
 import useAxiosSecure from "../../Hooks/useAxiosSecure/useAxiosSecure";
 import useLoggedUser from "../../Hooks/useLoggedUser/useLoggedUser";
 import { useEffect, useState } from "react";
-import CartButton from "../BookPageSingle/CartButton";
+import FavPageCartBtn from "./FavPageCartBtn";
 
 const FavouritePageCard = ({
   book,
   setFavouriteData,
   favouriteData,
   isFavLoading,
+  cartDataId,
+  favArray,
 }) => {
   const [isUser] = useVerifyUser();
   const [axiosSecure] = useAxiosSecure();
@@ -22,11 +24,11 @@ const FavouritePageCard = ({
 
   // Check if the book is already in favorites
   useEffect(() => {
-    const isBookSaved = favouriteData?.some(
-      (data) => data.bookId === book.bookId
-    );
-    setSaved(isBookSaved);
-  }, [favouriteData, book]);
+    if (favArray && book?.bookId) {
+      const isBookSaved = favArray.includes(book.bookId);
+      setSaved(isBookSaved);
+    }
+  }, [favArray, book]);
 
   // Toggle favorite state
   const handleToggleFav = async () => {
@@ -98,7 +100,10 @@ const FavouritePageCard = ({
           {/* if user then only displayed this button */}
           {isUser && (
             <div className="  text-rose-600 font-bold flex items-center justify-center gap-x-3 my-3">
-              <CartButton singleBookData={book}></CartButton>
+              <FavPageCartBtn
+                singleBookData={book}
+                cartDataId={cartDataId}
+              ></FavPageCartBtn>
               <div>
                 <p
                   className="bg-rose-100 hover:bg-rose-200 px-5 py-[10px] rounded-sm text-2xl flex items-center justify-center cursor-pointer"

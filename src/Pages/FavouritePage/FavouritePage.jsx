@@ -3,12 +3,16 @@ import FavouritePageCard from "./FavouritePageCard";
 import { useEffect, useState } from "react";
 import useLoggedUser from "../../Hooks/useLoggedUser/useLoggedUser";
 import useAxiosSecure from "../../Hooks/useAxiosSecure/useAxiosSecure";
+import useGetCart from "../../Hooks/useGetCart/useGetCart";
 
 const FavouritePage = () => {
   const [favouriteData, setFavouriteData] = useState([]);
+  const [favArray, setFavArray] = useState([]);
+  const [, , cartDataId] = useGetCart();
   const [isFavLoading, setIsFavLoading] = useState(true);
   const [loggedUser] = useLoggedUser();
   const [axiosSecure] = useAxiosSecure();
+  // console.log(favouriteData);
 
   useEffect(() => {
     const fetchFavourites = async () => {
@@ -19,11 +23,11 @@ const FavouritePage = () => {
             `/api/favs/getall/${loggedUser?._id}`
           );
           setFavouriteData(res.data[0]?.bookmarks || []);
+          setFavArray(res.data[0]?.bookmarksIdArray || []);
+          setIsFavLoading(false); // Stop loading
         }
       } catch (error) {
         console.log("Error getting favourite data:", error);
-      } finally {
-        setIsFavLoading(false); // Stop loading
       }
     };
 
@@ -49,13 +53,15 @@ const FavouritePage = () => {
         <p>Loading....</p>
       ) : (
         <div className="grid  gap-y-12 gap-x-4 grid-cols-1 lg:grid-cols-4 px-[5%] my-[4%] ">
-          {favouriteData?.map((book) => (
+          {favouriteData?.map((book, i) => (
             <FavouritePageCard
-              key={book._id}
+              key={i}
               book={book}
               setFavouriteData={setFavouriteData}
               favouriteData={favouriteData}
               isFavLoading={isFavLoading}
+              cartDataId={cartDataId}
+              favArray={favArray}
             ></FavouritePageCard>
           ))}
         </div>
