@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { CartContext } from "../../Providers/CartProvider";
 import StaggerAnimation from "../../Components/StaggerAnimation/StaggerAnimation";
-import { ImBin } from "react-icons/im";
 import useAxiosSecure from "../../Hooks/useAxiosSecure/useAxiosSecure";
 import useLoggedUser from "../../Hooks/useLoggedUser/useLoggedUser";
+import CartRow from "./CartRow";
 
 const CartPage = () => {
   const cart = useContext(CartContext);
@@ -51,31 +51,28 @@ const CartPage = () => {
           You have no items on cart
         </p>
       ) : (
-        <div className=" flex flex-col gap-y-4">
-          {cartData?.map((cart, i) => (
-            <div
-              className=" flex items-center justify-between px-[5%] py-5 bg-white rounded-sm"
-              key={i}
-            >
-              <img
-                src={cart?.image}
-                alt=""
-                className="w-[50px] h-[50px] rounded-sm border-2 border-slate-600"
-              />
-              <p>{cart?.title}</p>
-              <p>{cart?.discount}</p>
-              <p>${cart?.price}</p>
-              <p
-                onClick={() => handleItemDelete(cart?.bookId)}
-                className="flex items-center gap-x-2 bg-rose-500 hover:bg-rose-600 text-white font-semibold px-4 py-2 rounded-sm cursor-pointer mt-4"
-              >
-                <span>
-                  <ImBin className="text-xl"></ImBin>
-                </span>
-                Delete
-              </p>
-            </div>
-          ))}
+        <div className="my-[3%] mx-[3%] px-[5%] py-[3%] bg-white rounded-[10px]">
+          <table className="table-fixed w-full ">
+            {/* head */}
+            <thead className="border border-t-0 border-l-0 border-r-0 border-b-slate-500 ">
+              <tr>
+                <th className="py-5">cover</th>
+                <th>name</th>
+                <th>discount</th>
+                <th>price</th>
+                <th>delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cartData?.map((cart) => (
+                <CartRow
+                  key={cart._id}
+                  cart={cart}
+                  handleItemDelete={handleItemDelete}
+                ></CartRow>
+              ))}
+            </tbody>
+          </table>
         </div>
       )}
     </div>
