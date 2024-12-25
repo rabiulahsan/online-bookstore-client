@@ -10,6 +10,7 @@ const CartPage = () => {
 
   const [cartData, setCartData] = useState([]);
   const [isCartLoading, setIsCartLoading] = useState(true);
+  const [total, setTotal] = useState("0");
 
   useEffect(() => {
     const fetchCarts = async () => {
@@ -33,6 +34,23 @@ const CartPage = () => {
       fetchCarts();
     }
   }, [loggedUser, axiosSecure]);
+
+  // Calculate the total price whenever cartData changes
+  useEffect(() => {
+    const calculateTotal = () => {
+      const totalPrice = cartData.reduce(
+        (acc, item) => acc + parseFloat(item.price),
+        0
+      );
+      setTotal(totalPrice.toFixed(2)); // Keep it formatted to 2 decimal places
+    };
+
+    if (cartData.length > 0) {
+      calculateTotal();
+    } else {
+      setTotal("0"); // Reset to 0 if cartData is empty
+    }
+  }, [cartData]);
 
   const handleItemDelete = async (bookId) => {
     try {
@@ -96,6 +114,16 @@ const CartPage = () => {
               ))}
             </tbody>
           </table>
+
+          <div className="flex justify-end items-center gap-x-5 mt-[4%]">
+            <p className="bg-slate-700 text-white font-semibold px-4 py-2 rounded-sm hover:bg-slate-800 ">
+              Total: {"  "}
+              {total}$
+            </p>
+            <p className="bg-rose-500 text-white font-semibold px-4 py-2 rounded-sm hover:bg-rose-600 cursor-pointer">
+              Checkout
+            </p>
+          </div>
         </div>
       )}
     </div>
