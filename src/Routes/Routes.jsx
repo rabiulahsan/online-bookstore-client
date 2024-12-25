@@ -96,8 +96,13 @@ export const router = createBrowserRouter([
         element: <AuthorNewbook></AuthorNewbook>,
       },
       {
-        path: "/dashboard/author/updatebook",
+        path: "/dashboard/author/updatebook/:bookId",
         element: <AuthorBookUpdate></AuthorBookUpdate>,
+        loader: ({ params }) => {
+          return fetch(
+            `http://localhost:5000/api/books/getsinglebook/${params.bookId}`
+          );
+        },
       },
 
       // from now on this is for admin dashboard

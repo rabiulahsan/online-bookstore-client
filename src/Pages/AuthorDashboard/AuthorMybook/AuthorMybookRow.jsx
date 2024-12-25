@@ -29,12 +29,11 @@ const AuthorMybookRow = ({ book, handleBookDelete }) => {
         </span>
       </td>
       <td className="">
-        <span
-          onClick={() => handleBookDelete(book?._id)}
-          className="w-16 py-2 mx-auto flex items-center justify-center bg-slate-600 hover:bg-slate-700 text-white font-semibold rounded-sm cursor-pointer"
-        >
-          <FaRegEdit className="text-xl" />
-        </span>
+        <Link to={`/dashboard/author/updatebook/${book?._id}`}>
+          <span className="w-16 py-2 mx-auto flex items-center justify-center bg-slate-600 hover:bg-slate-700 text-white font-semibold rounded-sm cursor-pointer">
+            <FaRegEdit className="text-xl" />
+          </span>
+        </Link>
       </td>
       <td className="">
         <span

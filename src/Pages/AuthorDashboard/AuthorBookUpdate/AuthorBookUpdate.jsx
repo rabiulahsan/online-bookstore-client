@@ -2,15 +2,19 @@ import { useForm } from "react-hook-form";
 import useVerifyAuthor from "../../../Hooks/useVerifyAuthor/useVerifyAuthor";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure/useAxiosSecure";
 import useLoggedUser from "../../../Hooks/useLoggedUser/useLoggedUser";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 const AuthorBookUpdate = () => {
   const [loggedUser] = useLoggedUser();
   const [axiosSecure] = useAxiosSecure();
   const [isAuthor] = useVerifyAuthor();
+  const navigate = useNavigate();
+  const bookData = useLoaderData();
+  console.log(bookData);
+
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm();
 
@@ -25,7 +29,7 @@ const AuthorBookUpdate = () => {
       reviews_count: 0,
     };
 
-    const newBook = {
+    const updatedBook = {
       ...data,
       author: authorsArray,
       language: "English",
@@ -38,11 +42,11 @@ const AuthorBookUpdate = () => {
 
     try {
       if (isAuthor) {
-        const result = await axiosSecure.post(
-          `http://localhost:5000/api/books/updatebook/`,
-          newBook
+        const result = await axiosSecure.put(
+          `/api/books/updatebook/${bookData?._id}`,
+          updatedBook
         );
-        reset();
+        navigate("/dashboard/author/mybook");
         console.log("Book has been updated successfully:", result.data.data);
       }
     } catch (error) {
@@ -52,7 +56,7 @@ const AuthorBookUpdate = () => {
   return (
     <div className="bg-white my-[5%] p-[5%]">
       <p className="font-bold text-2xl text-slate-600 mb-[5%] text-center">
-        Create a new book
+        Update the book
       </p>
 
       <form onSubmit={handleSubmit(onSubmit)} className="my-6 px-[5%]">
@@ -67,6 +71,7 @@ const AuthorBookUpdate = () => {
               placeholder="Book Title"
               {...register("title", { required: true, maxLength: 100 })}
               className="input-style"
+              value={bookData?.title}
             />
             {errors.title && (
               <span className="text-red-600">Title is required</span>
@@ -83,6 +88,7 @@ const AuthorBookUpdate = () => {
               placeholder="Image URL"
               {...register("image", { required: true })}
               className="input-style"
+              value={bookData?.image}
             />
             {errors.image && (
               <span className="text-red-600">Image URL is required</span>
@@ -99,6 +105,7 @@ const AuthorBookUpdate = () => {
               placeholder="Author names (comma-separated)"
               {...register("author", { required: true })}
               className="input-style"
+              value={bookData?.author.map((author) => author)}
             />
             {errors.author && (
               <span className="text-red-600">Author(s) are required</span>
@@ -115,6 +122,7 @@ const AuthorBookUpdate = () => {
               placeholder="ISBN Number"
               {...register("isbn", { required: true })}
               className="input-style"
+              value={bookData?.isbn}
             />
             {errors.isbn && (
               <span className="text-red-600">ISBN is required</span>
@@ -131,6 +139,7 @@ const AuthorBookUpdate = () => {
               placeholder="Number of Pages"
               {...register("pages", { required: true, min: 1 })}
               className="input-style"
+              value={bookData?.pages}
             />
             {errors.pages && (
               <span className="text-red-600">Pages are required</span>
@@ -147,6 +156,7 @@ const AuthorBookUpdate = () => {
               placeholder="Publisher Name"
               {...register("publisher", { required: true })}
               className="input-style"
+              value={bookData?.publisher}
             />
             {errors.publisher && (
               <span className="text-red-600">Publisher is required</span>
@@ -162,6 +172,7 @@ const AuthorBookUpdate = () => {
               type="date"
               {...register("publication_date", { required: true })}
               className="input-style"
+              value={bookData?.publication_date}
             />
             {errors.publication_date && (
               <span className="text-red-600">Publication Date is required</span>
@@ -178,6 +189,7 @@ const AuthorBookUpdate = () => {
               placeholder="Edition (e.g., 1st, 2nd)"
               {...register("edition", { required: true })}
               className="input-style"
+              value={bookData?.edition}
             />
             {errors.edition && (
               <span className="text-red-600">Edition is required</span>
@@ -197,6 +209,7 @@ const AuthorBookUpdate = () => {
                     value={category}
                     {...register("category", { required: true })}
                     className="checkbox checkbox-primary"
+                    defaultChecked={bookData?.category?.includes(category)}
                   />
                   <span>{category}</span>
                 </label>
@@ -219,6 +232,7 @@ const AuthorBookUpdate = () => {
               placeholder="Tags (comma-separated)"
               {...register("tags", { required: true })}
               className="input-style"
+              value={bookData?.tags.map((tag) => tag)}
             />
             {errors.tags && (
               <span className="text-red-600">Tags are required</span>
@@ -235,6 +249,7 @@ const AuthorBookUpdate = () => {
               placeholder="Price"
               {...register("price", { required: true, min: 0 })}
               className="input-style"
+              value={bookData?.price}
             />
             {errors.price && (
               <span className="text-red-600">Price is required</span>
@@ -251,6 +266,7 @@ const AuthorBookUpdate = () => {
               placeholder="Discount (%)"
               {...register("discount", { required: true, min: 0, max: 100 })}
               className="input-style"
+              value={parseInt(bookData?.discount.split("%"), 10)}
             />
             {errors.discount && (
               <span className="text-red-600">
@@ -268,6 +284,7 @@ const AuthorBookUpdate = () => {
               placeholder="Short description of the book"
               {...register("description", { required: true })}
               className="textarea textarea-bordered input-style"
+              value={bookData?.description}
             ></textarea>
             {errors.description && (
               <span className="text-red-600">Description is required</span>
@@ -278,7 +295,7 @@ const AuthorBookUpdate = () => {
           type="submit"
           className="bg-slate-600 text-white px-6 py-3 mt-6 rounded font-semibold hover:bg-slate-700"
         >
-          Add Book
+          Update Book
         </button>
       </form>
     </div>
