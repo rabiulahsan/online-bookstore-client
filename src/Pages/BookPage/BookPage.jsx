@@ -11,7 +11,7 @@ const BookPage = () => {
   const [categoriesBook, setCategoriesBook] = useState([]);
   const [sort, setSort] = useState("");
   const [selectedCategories, setSelectedCategories] = useState([]);
-  const [discount, setDiscount] = useState("");
+  const [discount, setDiscount] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   console.log(allBooks);
 
@@ -35,12 +35,7 @@ const BookPage = () => {
         if (discount) {
           books = books.filter((book) => {
             const bookDiscount = parseInt(book.discount.replace("%", ""), 10);
-            if (discount === "b") {
-              return bookDiscount >= 25;
-            } else if (discount === "a") {
-              return bookDiscount >= 10 && bookDiscount < 25;
-            }
-            return true; // Default case
+            return bookDiscount > 0; // Return only books with a discount greater than 0
           });
         }
 
@@ -165,6 +160,21 @@ const BookPage = () => {
               Filter by:
             </label>
 
+            {/* Discount Filter */}
+            <div className="px-5 py-4">
+              <label className="flex items-center mb-2">
+                <input
+                  type="checkbox"
+                  checked={discount} // Bind to the discount state
+                  onChange={() => setDiscount(!discount)} // Toggle discount state
+                  className="w-5 h-5 p-1"
+                />
+                <span className="ml-2 text-slate-600 font-semibold">
+                  Discount Books
+                </span>
+              </label>
+            </div>
+
             {/* Category Filter */}
             <div className="mb-4 px-4">
               <p className="font-semibold text-slate-600 mb-2">Category</p>
@@ -177,26 +187,6 @@ const BookPage = () => {
                     className="w-4 h-4"
                   />
                   <span className="ml-2 text-slate-600">{category}</span>
-                </label>
-              ))}
-            </div>
-
-            {/* Discount Filter */}
-            <div className="px-5">
-              <p className="font-semibold text-gray-600 mb-2">Discount</p>
-              {discounts.map((d) => (
-                <label key={d.value} className="flex items-center mb-2">
-                  <input
-                    type="radio"
-                    name="discount"
-                    value={d.value}
-                    checked={discount === d.value}
-                    onChange={() => setDiscount(d.value)}
-                    className="w-5 h-5 p-1 "
-                  />
-                  <span className="ml-2 text-slate-600 font-semibold">
-                    {d.show}
-                  </span>
                 </label>
               ))}
             </div>
@@ -246,9 +236,4 @@ const categories = [
   "Romance",
   "Science Fiction",
   "Fantasy",
-];
-
-const discounts = [
-  { show: "25% +", value: "b" },
-  { show: "10% - 25%", value: "a" },
 ];
