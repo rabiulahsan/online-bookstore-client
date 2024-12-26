@@ -10,13 +10,13 @@ const DiscountSection = () => {
       <div className="flex justify-center items-center bg-slate-100  relative gap-x-10 py-8">
         {/* First Book */}
         <img
-          src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg"
+          src="https://m.media-amazon.com/images/I/71lwUXdZJqL.jpg"
           alt=""
           className="w-48 h-[300px] transform rotate-[-10deg] shadow-[-8px_8px_10px_rgba(0,0,0,0.5)]"
         />
         {/* Second Book */}
         <img
-          src="https://marketplace.canva.com/EAFf0E5urqk/1/0/1003w/canva-blue-and-green-surreal-fiction-book-cover-53S3IzrNxvY.jpg"
+          src="https://sterling-us.imgix.net/covers/9781454951209.jpg?auto=format&h=648"
           alt=""
           className="w-48 h-[300px] transform rotate-[10deg] -translate-x-8 shadow-[-8px_8px_10px_rgba(0,0,0,0.5)]"
         />

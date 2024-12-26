@@ -28,14 +28,14 @@ const BannerSlide = () => {
       >
         <SwiperSlide>
           <img
-            src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg"
+            src="https://m.media-amazon.com/images/I/71lwUXdZJqL.jpg"
             alt=""
             className="h-full object-cover shadow-[-8px_8px_10px_rgba(0,0,0,0.5)]"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="https://marketplace.canva.com/EAFf0E5urqk/1/0/1003w/canva-blue-and-green-surreal-fiction-book-cover-53S3IzrNxvY.jpg"
+            src="https://sterling-us.imgix.net/covers/9781454951209.jpg?auto=format&h=648"
             alt=""
             className="h-full object-cover shadow-[-8px_8px_10px_rgba(0,0,0,0.5)]"
           />
@@ -49,28 +49,56 @@ const BannerSlide = () => {
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="https://marketplace.canva.com/EAFfSnGl7II/2/0/1003w/canva-elegant-dark-woods-fantasy-photo-book-cover-vAt8PH1CmqQ.jpg"
+            src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1540217136l/16160797.jpg"
             alt=""
             className="h-full object-cover shadow-[-8px_8px_10px_rgba(0,0,0,0.5)]"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="https://marketplace.canva.com/EAFaQMYuZbo/1/0/1003w/canva-brown-rusty-mystery-novel-book-cover-hG1QhA7BiBU.jpg"
+            src="https://cdn2.penguin.com.au/covers/400/9780241734315.jpg"
             alt=""
             className="h-full object-cover shadow-[-8px_8px_10px_rgba(0,0,0,0.5)]"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsfxrcUtlaLqSTTpA7N9cWKIopvRNtXngM2A&s"
+            src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1408303130i/375802.jpg"
             alt=""
             className="h-full object-cover shadow-[-8px_8px_10px_rgba(0,0,0,0.5)]"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="https://i.pinimg.com/736x/35/66/dc/3566dc24c327c144d18dffbac7145d28.jpg"
+            src="https://cdn2.penguin.com.au/covers/original/9780718177027.jpg"
+            alt=""
+            className="h-full object-cover shadow-[-8px_8px_10px_rgba(0,0,0,0.5)]"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            src="https://static-01.daraz.com.bd/p/f4daed9c04bf02dcf5dd856e2987f701.jpg"
+            alt=""
+            className="h-full object-cover shadow-[-8px_8px_10px_rgba(0,0,0,0.5)]"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            src="https://i.harperapps.com/hcanz/covers/9780063055391/y648.jpg"
+            alt=""
+            className="h-full object-cover shadow-[-8px_8px_10px_rgba(0,0,0,0.5)]"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1346380157i/9408584.jpg"
+            alt=""
+            className="h-full object-cover shadow-[-8px_8px_10px_rgba(0,0,0,0.5)]"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            src="https://m.media-amazon.com/images/I/71Cc71zZFsL._AC_UF894,1000_QL80_.jpg"
             alt=""
             className="h-full object-cover shadow-[-8px_8px_10px_rgba(0,0,0,0.5)]"
           />
