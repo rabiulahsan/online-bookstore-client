@@ -51,9 +51,14 @@ const AdminAllUser = () => {
           <SkeletonTable number={4}></SkeletonTable>
         </div>
       ) : users?.length === 0 ? (
-        <p className="text-center my-[5%] font-bold text-slate-700 text-2xl">
-          There is no User
-        </p>
+        <div className="min-h-[500px] flex items-center justify-center">
+          <div className="">
+            <img src="/nodata.png" alt="" className="w-[300px] mx-auto" />
+            <p className="text-center font-bold text-slate-700 text-2xl">
+              There is no user
+            </p>
+          </div>
+        </div>
       ) : (
         <div className="my-[3%]   py-[3%] px-[2%] bg-white rounded-[10px] ">
           <p className="font-bold text-2xl text-slate-600 text-center">

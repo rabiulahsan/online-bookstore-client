@@ -53,11 +53,26 @@ const FavouritePage = () => {
         </span>
         <span className="flex-grow h-[3px] bg-gradient-to-r from-rose-600 to-transparent"></span>
       </div>
-      <div className="grid  gap-y-12 gap-x-4 grid-cols-1 lg:grid-cols-4 px-[5%] py-[4%] ">
-        {isFavLoading ? (
+      {isFavLoading ? (
+        <div className="grid gap-y-12 gap-x-4 grid-cols-1 lg:grid-cols-4 px-[5%] py-[4%]">
           <SkeletonCard number={8}></SkeletonCard>
-        ) : (
-          favouriteData?.map((book, i) => (
+        </div>
+      ) : favouriteData?.length === 0 ? (
+        <div className="min-h-[500px] flex items-center justify-center">
+          <div>
+            <img
+              src="/nodata.png"
+              alt="No data"
+              className="w-[300px] mx-auto"
+            />
+            <p className="text-center font-bold text-slate-600 text-xl">
+              You have no items on wishlist
+            </p>
+          </div>
+        </div>
+      ) : (
+        <div className="grid gap-y-12 gap-x-4 grid-cols-1 lg:grid-cols-4 px-[5%] py-[4%]">
+          {favouriteData.map((book, i) => (
             <FavouritePageCard
               key={i}
               book={book}
@@ -68,10 +83,10 @@ const FavouritePage = () => {
               favArray={favArray}
               isAuthor={isAuthor}
               isUser={isUser}
-            ></FavouritePageCard>
-          ))
-        )}
-      </div>
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

@@ -59,10 +59,15 @@ const AuthorMybook = () => {
         <div className="mt-[4%]">
           <SkeletonTable number={4}></SkeletonTable>
         </div>
-      ) : myBooks.length <= 0 ? (
-        <p className="text-center my-[5%] font-bold text-slate-700 text-2xl">
-          You have no Book
-        </p>
+      ) : myBooks.length == 0 ? (
+        <div className="min-h-[500px] flex items-center justify-center">
+          <div className="">
+            <img src="/nodata.png" alt="" className="w-[300px] mx-auto" />
+            <p className="text-center font-bold text-slate-700 text-2xl">
+              You have no Book
+            </p>
+          </div>
+        </div>
       ) : (
         <div className="my-[3%]   p-[3%] bg-white rounded-[10px] ">
           <table className="table-fixed w-full ">

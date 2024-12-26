@@ -117,10 +117,15 @@ const CartPage = () => {
         <div className="mt-[4%]">
           <SkeletonTable number={4}></SkeletonTable>
         </div>
-      ) : cartData?.length <= 0 ? (
-        <p className="text-center font-bold text-slate-600 text-xl">
-          You have no items on cart
-        </p>
+      ) : cartData?.length == 0 ? (
+        <div className="min-h-[500px] flex items-center justify-center">
+          <div className="">
+            <img src="/nodata.png" alt="" className="w-[300px] mx-auto" />
+            <p className="text-center font-bold text-slate-600 text-xl">
+              You have no items on cart
+            </p>
+          </div>
+        </div>
       ) : (
         <div className="my-[3%] mx-[3%] px-[5%] py-[3%] bg-white rounded-[10px]">
           <table className="table-fixed w-full ">
