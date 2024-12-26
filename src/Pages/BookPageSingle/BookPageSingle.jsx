@@ -8,6 +8,8 @@ import useGetCart from "../../Hooks/useGetCart/useGetCart";
 import useGetFav from "../../Hooks/useGetFav/useGetFav";
 import useGetAllBooks from "../../Hooks/useGetAllBooks/useGetAllBooks";
 import RelatedBook from "./RelatedBook";
+import RandomBooks from "./RandomBooks";
+import { useEffect, useState } from "react";
 
 const BookPageSingle = () => {
   const [allBooks, isAllBookLoading] = useGetAllBooks();
@@ -15,14 +17,29 @@ const BookPageSingle = () => {
   const [isUser] = useVerifyUser();
   const [, isCartLoading, cartDataId] = useGetCart();
   const [, isFavLoading, favArray] = useGetFav();
+  const [randomBooks, setRandomBooks] = useState([]);
 
   //for loading
   const isLoading =
     isAllBookLoading || (isUser && (isCartLoading || isFavLoading));
 
+  //related books
   const relatedBooks = allBooks?.filter((book) =>
     book.category.some((cat) => singleBookData.category.includes(cat))
   );
+
+  // Randomly select 4 books from allBooks
+  useEffect(() => {
+    if (allBooks?.length > 0 && randomBooks.length === 0) {
+      // Shuffle and select random books only once
+      const books = allBooks
+        .sort(() => Math.random() - 0.5) // Shuffle the array randomly
+        .slice(0, 4); // Take the first 4 books after shuffling
+
+      setRandomBooks(books);
+    }
+  }, [randomBooks, allBooks]);
+  // console.log(randomBooks);
 
   return (
     <div className="px-[8%] py-[5%] bg-slate-100">
@@ -170,7 +187,19 @@ const BookPageSingle = () => {
       </div>
 
       {/* lower side */}
-      <div className=""></div>
+      <div className="">
+        <div className="flex items-center justify-center py-[4%] gap-x-[8%]">
+          <span className="flex-grow h-[3px] bg-gradient-to-r from-transparent to-rose-600"></span>
+          <span className="font-bold text-3xl mx-4 bg-gradient-to-r from-rose-600 via-pink-500 to-slate-600 bg-clip-text text-transparent">
+            Frequently Bought Together
+          </span>
+        </div>
+        <div className="flex items-center justify-between px-[5%]">
+          {randomBooks?.map((book, i) => (
+            <RandomBooks book={book} key={i}></RandomBooks>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

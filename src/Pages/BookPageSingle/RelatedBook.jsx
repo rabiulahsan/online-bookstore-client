@@ -2,7 +2,7 @@ import { FaStar } from "react-icons/fa";
 
 /* eslint-disable react/prop-types */
 const RelatedBook = ({ book }) => {
-  console.log(book);
+  // console.log(book);
   return (
     <div className="border border-slate-300 flex gap-x-4 rounded-sm px-4 py-2">
       <div className="">
