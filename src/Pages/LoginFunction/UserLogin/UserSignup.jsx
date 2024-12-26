@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../../Hooks/UseAuth/UseAuth";
 import { FaRegFaceRollingEyes } from "react-icons/fa6";
 import { LuEyeClosed } from "react-icons/lu";
+import GoogleSignIn from "./GoogleSignIn";
 
 const UserSignup = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -33,7 +34,7 @@ const UserSignup = () => {
         console.log(loggedUser);
 
         // Prepare the data to be sent to the database
-        const doctorData = {
+        const userData = {
           name: data.name,
           email: data.email,
           image: data.image,
@@ -47,7 +48,7 @@ const UserSignup = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(doctorData),
+          body: JSON.stringify(userData),
         })
           .then((response) => response.json())
           .then((responseData) => {
@@ -266,6 +267,8 @@ const UserSignup = () => {
             <span className="underline font-bold text-rose-500">login</span>
           </Link>
         </p>
+        <p className=" text-center font-semibold text-slate-600 mt-5">or</p>
+        <GoogleSignIn></GoogleSignIn>
       </div>
     </div>
   );

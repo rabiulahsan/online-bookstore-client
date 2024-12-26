@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../../Hooks/UseAuth/UseAuth";
 import { FaRegFaceRollingEyes } from "react-icons/fa6";
 import { LuEyeClosed } from "react-icons/lu";
+import GoogleSignIn from "./GoogleSignIn";
 
 const UserLogin = () => {
   const { signIn } = useAuth();
@@ -164,6 +165,8 @@ const UserLogin = () => {
             <span className="underline font-bold text-rose-600">Signup</span>
           </Link>
         </p>
+        <p className=" text-center font-semibold text-slate-600 mt-5">or</p>
+        <GoogleSignIn></GoogleSignIn>
       </div>
     </div>
   );

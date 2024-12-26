@@ -7,8 +7,6 @@ import useAuth from "../../../Hooks/UseAuth/UseAuth";
 import useVerifyAuthor from "../../../Hooks/useVerifyAuthor/useVerifyAuthor";
 import useVerifyUser from "../../../Hooks/useVerifyUser/useVerifyUser";
 import useVerifyAdmin from "../../../Hooks/useVerifyAdmin/useVerifyAdmin";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
@@ -16,6 +14,8 @@ const Navbar = () => {
   const [isAuthor] = useVerifyAuthor();
   const [isUser] = useVerifyUser();
   const [isAdmin] = useVerifyAdmin();
+
+  console.log(isUser, isAdmin, isAuthor);
 
   const handleLogOut = () => {
     // console.log("Clicked log out button");
@@ -26,35 +26,6 @@ const Navbar = () => {
       });
   };
 
-  useGSAP(() => {
-    let tl = gsap.timeline();
-
-    // Initial animation for static elements
-    tl.from(".title", {
-      y: -100,
-      opacity: 0,
-      delay: 0.4,
-      duration: 0.6,
-    });
-
-    tl.from(".nav-options span, .nav-options button", {
-      y: -100,
-      opacity: 0,
-      stagger: 0.2,
-    });
-
-    // Conditional elements (animate them after they appear)
-    gsap.from(
-      ".cart-btn, .logout-btn, .login-btn, .admin-btn, conditional-btn",
-      {
-        y: -100,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.2,
-        delay: 0.5, // Add slight delay after main animation
-      }
-    );
-  });
   return (
     <div>
       <div className="hidden md:flex justify-between items-center w-full py-5 px-[5%] relative bg-slate-100  ">
@@ -66,7 +37,7 @@ const Navbar = () => {
               </p>
             </Link>
           </p>
-          <div className="flex items-center gap-x-6 mx-12 nav-options">
+          <div className="flex items-center gap-x-6 mx-12 ">
             <span className="text-slate-500 font-semibold">
               <ActiveLink to="/">Home</ActiveLink>
             </span>
@@ -75,20 +46,20 @@ const Navbar = () => {
             </span>
 
             {isUser && user && (
-              <span className="text-slate-500 font-semibold conditional-btn">
+              <span className="text-slate-500 font-semibold ">
                 <ActiveLink to="/favourites">WishLIst</ActiveLink>
               </span>
             )}
 
             {isAuthor && (
-              <span className="text-slate-500 font-semibold conditional-btn">
+              <span className="text-slate-500 font-semibold ">
                 <ActiveLink to="/dashboard/author/profile">
                   Dashboard
                 </ActiveLink>
               </span>
             )}
             {isAdmin && (
-              <span className="text-slate-500 font-semibold conditional-btn">
+              <span className="text-slate-500 font-semibold ">
                 <ActiveLink to="/dashboard/admin/profile">Dashboard</ActiveLink>
               </span>
             )}
