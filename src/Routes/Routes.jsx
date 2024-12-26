@@ -20,12 +20,13 @@ import CartPage from "../Pages/CartPage/CartPage";
 import AdminAllUser from "../Pages/AdminDashboard/AdminAllUser/AdminAllUser";
 import AdminAllBooks from "../Pages/AdminDashboard/AdminAllBooks/AdminAllBooks";
 import AuthorBookUpdate from "../Pages/AuthorDashboard/AuthorBookUpdate/AuthorBookUpdate";
+import ErrorPage from "../Components/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    // errorElement:
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
