@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure/useAxiosSecure";
 import useLoggedUser from "../../../Hooks/useLoggedUser/useLoggedUser";
 import AuthorMybookRow from "./AuthorMybookRow";
+import SkeletonTable from "../../../Components/Skeleton/skeletonTable";
 
 const AuthorMybook = () => {
   const [myBooks, setMybooks] = useState([]);
@@ -55,7 +56,9 @@ const AuthorMybook = () => {
     <div className="bg-white my-[5%] p-[5%]">
       <p className="font-bold text-2xl text-slate-600 text-center">All Books</p>
       {isloading ? (
-        <p>Loading...</p>
+        <div className="mt-[4%]">
+          <SkeletonTable number={4}></SkeletonTable>
+        </div>
       ) : myBooks.length <= 0 ? (
         <p className="text-center my-[5%] font-bold text-slate-700 text-2xl">
           You have no Book

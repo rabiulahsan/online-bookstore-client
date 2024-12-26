@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure/useAxiosSecure";
 import AdminAllAuthorRow from "./AdminAllAuthorRow";
+import SkeletonTable from "../../../Components/Skeleton/skeletonTable";
 
 const AdminAllAuthor = () => {
   const [allAuthors, setAllAuthors] = useState([]);
@@ -49,7 +50,9 @@ const AdminAllAuthor = () => {
   return (
     <div className="bg-white my-[5%] py-[5%] px-[2%]">
       {isallAuthorsLoading ? (
-        <p>Loading...</p>
+        <div className="mt-[4%]">
+          <SkeletonTable number={4}></SkeletonTable>
+        </div>
       ) : allAuthors.length === 0 ? (
         <p className="text-center my-[5%] font-bold text-slate-700 text-2xl">
           There is no author

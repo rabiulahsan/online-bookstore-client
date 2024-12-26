@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure/useAxiosSecure";
 import AdminAllBooksRow from "./AdminAllBooksRow";
+import SkeletonTable from "../../../Components/Skeleton/skeletonTable";
 
 const AdminAllBooks = () => {
   const [allBooks, setAllBooks] = useState([]);
@@ -48,7 +49,9 @@ const AdminAllBooks = () => {
   return (
     <div className="bg-white my-[5%] py-[5%] px-[2%]">
       {isLoading ? (
-        <p>Loading...</p>
+        <div className="mt-[4%]">
+          <SkeletonTable number={4}></SkeletonTable>
+        </div>
       ) : allBooks.length === 0 ? (
         <p className="text-center my-[5%] font-bold text-slate-700 text-2xl">
           There is no Book
