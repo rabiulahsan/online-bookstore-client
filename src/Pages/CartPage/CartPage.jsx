@@ -3,6 +3,7 @@ import StaggerAnimation from "../../Components/StaggerAnimation/StaggerAnimation
 import useAxiosSecure from "../../Hooks/useAxiosSecure/useAxiosSecure";
 import useLoggedUser from "../../Hooks/useLoggedUser/useLoggedUser";
 import CartRow from "./CartRow";
+import SkeletonTable from "../../Components/Skeleton/skeletonTable";
 
 const CartPage = () => {
   const [axiosSecure] = useAxiosSecure();
@@ -84,9 +85,9 @@ const CartPage = () => {
       </div>
 
       {isCartLoading ? (
-        <p className="text-center font-bold text-slate-600 text-xl">
-          Loading...
-        </p>
+        <div className="mt-[4%]">
+          <SkeletonTable number={4}></SkeletonTable>
+        </div>
       ) : cartData?.length <= 0 ? (
         <p className="text-center font-bold text-slate-600 text-xl">
           You have no items on cart

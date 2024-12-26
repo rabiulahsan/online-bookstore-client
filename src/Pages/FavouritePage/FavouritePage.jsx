@@ -6,6 +6,7 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure/useAxiosSecure";
 import useGetCart from "../../Hooks/useGetCart/useGetCart";
 import useVerifyUser from "../../Hooks/useVerifyUser/useVerifyUser";
 import useVerifyAuthor from "../../Hooks/useVerifyAuthor/useVerifyAuthor";
+import SkeletonCard from "../../Components/Skeleton/SkeletonCard";
 
 const FavouritePage = () => {
   const [favouriteData, setFavouriteData] = useState([]);
@@ -52,12 +53,11 @@ const FavouritePage = () => {
         </span>
         <span className="flex-grow h-[3px] bg-gradient-to-r from-rose-600 to-transparent"></span>
       </div>
-
-      {isFavLoading ? (
-        <p>Loading....</p>
-      ) : (
-        <div className="grid  gap-y-12 gap-x-4 grid-cols-1 lg:grid-cols-4 px-[5%] my-[4%] ">
-          {favouriteData?.map((book, i) => (
+      <div className="grid  gap-y-12 gap-x-4 grid-cols-1 lg:grid-cols-4 px-[5%] my-[4%] ">
+        {isFavLoading ? (
+          <SkeletonCard number={8}></SkeletonCard>
+        ) : (
+          favouriteData?.map((book, i) => (
             <FavouritePageCard
               key={i}
               book={book}
@@ -69,9 +69,9 @@ const FavouritePage = () => {
               isAuthor={isAuthor}
               isUser={isUser}
             ></FavouritePageCard>
-          ))}
-        </div>
-      )}
+          ))
+        )}
+      </div>
     </div>
   );
 };

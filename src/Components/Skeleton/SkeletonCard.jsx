@@ -9,7 +9,7 @@ const SkeletonCard = ({ number }) => {
     skeletonElements.push(
       <div key={i}>
         <div className="my-7">
-          <Skeleton height={400}></Skeleton>
+          <Skeleton height={300}></Skeleton>
         </div>
         <div className="">
           <Skeleton count={3} style={{ marginBottom: "12px" }}></Skeleton>
