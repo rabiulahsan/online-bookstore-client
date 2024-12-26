@@ -149,7 +149,7 @@ const BookPageSingle = () => {
 
               <div className="flex items-center gap-x-4 mt-5">
                 {/* if user then only display this button */}
-                {isLoading ? (
+                {isLoading && isUser ? (
                   <p className="text-center font-bold text-slate-600">
                     Loading....
                   </p>

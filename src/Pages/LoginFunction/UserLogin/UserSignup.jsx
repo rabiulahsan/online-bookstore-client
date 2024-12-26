@@ -2,8 +2,13 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../../Hooks/UseAuth/UseAuth";
+import { FaRegFaceRollingEyes } from "react-icons/fa6";
+import { LuEyeClosed } from "react-icons/lu";
 
 const UserSignup = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [error, setError] = useState("");
   const {
     register,
     handleSubmit,
@@ -13,8 +18,6 @@ const UserSignup = () => {
 
   const { createUser, logOut } = useAuth();
   const navigate = useNavigate();
-
-  const [error, setError] = useState("");
 
   const onSubmit = (data) => {
     if (data.password !== data.confirmPassword) {
@@ -84,6 +87,7 @@ const UserSignup = () => {
           onSubmit={handleSubmit(onSubmit)}
           className="w-full max-w-lg mx-auto mt-[5%]"
         >
+          {/* for name  */}
           <div className="form-control mb-4">
             <label className="label block text-gray-700 text-sm font-bold mb-[6px]">
               <span className="label-text">Name*</span>
@@ -101,6 +105,7 @@ const UserSignup = () => {
             )}
           </div>
 
+          {/* for image  */}
           <div className="form-control mb-4">
             <label className="label block text-gray-700 text-sm font-bold mb-[6px]">
               <span className="label-text">Photo URL*</span>
@@ -118,6 +123,7 @@ const UserSignup = () => {
             )}
           </div>
 
+          {/* for email  */}
           <div className="form-control mb-4">
             <label className="label block text-gray-700 text-sm font-bold mb-[6px]">
               <span className="label-text">Email*</span>
@@ -135,21 +141,35 @@ const UserSignup = () => {
             )}
           </div>
 
+          {/* for password */}
           <div className="form-control mb-4">
             <label className="label block text-gray-700 text-sm font-bold mb-[6px]">
               <span className="label-text">Password*</span>
             </label>
-            <input
-              type="password"
-              {...register("password", {
-                required: true,
-                minLength: 8,
-                maxLength: 20,
-                pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/, // At least one uppercase, lowercase, number, and special character
-              })}
-              placeholder="Enter your password"
-              className="border-2 border-slate-300 rounded-md w-full py-2 px-4 text-slate-700   focus:outline-none "
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"} // Toggles between 'text' and 'password'
+                {...register("password", {
+                  required: true,
+                  minLength: 8,
+                  maxLength: 20,
+                  pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/, // At least one uppercase, lowercase, number, and special character
+                })}
+                placeholder="Enter your password"
+                className="border-2 border-slate-300 rounded-md w-full py-2 px-4 text-slate-700 focus:outline-none"
+              />
+              <button
+                type="button"
+                className="absolute top-1/2 right-3 transform -translate-y-1/2 text-slate-500"
+                onClick={() => setShowPassword(!showPassword)} // Toggle password visibility
+              >
+                {showPassword ? (
+                  <FaRegFaceRollingEyes size={20} />
+                ) : (
+                  <LuEyeClosed size={20} />
+                )}
+              </button>
+            </div>
             {errors.password?.type === "required" && (
               <p className="text-red-600 font-semibold text-sm">
                 Password is required
@@ -173,21 +193,36 @@ const UserSignup = () => {
             )}
           </div>
 
+          {/* for confirm password  */}
+
           <div className="form-control mb-4">
             <label className="label block text-gray-700 text-sm font-bold mb-[6px]">
               <span className="label-text">Confirm Password*</span>
             </label>
-            <input
-              type="password"
-              {...register("confirmPassword", {
-                required: true,
-                minLength: 6,
-                maxLength: 20,
-                pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/, // Same validation as password
-              })}
-              placeholder="Confirm your password"
-              className="border-2 border-slate-300 rounded-md w-full py-2 px-4 text-slate-700   focus:outline-none"
-            />
+            <div className="relative">
+              <input
+                type={showConfirmPassword ? "text" : "password"}
+                {...register("confirmPassword", {
+                  required: true,
+                  minLength: 8,
+                  maxLength: 20,
+                  pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/, // Same validation as password
+                })}
+                placeholder="Confirm your password"
+                className="border-2 border-slate-300 rounded-md w-full py-2 px-4 text-slate-700   focus:outline-none"
+              />
+              <button
+                type="button"
+                className="absolute top-1/2 right-3 transform -translate-y-1/2 text-slate-500"
+                onClick={() => setShowConfirmPassword(!showConfirmPassword)} // Toggle password visibility
+              >
+                {showConfirmPassword ? (
+                  <FaRegFaceRollingEyes size={20} />
+                ) : (
+                  <LuEyeClosed size={20} />
+                )}
+              </button>
+            </div>
             {errors.confirmPassword?.type === "required" && (
               <p className="text-red-600 font-semibold text-sm">
                 Confirm Password is required

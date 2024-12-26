@@ -2,11 +2,13 @@ import { useState } from "react";
 import useAuth from "../../../Hooks/UseAuth/UseAuth";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { FaRegFaceRollingEyes } from "react-icons/fa6";
+import { LuEyeClosed } from "react-icons/lu";
 
 const AdminLogin = () => {
   const { signIn } = useAuth();
   const navigate = useNavigate();
-
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
 
   const {
@@ -92,17 +94,30 @@ const AdminLogin = () => {
             <label className="label block text-gray-700 text-sm font-bold mb-[6px]">
               <span className="label-text">Password*</span>
             </label>
-            <input
-              type="password"
-              {...register("password", {
-                required: true,
-                minLength: 8,
-                maxLength: 20,
-                pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/, // At least one uppercase, lowercase, number, and special character
-              })}
-              placeholder="Enter your password"
-              className="border-2 border-slate-300 rounded-md w-full py-2 px-4 text-slate-700   focus:outline-none "
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"} // Toggles between 'text' and 'password'
+                {...register("password", {
+                  required: true,
+                  minLength: 8,
+                  maxLength: 20,
+                  pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/, // At least one uppercase, lowercase, number, and special character
+                })}
+                placeholder="Enter your password"
+                className="border-2 border-slate-300 rounded-md w-full py-2 px-4 text-slate-700 focus:outline-none"
+              />
+              <button
+                type="button"
+                className="absolute top-1/2 right-3 transform -translate-y-1/2 text-slate-500"
+                onClick={() => setShowPassword(!showPassword)} // Toggle password visibility
+              >
+                {showPassword ? (
+                  <FaRegFaceRollingEyes size={20} />
+                ) : (
+                  <LuEyeClosed size={20} />
+                )}
+              </button>
+            </div>
             {errors.password?.type === "required" && (
               <p className="text-red-600 font-semibold text-sm">
                 Password is required
