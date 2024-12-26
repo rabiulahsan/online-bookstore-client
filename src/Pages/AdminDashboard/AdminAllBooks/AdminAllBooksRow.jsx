@@ -13,7 +13,7 @@ const AdminAllBooksRow = ({ book, handleBookDelete }) => {
   };
   return (
     <>
-      <tr className="bg-slate-100 hover:bg-slate-200 w-full text-center border-t border-slate-400">
+      <tr className="bg-slate-100 text-sm hover:bg-slate-200 w-full text-center border-t border-slate-400">
         <td className="py-3 font-semibold">
           <img
             src={book.image}

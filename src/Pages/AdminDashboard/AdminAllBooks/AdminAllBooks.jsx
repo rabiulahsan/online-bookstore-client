@@ -46,7 +46,7 @@ const AdminAllBooks = () => {
   };
 
   return (
-    <div className="bg-white my-[5%] p-[5%]">
+    <div className="bg-white my-[5%] py-[5%] px-[2%]">
       {isLoading ? (
         <p>Loading...</p>
       ) : allBooks.length === 0 ? (
@@ -54,7 +54,7 @@ const AdminAllBooks = () => {
           There is no Book
         </p>
       ) : (
-        <div className="my-[3%]   p-[3%] bg-white rounded-[10px] ">
+        <div className="my-[3%]   py-[3%] px-[2%] bg-white rounded-[10px] ">
           <p className="font-bold text-2xl text-slate-600 text-center ">
             All Books
           </p>

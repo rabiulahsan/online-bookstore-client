@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure/useAxiosSecure";
-import { ImBin } from "react-icons/im";
+import AdminAllAuthorRow from "./AdminAllAuthorRow";
 
 const AdminAllAuthor = () => {
   const [allAuthors, setAllAuthors] = useState([]);
@@ -47,8 +47,7 @@ const AdminAllAuthor = () => {
 
   console.log(allAuthors);
   return (
-    <div className="bg-white my-[5%] p-[5%]">
-      <p className="font-bold text-xl text-slate-500">All Books</p>
+    <div className="bg-white my-[5%] py-[5%] px-[2%]">
       {isallAuthorsLoading ? (
         <p>Loading...</p>
       ) : allAuthors.length === 0 ? (
@@ -56,30 +55,34 @@ const AdminAllAuthor = () => {
           There is no author
         </p>
       ) : (
-        <div className="flex flex-col gap-y-5 px-[5%] my-[4%] ">
-          {allAuthors?.map((author, i) => (
-            <div
-              className=" bg-slate-100 flex justify-between items-center px-[5%] py-[2%]"
-              key={i}
-            >
-              <img
-                src={author?.image}
-                alt={author?.name}
-                className="w-[40px] h-[40px] rounded-full border-3 border-slate-600 object-cover"
-              />
-              <p>{author?.name}</p>
-              <p>{author?.email}</p>
-              <p
-                onClick={() => handleAuthorDelete(author?._id)}
-                className="flex items-center gap-x-2 bg-rose-500 hover:bg-rose-600 text-white font-semibold px-4 py-2 rounded-sm cursor-pointer mt-4"
-              >
-                <span>
-                  <ImBin className="text-xl"></ImBin>
-                </span>
-                Delete
-              </p>
-            </div>
-          ))}
+        <div className="my-[3%]   py-[3%] px-[2%] bg-white rounded-[10px] ">
+          <p className="font-bold text-2xl text-slate-600 text-center ">
+            All Authors
+          </p>
+          <p className="font-semibold text-sm text-slate-600 text-center mt-1 mb-[5%]">
+            Total Authors : {allAuthors?.length}
+          </p>
+          <table className="table-fixed w-full ">
+            {/* head */}
+            <thead className="border border-t-0 border-l-0 border-r-0 border-b-slate-500 ">
+              <tr>
+                <th className="py-5">Image</th>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Created At</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              {allAuthors?.map((author, i) => (
+                <AdminAllAuthorRow
+                  key={i}
+                  author={author}
+                  handleAuthorDelete={handleAuthorDelete}
+                ></AdminAllAuthorRow>
+              ))}
+            </tbody>
+          </table>
         </div>
       )}
     </div>
