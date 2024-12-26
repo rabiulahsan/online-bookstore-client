@@ -74,7 +74,10 @@ const CartPage = () => {
       `/api/carts/deletecart/${loggedUser?._id}`
     );
     console.log(result);
-    setCartData([]);
+    if (result.data.result.deletedCount === 1) {
+      showToast("All Books removed from cart successfully!", "info");
+      setCartData([]);
+    }
   };
 
   //function for delete a cart item
