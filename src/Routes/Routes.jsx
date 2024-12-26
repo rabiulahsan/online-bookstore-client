@@ -21,6 +21,9 @@ import AdminAllUser from "../Pages/AdminDashboard/AdminAllUser/AdminAllUser";
 import AdminAllBooks from "../Pages/AdminDashboard/AdminAllBooks/AdminAllBooks";
 import AuthorBookUpdate from "../Pages/AuthorDashboard/AuthorBookUpdate/AuthorBookUpdate";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
+import UserPrivate from "../Components/PrivateRoutes/UserPrivate";
+import AuthorPrivate from "../Components/PrivateRoutes/AuthorPrivate";
+import AdminPrivate from "../Components/PrivateRoutes/AdminPrivate";
 
 export const router = createBrowserRouter([
   {
@@ -52,7 +55,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/cart",
-        element: <CartPage></CartPage>,
+        element: (
+          <UserPrivate>
+            <CartPage></CartPage>,
+          </UserPrivate>
+        ),
       },
       {
         path: "/master-admin-login",
@@ -86,15 +93,27 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/dashboard/author/profile",
-        element: <AuthorDashboard></AuthorDashboard>,
+        element: (
+          <AuthorPrivate>
+            <AuthorDashboard></AuthorDashboard>,
+          </AuthorPrivate>
+        ),
       },
       {
         path: "/dashboard/author/mybook",
-        element: <AuthorMybook></AuthorMybook>,
+        element: (
+          <AuthorPrivate>
+            <AuthorMybook></AuthorMybook>,
+          </AuthorPrivate>
+        ),
       },
       {
         path: "/dashboard/author/newbook",
-        element: <AuthorNewbook></AuthorNewbook>,
+        element: (
+          <AuthorPrivate>
+            <AuthorNewbook></AuthorNewbook>,
+          </AuthorPrivate>
+        ),
       },
       {
         path: "/dashboard/author/updatebook/:bookId",
@@ -109,19 +128,35 @@ export const router = createBrowserRouter([
       // from now on this is for admin dashboard
       {
         path: "/dashboard/admin/profile",
-        element: <DashboardProfilePage></DashboardProfilePage>,
+        element: (
+          <AdminPrivate>
+            <DashboardProfilePage></DashboardProfilePage>,
+          </AdminPrivate>
+        ),
       },
       {
         path: "/dashboard/admin/allauthors",
-        element: <AdminAllAuthor></AdminAllAuthor>,
+        element: (
+          <AdminPrivate>
+            <AdminAllAuthor></AdminAllAuthor>,
+          </AdminPrivate>
+        ),
       },
       {
         path: "/dashboard/admin/allbooks",
-        element: <AdminAllBooks></AdminAllBooks>,
+        element: (
+          <AdminPrivate>
+            <AdminAllBooks></AdminAllBooks>,
+          </AdminPrivate>
+        ),
       },
       {
         path: "/dashboard/admin/allusers",
-        element: <AdminAllUser></AdminAllUser>,
+        element: (
+          <AdminPrivate>
+            <AdminAllUser></AdminAllUser>,
+          </AdminPrivate>
+        ),
       },
     ],
   },
