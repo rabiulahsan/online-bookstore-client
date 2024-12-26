@@ -39,13 +39,16 @@ const GoogleSignIn = () => {
             role: "user",
             createdAt: new Date().toISOString(),
           };
-          fetch("http://localhost:5000/api/users/postuser", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(saveUser),
-          })
+          fetch(
+            "https://online-bookstore-server.vercel.app/api/users/postuser",
+            {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(saveUser),
+            }
+          )
             .then((res) => res.json())
             .then(() => {
               navigate(from, { replace: true });

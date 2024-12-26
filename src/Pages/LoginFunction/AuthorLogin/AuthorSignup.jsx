@@ -42,13 +42,16 @@ const AuthorSignup = () => {
         };
 
         // Post the data to the API
-        fetch("http://localhost:5000/api/authors/postauthor", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(authorData),
-        })
+        fetch(
+          "https://online-bookstore-server.vercel.app/api/authors/postauthor",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(authorData),
+          }
+        )
           .then((response) => response.json())
           .then((responseData) => {
             console.log("Author data saved:", responseData);

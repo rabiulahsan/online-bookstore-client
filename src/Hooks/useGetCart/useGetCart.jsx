@@ -22,7 +22,7 @@ const useGetCart = () => {
       try {
         if (loggedUser && loggedUser._id) {
           const res = await axiosSecure.get(
-            `http://localhost:5000/api/carts/getall/${loggedUser?._id}`
+            `https://online-bookstore-server.vercel.app/api/carts/getall/${loggedUser?._id}`
           );
           setCartData(res.data?.items || []);
           setCartDataId(res.data?.itemsIdArray || []);

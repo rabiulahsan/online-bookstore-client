@@ -51,7 +51,7 @@ const FavouritePageCard = ({
         if (saved) {
           // If already saved, remove from favorites
           const result = await axiosSecure.delete(
-            `http://localhost:5000/api/favs/remove/${loggedUser._id}/${book?.bookId}`
+            `https://online-bookstore-server.vercel.app/api/favs/remove/${loggedUser._id}/${book?.bookId}`
           );
           console.log("Bookmark removed successfully:", result.data);
 
@@ -63,7 +63,7 @@ const FavouritePageCard = ({
         } else {
           // If not saved, add to favorites
           const result = await axiosSecure.post(
-            `http://localhost:5000/api/favs/add/${loggedUser._id}`,
+            `https://online-bookstore-server.vercel.app/api/favs/add/${loggedUser._id}`,
             book
           );
           console.log("Bookmark added successfully:", result.data.result);

@@ -50,7 +50,7 @@ export const router = createBrowserRouter([
 
         loader: ({ params }) => {
           return fetch(
-            `http://localhost:5000/api/books/getsinglebook/${params.bookId}`
+            `https://online-bookstore-server.vercel.app/api/books/getsinglebook/${params.bookId}`
           );
         },
       },
@@ -142,10 +142,14 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/author/updatebook/:bookId",
-        element: <AuthorBookUpdate></AuthorBookUpdate>,
+        element: (
+          <AuthorPrivate>
+            <AuthorBookUpdate></AuthorBookUpdate>,
+          </AuthorPrivate>
+        ),
         loader: ({ params }) => {
           return fetch(
-            `http://localhost:5000/api/books/getsinglebook/${params.bookId}`
+            `https://online-bookstore-server.vercel.app/api/books/getsinglebook/${params.bookId}`
           );
         },
       },

@@ -20,7 +20,9 @@ const AdminLogin = () => {
 
   const checkAdmin = async (email) => {
     try {
-      const response = await fetch("http://localhost:5000/api/admins/getall");
+      const response = await fetch(
+        "https://online-bookstore-server.vercel.app/api/admins/getall"
+      );
       const data = await response.json();
       // console.log(data);
       // console.log(email);

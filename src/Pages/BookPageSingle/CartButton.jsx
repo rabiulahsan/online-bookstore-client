@@ -54,7 +54,7 @@ const CartButton = ({ singleBookData, cartDataId }) => {
     try {
       if (loggedUser && loggedUser._id) {
         const result = await axiosSecure.post(
-          `http://localhost:5000/api/carts/add/${loggedUser._id}`,
+          `https://online-bookstore-server.vercel.app/api/carts/add/${loggedUser._id}`,
           item
         );
         console.log("Item added to cart successfully:", result.data.result);

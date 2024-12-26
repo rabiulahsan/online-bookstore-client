@@ -21,7 +21,7 @@ const DiscountSection = () => {
         x: 0,
         y: 0,
         opacity: 1,
-        duration: 1,
+        duration: 2,
         ease: "power3.out",
         scrollTrigger: {
           trigger: leftimage.current,
