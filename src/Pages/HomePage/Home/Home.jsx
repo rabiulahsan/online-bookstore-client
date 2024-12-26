@@ -6,6 +6,7 @@ import Faqs from "../Faqs/Faqs";
 import FeaturedSection from "../FeaturedSection/FeaturedSection";
 import NumberSection from "../NumberSection/NumberSection";
 import ReviewSection from "../ReviewSection/ReviewSection";
+import SubscriptionSection from "../SubscriptionSection/SubscriptionSection";
 
 const Home = () => {
   return (
@@ -14,10 +15,11 @@ const Home = () => {
       <NumberSection></NumberSection>
       <CategorySection></CategorySection>
       <FeaturedSection></FeaturedSection>
-      <AuthorSection></AuthorSection>
+      {/* <AuthorSection></AuthorSection> */}
       <DiscountSection></DiscountSection>
       <ReviewSection></ReviewSection>
       <Faqs></Faqs>
+      <SubscriptionSection></SubscriptionSection>
     </div>
   );
 };
