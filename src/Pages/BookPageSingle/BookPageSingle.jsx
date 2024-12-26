@@ -1,22 +1,33 @@
 import { FaStarHalfAlt } from "react-icons/fa";
 import { FaRegStar, FaStar } from "react-icons/fa6";
 import { useLoaderData } from "react-router-dom";
-import CartButton from "./CartButton";
-import SaveButton from "./SaveButton";
-import useVerifyAuthor from "../../Hooks/useVerifyAuthor/useVerifyAuthor";
 import useVerifyUser from "../../Hooks/useVerifyUser/useVerifyUser";
+import BookmarkButton from "../BookPage/BookmarkButton";
+import CartButton from "./CartButton";
+import useGetCart from "../../Hooks/useGetCart/useGetCart";
+import useGetFav from "../../Hooks/useGetFav/useGetFav";
+import useGetAllBooks from "../../Hooks/useGetAllBooks/useGetAllBooks";
+import RelatedBook from "./RelatedBook";
 
 const BookPageSingle = () => {
+  const [allBooks, isAllBookLoading] = useGetAllBooks();
   const singleBookData = useLoaderData();
   const [isUser] = useVerifyUser();
-  const [isAuthor] = useVerifyAuthor();
+  const [, isCartLoading, cartDataId] = useGetCart();
+  const [, isFavLoading, favArray] = useGetFav();
 
-  // const [saved, setSaved] = useState(false);
-  // console.log(singleBookData);
+  //for loading
+  const isLoading =
+    isAllBookLoading || (isUser && (isCartLoading || isFavLoading));
+
+  const relatedBooks = allBooks?.filter((book) =>
+    book.category.some((cat) => singleBookData.category.includes(cat))
+  );
+
   return (
     <div className="px-[8%] py-[5%] bg-slate-100">
       {/* upper side  */}
-      <div className="flex items-center gap-x-5">
+      <div className="flex  gap-x-5">
         {/* upper left side  */}
         <div className="w-[70%]">
           <div className="flex items-center gap-x-5">
@@ -120,18 +131,42 @@ const BookPageSingle = () => {
               </div>
 
               <div className="flex items-center gap-x-4 mt-5">
-                {isUser && (
-                  <CartButton singleBookData={singleBookData}></CartButton>
+                {/* if user then only display this button */}
+                {isLoading ? (
+                  <p className="text-center font-bold text-slate-600">
+                    Loading....
+                  </p>
+                ) : (
+                  isUser && (
+                    <div className="text-rose-600 font-bold flex items-center justify-center gap-x-3 my-3">
+                      <CartButton
+                        singleBookData={singleBookData}
+                        cartDataId={cartDataId}
+                      />
+                      <BookmarkButton
+                        book={singleBookData}
+                        favArray={favArray}
+                      />
+                    </div>
+                  )
                 )}
-
-                {(isUser || isAuthor) && <SaveButton></SaveButton>}
               </div>
             </div>
           </div>
+          {/* description part  */}
           <div className="w-full  "></div>
         </div>
         {/* upper right side  */}
-        <div className="w-[30%] "></div>
+        <div className="w-[30%] ">
+          <p className="text-center font-bold text-slate-600 text-xl mb-5">
+            Related Books
+          </p>
+          <div className="flex flex-col gap-y-4">
+            {relatedBooks?.slice(0, 5).map((book, i) => (
+              <RelatedBook key={i} book={book}></RelatedBook>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* lower side */}

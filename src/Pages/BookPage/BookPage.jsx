@@ -10,7 +10,7 @@ import useVerifyUser from "../../Hooks/useVerifyUser/useVerifyUser";
 //todo skeleton animation added for the loading books
 
 const BookPage = () => {
-  const [allBooks, isAllBookLoading] = useGetAllBooks(); // Assuming useGetAllBooks is a custom hook
+  const [allBooks, isAllBookLoading] = useGetAllBooks();
   const [categoriesBook, setCategoriesBook] = useState([]);
   const [sort, setSort] = useState("");
   const [selectedCategories, setSelectedCategories] = useState([]);
