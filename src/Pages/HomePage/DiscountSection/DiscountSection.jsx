@@ -6,6 +6,7 @@ import { useRef } from "react";
 
 // Register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
+
 const DiscountSection = () => {
   const leftimage = useRef(null);
   const rightimage = useRef(null);
@@ -55,7 +56,7 @@ const DiscountSection = () => {
   return (
     <div className="flex justify-between items-center bg-slate-100 py-[5%] w-[70%] mx-auto">
       {/* Books Section */}
-      <div className="flex justify-center items-center bg-slate-100  relative gap-x-10 py-8">
+      <div className="flex justify-center items-center bg-slate-100  relative gap-x-4 py-8">
         {/* First Book */}
         <img
           ref={leftimage}
