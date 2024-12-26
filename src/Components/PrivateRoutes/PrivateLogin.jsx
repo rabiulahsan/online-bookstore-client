@@ -1,14 +1,13 @@
 /* eslint-disable react/prop-types */
-import { Navigate, useLocation } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+import useAuth from "../../Hooks/UseAuth/UseAuth";
 import SkeletonCard from "../Skeleton/SkeletonCard";
-import useVerifyAuthor from "../../Hooks/useVerifyAuthor/useVerifyAuthor";
 
-const AuthorPrivate = ({ children }) => {
-  const location = useLocation();
-  const [isAuthor, isLoading] = useVerifyAuthor();
+const PrivateLogin = ({ children }) => {
+  const { user, loading } = useAuth();
 
   // Show loading state if the verification is still in progress
-  if (isLoading) {
+  if (loading) {
     return (
       <div className="flex flex-col gap-y-5 px-[10%]">
         <SkeletonCard number={5} height={70}></SkeletonCard>
@@ -17,12 +16,16 @@ const AuthorPrivate = ({ children }) => {
   }
 
   // Render children if the user is verified
-  if (isAuthor === true) {
+  if (!user) {
     return children;
+  }
+
+  if (user) {
+    return <Navigate to="/" />;
   }
 
   // Redirect to home page if user is not verified
   return <Navigate state={{ from: location }} to="/" replace />;
 };
 
-export default AuthorPrivate;
+export default PrivateLogin;

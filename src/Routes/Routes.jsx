@@ -24,6 +24,7 @@ import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import UserPrivate from "../Components/PrivateRoutes/UserPrivate";
 import AuthorPrivate from "../Components/PrivateRoutes/AuthorPrivate";
 import AdminPrivate from "../Components/PrivateRoutes/AdminPrivate";
+import PrivateLogin from "../Components/PrivateRoutes/PrivateLogin";
 
 export const router = createBrowserRouter([
   {
@@ -63,27 +64,51 @@ export const router = createBrowserRouter([
       },
       {
         path: "/master-admin-login",
-        element: <AdminLogin></AdminLogin>,
+        element: (
+          <PrivateLogin>
+            <AdminLogin></AdminLogin>,
+          </PrivateLogin>
+        ),
       },
       {
         path: "/create-account",
-        element: <CreateAccount></CreateAccount>,
+        element: (
+          <PrivateLogin>
+            <CreateAccount></CreateAccount>,
+          </PrivateLogin>
+        ),
       },
       {
         path: "/user/login",
-        element: <UserLogin></UserLogin>,
+        element: (
+          <PrivateLogin>
+            <UserLogin></UserLogin>,
+          </PrivateLogin>
+        ),
       },
       {
         path: "/user/signup",
-        element: <UserSignup></UserSignup>,
+        element: (
+          <PrivateLogin>
+            <UserSignup></UserSignup>,
+          </PrivateLogin>
+        ),
       },
       {
         path: "/author/signup",
-        element: <AuthorSignup></AuthorSignup>,
+        element: (
+          <PrivateLogin>
+            <AuthorSignup></AuthorSignup>,
+          </PrivateLogin>
+        ),
       },
       {
         path: "/author/login",
-        element: <AuthorLogin></AuthorLogin>,
+        element: (
+          <PrivateLogin>
+            <AuthorLogin></AuthorLogin>,
+          </PrivateLogin>
+        ),
       },
     ],
   },

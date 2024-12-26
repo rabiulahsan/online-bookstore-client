@@ -1,28 +1,29 @@
 /* eslint-disable react/prop-types */
-
 import { Navigate, useLocation } from "react-router-dom";
-import useAuth from "../../Hooks/UseAuth/UseAuth";
 import SkeletonCard from "../Skeleton/SkeletonCard";
 import useVerifyUser from "../../Hooks/useVerifyUser/useVerifyUser";
 
 const UserPrivate = ({ children }) => {
-  const { loading } = useAuth();
   const location = useLocation();
-  const [isUser] = useVerifyUser();
+  const [isUser, isLoading] = useVerifyUser();
+  console.log(isUser); // Debugging purposes
 
-  if (loading) {
+  // Show loading state if the verification is still in progress
+  if (isLoading) {
     return (
-      <div className="grid gap-x-20 gap-y-16 grid-cols-1 lg:grid-cols-3 px-[10%]  ">
-        <SkeletonCard number={16}></SkeletonCard>;
+      <div className="flex flex-col gap-y-5 px-[10%]">
+        <SkeletonCard number={5} height={70}></SkeletonCard>
       </div>
-      // setLoading(false);
     );
   }
 
-  if (isUser) {
+  // Render children if the user is verified
+  if (isUser === true) {
     return children;
   }
-  return <Navigate state={{ from: location }} to="/login" replace></Navigate>;
+
+  // Redirect to home page if user is not verified
+  return <Navigate state={{ from: location }} to="/" replace />;
 };
 
 export default UserPrivate;

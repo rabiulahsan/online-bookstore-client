@@ -15,7 +15,7 @@ const Navbar = () => {
   const [isUser] = useVerifyUser();
   const [isAdmin] = useVerifyAdmin();
 
-  console.log(isUser, isAdmin, isAuthor);
+  // console.log(isUser, isAdmin, isAuthor);
 
   const handleLogOut = () => {
     // console.log("Clicked log out button");

@@ -45,6 +45,8 @@ const useVerifyUser = () => {
     verifyUser();
   }, [user?.email, loading, axiosSecure]);
 
+  console.log(isUser);
+
   return [isUser, isLoading];
 };
 
