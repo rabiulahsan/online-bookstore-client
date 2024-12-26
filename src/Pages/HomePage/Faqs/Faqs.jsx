@@ -27,7 +27,7 @@ const Faqs = () => {
             start: "top 80%", // Start animation when FAQ enters the viewport
             end: "top 40%", // End animation closer to the center
             scrub: 1,
-            markers: true, // Enable markers for debugging
+            // markers: true, // Enable markers for debugging
             toggleActions: "reverse play reverse reverse",
           },
         }
@@ -48,7 +48,7 @@ const Faqs = () => {
           start: "top 80%", // Start animation when image enters the viewport
           end: "top 40%", // End animation closer to the center
           scrub: 1,
-          markers: true, // Enable markers for debugging
+          // markers: true, // Enable markers for debugging
           toggleActions: "reverse play reverse reverse",
         },
       }

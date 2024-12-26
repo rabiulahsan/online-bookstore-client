@@ -40,7 +40,7 @@ const AuthorMybookRow = ({ book, handleBookDelete }) => {
         </td>
         <td>
           <Link to={`/dashboard/author/updatebook/${book._id}`}>
-            <span className="w-16 py-2 flex items-center justify-center bg-slate-600 hover:bg-slate-700 text-white rounded cursor-pointer">
+            <span className="mx-auto w-16 py-2 flex items-center justify-center bg-slate-600 hover:bg-slate-700 text-white rounded cursor-pointer">
               <FaRegEdit className="text-xl" />
             </span>
           </Link>
@@ -48,7 +48,7 @@ const AuthorMybookRow = ({ book, handleBookDelete }) => {
         <td>
           <span
             onClick={() => setShowModal(true)}
-            className="w-16 py-2 flex items-center justify-center bg-rose-500 hover:bg-rose-600 text-white rounded cursor-pointer"
+            className=" mx-auto w-16 py-2 flex items-center justify-center bg-rose-500 hover:bg-rose-600 text-white rounded cursor-pointer"
           >
             <ImBin className="text-xl" />
           </span>

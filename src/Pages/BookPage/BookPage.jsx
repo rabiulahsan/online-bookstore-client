@@ -6,17 +6,18 @@ import BookPageCard from "./BookPageCard";
 import useGetCart from "../../Hooks/useGetCart/useGetCart";
 import useGetFav from "../../Hooks/useGetFav/useGetFav";
 import useVerifyUser from "../../Hooks/useVerifyUser/useVerifyUser";
+import SkeletonCard from "../../Components/Skeleton/SkeletonCard";
 
 //todo skeleton animation added for the loading books
 
 const BookPage = () => {
-  const [allBooks, isAllBookLoading] = useGetAllBooks();
   const [categoriesBook, setCategoriesBook] = useState([]);
   const [sort, setSort] = useState("");
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [discount, setDiscount] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   const [isUser] = useVerifyUser();
+  const [allBooks, isAllBookLoading] = useGetAllBooks();
   const [, isCartLoading, cartDataId] = useGetCart();
   const [, isFavLoading, favArray] = useGetFav();
 
@@ -220,21 +221,21 @@ const BookPage = () => {
                 </p>
               ))}
           </div>
-          {isLoading ? (
-            <p>Loading....</p>
-          ) : (
-            <div className="grid  gap-y-12 gap-x-4 grid-cols-1 lg:grid-cols-3 px-[5%] my-[4%] ">
-              {categoriesBook.map((book) => (
+          <div className="grid gap-y-12 gap-x-4 grid-cols-1 lg:grid-cols-3 px-[5%] my-[4%]">
+            {isLoading ? (
+              <SkeletonCard number={16} />
+            ) : (
+              categoriesBook.map((book) => (
                 <BookPageCard
                   key={book?._id}
                   book={book}
                   cartDataId={cartDataId}
                   favArray={favArray}
                   isUser={isUser}
-                ></BookPageCard>
-              ))}
-            </div>
-          )}
+                />
+              ))
+            )}
+          </div>
         </div>
       </div>
     </div>
