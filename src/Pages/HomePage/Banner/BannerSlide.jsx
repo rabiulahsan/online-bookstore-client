@@ -3,8 +3,6 @@ import { Autoplay, EffectCoverflow } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 
-//todo add actual book image
-
 const BannerSlide = () => {
   return (
     <div className="w-[80%] mx-auto flex justify-center items-center mt-[5%]">
