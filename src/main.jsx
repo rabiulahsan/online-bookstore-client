@@ -5,6 +5,8 @@ import "./index.css";
 import { router } from "./Routes/Routes";
 import AuthProvider from "./Providers/AuthProvider";
 import { SkeletonTheme } from "react-loading-skeleton";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"; // Ensure you import the CSS
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -13,5 +15,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <RouterProvider router={router}></RouterProvider>
       </SkeletonTheme>
     </AuthProvider>
+    <ToastContainer />
   </StrictMode>
 );

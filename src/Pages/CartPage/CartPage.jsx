@@ -4,6 +4,7 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure/useAxiosSecure";
 import useLoggedUser from "../../Hooks/useLoggedUser/useLoggedUser";
 import CartRow from "./CartRow";
 import SkeletonTable from "../../Components/Skeleton/skeletonTable";
+import { toast } from "react-toastify";
 
 const CartPage = () => {
   const [axiosSecure] = useAxiosSecure();
@@ -19,7 +20,7 @@ const CartPage = () => {
         setIsCartLoading(true); // Start loading
         if (loggedUser && loggedUser._id) {
           const res = await axiosSecure.get(
-            `http://localhost:5000/api/carts/getall/${loggedUser?._id}`
+            `/api/carts/getall/${loggedUser?._id}`
           );
           // console.log(res);
           setCartData(res.data?.items || []);
@@ -53,6 +54,30 @@ const CartPage = () => {
     }
   }, [cartData]);
 
+  // Toast helper function
+  const showToast = (message, type = "info", position = "top-right") => {
+    toast(message, {
+      position,
+      type,
+      autoClose: 5000, // Auto close after 5 seconds
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
+  //function for clear all the cart data
+  const handleClearCart = async () => {
+    const result = await axiosSecure.delete(
+      `/api/carts/deletecart/${loggedUser?._id}`
+    );
+    console.log(result);
+    setCartData([]);
+  };
+
+  //function for delete a cart item
   const handleItemDelete = async (bookId) => {
     try {
       console.log(bookId);
@@ -65,6 +90,7 @@ const CartPage = () => {
       if (response.status === 200) {
         // Update the state to reflect the deletion
         setCartData(response?.data.items);
+        showToast("Book removed from cart successfully!", "info");
       } else {
         console.error("Failed to delete the book");
       }
@@ -117,6 +143,12 @@ const CartPage = () => {
           </table>
 
           <div className="flex justify-end items-center gap-x-5 mt-[4%]">
+            <p
+              onClick={handleClearCart}
+              className="bg-slate-700 text-white font-semibold px-4 py-2 rounded-sm hover:bg-slate-800 cursor-pointer"
+            >
+              Clear All
+            </p>
             <p className="bg-slate-700 text-white font-semibold px-4 py-2 rounded-sm hover:bg-slate-800 ">
               Total: {"  "}
               {total}$

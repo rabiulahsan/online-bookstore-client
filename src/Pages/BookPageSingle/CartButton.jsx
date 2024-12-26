@@ -2,6 +2,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import useLoggedUser from "../../Hooks/useLoggedUser/useLoggedUser";
 import useAxiosSecure from "../../Hooks/useAxiosSecure/useAxiosSecure";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 /* eslint-disable react/prop-types */
 const CartButton = ({ singleBookData, cartDataId }) => {
@@ -17,6 +18,20 @@ const CartButton = ({ singleBookData, cartDataId }) => {
       setInCart(isinCart); // Set to true or false after the check
     }
   }, [cartDataId, _id]);
+
+  // Toast helper function
+  const showToast = (message, type = "info", position = "top-right") => {
+    toast(message, {
+      position,
+      type,
+      autoClose: 5000, // Auto close after 5 seconds
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
 
   const handleAddCart = async () => {
     const newPrice =
@@ -44,6 +59,7 @@ const CartButton = ({ singleBookData, cartDataId }) => {
         );
         console.log("Item added to cart successfully:", result.data.result);
         setInCart(true); // Update state to reflect item in cart
+        showToast("Book has been added to cart successfully!", "success");
       }
     } catch (error) {
       console.log("Error Adding to Cart:", error);

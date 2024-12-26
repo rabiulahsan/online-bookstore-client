@@ -7,6 +7,7 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure/useAxiosSecure";
 import useLoggedUser from "../../Hooks/useLoggedUser/useLoggedUser";
 import { useEffect, useState } from "react";
 import FavPageCartBtn from "./FavPageCartBtn";
+import { toast } from "react-toastify";
 
 const FavouritePageCard = ({
   book,
@@ -29,6 +30,20 @@ const FavouritePageCard = ({
     }
   }, [favArray, book]);
 
+  // Toast helper function
+  const showToast = (message, type = "info", position = "top-right") => {
+    toast(message, {
+      position,
+      type,
+      autoClose: 5000, // Auto close after 5 seconds
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
   // Toggle favorite state
   const handleToggleFav = async () => {
     try {
@@ -44,6 +59,7 @@ const FavouritePageCard = ({
           setFavouriteData((prev) =>
             prev.filter((item) => item.bookId !== book.bookId)
           );
+          showToast("Bookmark removed successfully!", "info");
         } else {
           // If not saved, add to favorites
           const result = await axiosSecure.post(
@@ -55,6 +71,7 @@ const FavouritePageCard = ({
           // Update the state
           setSaved(true);
           setFavouriteData((prev) => [...prev, book]);
+          showToast("Bookmark added successfully!", "success");
         }
       }
     } catch (error) {

@@ -2,7 +2,7 @@
 import { IoBookmark, IoBookmarkOutline } from "react-icons/io5";
 import useLoggedUser from "../../Hooks/useLoggedUser/useLoggedUser";
 import useAxiosSecure from "../../Hooks/useAxiosSecure/useAxiosSecure";
-
+import { toast } from "react-toastify"; // Import toast
 import { useEffect, useState } from "react";
 
 const BookmarkButton = ({ book, favArray }) => {
@@ -21,6 +21,20 @@ const BookmarkButton = ({ book, favArray }) => {
     }
   }, [favArray, book?._id]);
 
+  // Toast helper function
+  const showToast = (message, type = "info", position = "top-right") => {
+    toast(message, {
+      position,
+      type,
+      autoClose: 5000, // Auto close after 5 seconds
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
   // Toggle favorite state
   const handleToggleFav = async () => {
     try {
@@ -32,6 +46,7 @@ const BookmarkButton = ({ book, favArray }) => {
           );
           setSaved(false);
           console.log("Bookmark removed successfully:", result.data);
+          showToast("Bookmark removed successfully!", "info");
         } else {
           // If not saved, add to favorites
           const result = await axiosSecure.post(
@@ -40,10 +55,14 @@ const BookmarkButton = ({ book, favArray }) => {
           );
           console.log("Bookmark added successfully:", result.data.result);
           setSaved(true); // Update state to true
+          showToast("Bookmark added successfully!", "success");
         }
+      } else {
+        showToast("You must be logged in to bookmark this item.", "error");
       }
     } catch (error) {
       console.error("Error toggling bookmark:", error);
+      showToast("An error occurred while toggling the bookmark.", "error");
     }
   };
 

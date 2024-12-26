@@ -53,7 +53,7 @@ const FavouritePage = () => {
         </span>
         <span className="flex-grow h-[3px] bg-gradient-to-r from-rose-600 to-transparent"></span>
       </div>
-      <div className="grid  gap-y-12 gap-x-4 grid-cols-1 lg:grid-cols-4 px-[5%] my-[4%] ">
+      <div className="grid  gap-y-12 gap-x-4 grid-cols-1 lg:grid-cols-4 px-[5%] py-[4%] ">
         {isFavLoading ? (
           <SkeletonCard number={8}></SkeletonCard>
         ) : (
