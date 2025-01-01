@@ -10,7 +10,7 @@ const AuthorBookUpdate = () => {
   const [isAuthor] = useVerifyAuthor();
   const navigate = useNavigate();
   const bookData = useLoaderData();
-  console.log(bookData);
+  // console.log(bookData);
 
   const {
     register,

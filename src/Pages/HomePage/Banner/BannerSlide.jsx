@@ -40,7 +40,7 @@ const BannerSlide = () => {
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg"
+            src="https://cgassets-1d48b.kxcdn.com/site/assets/files/438317/getimage.jpg"
             alt=""
             className="h-full object-cover shadow-[-8px_8px_10px_rgba(0,0,0,0.5)]"
           />
